@@ -95,7 +95,7 @@ const HomeData: React.FC<HomeComponentProps> = ({
               borderRadius: "999px",
               backgroundColor: "#E0E0E0",
               width: "20em",
-              display: { xs: "none", md: "block" },
+              display: { xs: "none", md: "flex" },
               "& .MuiTab-root": {
                 flex: 1,
                 textTransform: "none",
@@ -120,7 +120,7 @@ const HomeData: React.FC<HomeComponentProps> = ({
       <Box
         sx={{
           borderRadius: "8px",
-          display: { xs: "none", md: "block" },
+          display: { xs: "none", md: "flex" },
           bgcolor: "#f9f5f5",
           alignItems: "flex-start",
           margin: "auto",
