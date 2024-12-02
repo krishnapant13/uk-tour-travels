@@ -1,0 +1,118 @@
+[
+  {
+    "city": "Dehradun",
+    "attractions": [
+      "Robber's Cave",
+      "Sahastradhara",
+      "Forest Research Institute",
+      "Tapkeshwar Temple",
+      "Mindrolling Monastery",
+      "Rajaji National Park"
+    ],
+    "image": "https://i.pinimg.com/736x/9e/0e/01/9e0e012ffde6c8a1f5901973e3e2916e.jpg",
+    "link": "/dehradun",
+    "from": "Delhi"
+  },
+  {
+    "city": "Nainital",
+    "attractions": [
+      "Naini Lake",
+      "Naina Devi Temple",
+      "Snow View Point",
+      "The Mall Road",
+      "Tiffin Top",
+      "Sattal"
+    ],
+    "image": "https://i.pinimg.com/736x/18/68/08/1868087a9175e0a76d658480c74a82b1.jpg",
+    "link": "/nainital",
+    "from": "Delhi"
+  },
+  {
+    "city": "Rishikesh",
+    "attractions": [
+      "Lakshman Jhula",
+      "Triveni Ghat",
+      "Neelkanth Mahadev Temple",
+      "Beatles Ashram",
+      "Rajaji National Park"
+    ],
+    "image": "https://i.pinimg.com/736x/36/2e/54/362e5407723ff06cd4f7889d222811f1.jpg",
+    "link": "/rishikesh",
+    "from": "Delhi"
+  },
+  {
+    "city": "Haridwar",
+    "attractions": [
+      "Har Ki Pauri",
+      "Mansa Devi Temple",
+      "Chandi Devi Temple",
+      "Shanti Kunj",
+      "Sapt Rishi Ashram"
+    ],
+    "image": "https://i.pinimg.com/736x/c7/5b/85/c75b8556a2c68fca8cc1ed9ae6a916d3.jpg",
+    "link": "/haridwar",
+    "from": "Delhi"
+  },
+  {
+    "city": "Mussoorie",
+    "attractions": [
+      "Kempty Falls",
+      "Gun Hill",
+      "Camel's Back Road",
+      "Mussoorie Lake",
+      "Mall Road"
+    ],
+    "image": "https://i.pinimg.com/736x/52/f2/87/52f287429b7cb4f909309e42edf2a7e7.jpg",
+    "link": "/mussoorie",
+    "from": "Delhi"
+  },
+  {
+    "city": "Almora",
+    "attractions": [
+      "Nanda Devi Temple",
+      "Kasar Devi Temple",
+      "Bright End Corner",
+      "Chitai Golu Devta Temple"
+    ],
+    "image": "https://i.pinimg.com/736x/47/29/a7/4729a757fb6c45bf59a93df79aff2c54.jpg",
+    "link": "/almora",
+    "from": "Delhi"
+  },
+  {
+    "city": "Pithoragarh",
+    "attractions": [
+      "Pithoragarh Fort",
+      "Munsiyari",
+      "Askot Wildlife Sanctuary",
+      "Ralam Glacier"
+    ],
+    "image": "https://i.pinimg.com/736x/02/34/82/023482d3dbb967168cb055684bef412f.jpg",
+    "link": "/pithoragarh",
+    "from": "Delhi"
+  },
+  {
+    "city": "Ramnagar",
+    "attractions": [
+      "Jim Corbett National Park",
+      "Corbett Waterfall",
+      "Dhangarhi Museum"
+    ],
+    "image": "https://i.pinimg.com/736x/ce/72/45/ce7245d4d324613af9253a66507bf404.jpg",
+    "link": "/ramnagar",
+    "from": "Delhi"
+  },
+  {
+    "city": "Kashipur",
+    "attractions": ["Jhamtwala Temple", "Drona Sagar Lake", "Mango Orchards"],
+    "image": "https://i.pinimg.com/736x/e7/e6/d7/e7e6d776a678900a0bb5c0a81f3f37b3.jpg",
+    "link": "/kashipur",
+    "from": "Delhi"
+  },
+  {
+    "city": "Champawat",
+    "attractions": ["Champawat Fort", "Banbirsingh Temple", "Lohaghat"],
+    "image": "https://i.pinimg.com/736x/6c/89/dc/6c89dc1e4292006249067c7d18538ec2.jpg",
+    "link": "/champawat",
+    "from": "Delhi"
+  }
+]
