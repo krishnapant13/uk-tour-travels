@@ -13,7 +13,7 @@ import {
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { DateTimePicker, MobileDateTimePicker } from "@mui/x-date-pickers";
+import { MobileDateTimePicker } from "@mui/x-date-pickers";
 import { MdArrowCircleRight } from "react-icons/md";
 import CustomTextField from "./CustomTextField";
 import { FaRegCreditCard, FaSearch } from "react-icons/fa";

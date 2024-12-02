@@ -8,7 +8,6 @@ import citiesData from "../citiesData.json";
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
 const Carousel: React.FC = () => {
-  const [cities, setCities] = useState(citiesData);
 
   const settings = {
     dots: true,
@@ -46,7 +45,7 @@ const Carousel: React.FC = () => {
       }}
     >
       <Slider {...settings}>
-        {cities.map((city, index) => (
+        {citiesData.map((city, index) => (
           <div key={index} className="relative ">
             <Image
               src={city.image}

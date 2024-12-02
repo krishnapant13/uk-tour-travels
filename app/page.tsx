@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import SwitchTab from "./components/SwitchTab";
 import Enquiry from "./components/Enquiry";
 import Carousel from "./components/Carousel";
 import HomeData from "./components/HomeData";
