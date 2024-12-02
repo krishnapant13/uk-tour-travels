@@ -1,6 +1,8 @@
 "use client";
 
+import { Input } from "@mui/material";
 import { useState } from "react";
+import CustomTextField from "./CustomTextField";
 
 const Enquiry: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +26,7 @@ const Enquiry: React.FC = () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed top-20 left-0 w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center z-[1000] transition-transform ${
+        className={`fixed bottom-10 right-10 w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center z-[1000] transition-transform ${
           isOpen ? "rotate-45" : "rotate-0"
         }`}
         style={{ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)" }}
@@ -35,10 +37,10 @@ const Enquiry: React.FC = () => {
 
       {/* Enquiry Form */}
       <div
-        className={`fixed top-20 left-5 w-[300px] bg-white shadow-lg p-4 rounded-lg z-[999] transform transition-transform duration-500 ${
+        className={`fixed bottom-10 right-5 w-[300px] bg-white shadow-lg p-4 rounded-lg z-[999] transform transition-transform duration-500 ${
           isOpen
-            ? "translate-x-10 translate-y-10 opacity-100"
-            : "translate-x-0 opacity-0 pointer-events-none"
+            ? "-translate-x-10 -translate-y-10 opacity-100"
+            : "translate-x-20 translate-y-20 opacity-0 pointer-events-none"
         }`}
         style={{
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
@@ -50,27 +52,25 @@ const Enquiry: React.FC = () => {
         </h3>
         <form onSubmit={handleSubmit} className="space-y-3">
           <div>
-            <input
+            <CustomTextField
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-md p-2 mt-1 text-sm"
-              placeholder="Enter your email"
+              label="Email"
             />
           </div>
           <div>
-            <input
+            <CustomTextField
+              label="Phone"
               type="tel"
               id="phone"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-md p-2 mt-1 text-sm"
-              placeholder="Enter your phone number"
             />
           </div>
           <button

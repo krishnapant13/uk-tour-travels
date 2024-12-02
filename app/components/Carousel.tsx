@@ -19,6 +19,21 @@ const Carousel: React.FC = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     arrows: false,
+    centerMode:true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
 
   return (

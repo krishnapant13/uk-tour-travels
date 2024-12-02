@@ -47,20 +47,20 @@ const WhyBook = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-2 justify-center items-center w-full h-[70vh] mt-10 bg-gradient-to-b from-gray-300  to-gray-100">
-      <div className="w-full h-full p-28  justify-start items-center">
-        <h2 className="text-4xl font-bold leading-loose ">Why book with us?</h2>
-        <h4 className="text-2xl font-bold text-blue-600">
+    <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center w-full h-[70vh] my-10 bg-gradient-to-b from-gray-300  to-gray-100">
+      <div className="w-full h-full p-4 md:p-28 justify-center  md:justify-start items-center">
+        <h2 className="text-4xl font-bold leading-loose md:text-left text-center ">Why book with us?</h2>
+        <h4 className="text-2xl font-bold text-blue-600 md:text-left text-center">
           We are a fully licensed transfer booking platform
         </h4>
-        <h1 className="text-gray-500 mt-2">
+        <h1 className="text-gray-500 mt-2 md:text-left text-center">
           At UTT, you can find a variety of verified vehicles from numerous
           different providers. You can compare prices and amenities, and book
           the vehicle that best suits your travel needs.
         </h1>
       </div>
       <div className="w-full h-full flex justify-center items-center">
-        <div className="h-96 w-96 border border-dashed border-blue-600 flex justify-center items-center rounded-full relative border-s-0 border-e-0">
+        <div className="md:h-96 h-72 md:w-96 w-72 border border-dashed border-blue-600 flex justify-center items-center rounded-full relative border-s-0 border-e-0">
           {images.map((image, index) => (
             <Image
               key={index}
@@ -79,7 +79,7 @@ const WhyBook = () => {
               }}
             />
           ))}
-          <div className="h-52 w-52 border-collapse border border-dashed border-blue-600 border-b-0 border-t-0 rounded-full  flex justify-center items-center">
+          <div className="md:h-52 h-40 md:w-52 w-40 border-collapse border border-dashed border-blue-600 border-b-0 border-t-0 rounded-full  flex justify-center items-center">
             <Image
               src="/yum.png"
               width={100}

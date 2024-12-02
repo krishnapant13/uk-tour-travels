@@ -95,7 +95,7 @@ const HomeData: React.FC<HomeComponentProps> = ({
               borderRadius: "999px",
               backgroundColor: "#E0E0E0",
               width: "20em",
-              display: "flex",
+              display: { xs: "none", md: "block" },
               "& .MuiTab-root": {
                 flex: 1,
                 textTransform: "none",
@@ -120,7 +120,7 @@ const HomeData: React.FC<HomeComponentProps> = ({
       <Box
         sx={{
           borderRadius: "8px",
-          display: "flex",
+          display: { xs: "none", md: "block" },
           bgcolor: "#f9f5f5",
           alignItems: "flex-start",
           margin: "auto",
@@ -368,16 +368,18 @@ const HomeData: React.FC<HomeComponentProps> = ({
           </Box>
         </TabPanel>
       </Box>
-      <div className="flex justify-center items-center w-full mt-10 pb-20 border-b border-gray-300 ">
-        <div className="flex justify-center items-center w-full">
+      <div className="flex flex-col md:flex-row justify-between md:justify-center md:h-auto h-[15vh] items-center w-full mt-10 pb-20 border-b border-gray-300">
+        <div className="flex flex-row justify-center items-center w-fit md:w-full text-center md:text-left mb-4">
           <IoMdCheckmarkCircleOutline className="mr-2" color="blue" size={25} />
           <p>Checked Only Vehicles</p>
-        </div>{" "}
-        <div className="flex justify-center items-center w-full">
+        </div>
+
+        <div className="flex flex-row justify-center items-center w-fit md:w-full text-center md:text-left mb-4">
           <IoIosTimer className="mr-2" color="blue" size={25} />
           <p>Real Time Confirmation</p>
-        </div>{" "}
-        <div className="flex justify-center items-center w-full">
+        </div>
+
+        <div className="flex flex-row justify-center items-center w-fit md:w-full text-center md:text-left">
           <FaRegCreditCard className="mr-2" color="blue" size={25} />
           <p>Safe payments</p>
         </div>
