@@ -368,18 +368,18 @@ const HomeData: React.FC<HomeComponentProps> = ({
           </Box>
         </TabPanel>
       </Box>
-      <div className="flex flex-col md:flex-row justify-between md:justify-center md:h-auto h-[15vh] items-center w-full mt-10 pb-20 border-b border-gray-300">
-        <div className="flex flex-row justify-center items-center w-fit md:w-full text-center md:text-left mb-4">
+      <div className="flex flex-col md:flex-row justify-between md:justify-center md:h-auto items-center w-full mt-10 ml-8 md:ml-auto pb-20 border-b border-gray-300 ">
+        <div className="flex flex-row md:justify-center justify-start items-center w-[60%] md:w-full text-center md:text-left mb-4">
           <IoMdCheckmarkCircleOutline className="mr-2" color="blue" size={25} />
           <p>Checked Only Vehicles</p>
         </div>
 
-        <div className="flex flex-row justify-center items-center w-fit md:w-full text-center md:text-left mb-4">
+        <div className="flex flex-row md:justify-center justify-start items-center  w-[60%]  md:w-full text-center md:text-left mb-4">
           <IoIosTimer className="mr-2" color="blue" size={25} />
           <p>Real Time Confirmation</p>
         </div>
 
-        <div className="flex flex-row justify-center items-center w-fit md:w-full text-center md:text-left">
+        <div className="flex flex-row md:justify-center justify-start items-center  w-[60%]  md:w-full text-center md:text-left">
           <FaRegCreditCard className="mr-2" color="blue" size={25} />
           <p>Safe payments</p>
         </div>

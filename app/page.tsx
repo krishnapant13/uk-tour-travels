@@ -4,6 +4,7 @@ import Carousel from "./components/Carousel";
 import HomeData from "./components/HomeData";
 import WhyBook from "./components/WhyBook";
 import Footer from "./components/Footer";
+import Feature from "./components/Feature";
 export default async function Home() {
   return (
     <>
@@ -33,6 +34,16 @@ export default async function Home() {
         </div>
         <Carousel />
         <WhyBook />
+        <div className=" flex flex-col justify-center items-center py-10 ">
+          <p className=" font-bold text-4xl text-center leading-snug md:leading-loose text-gray-800">
+            Search, Book, Go
+          </p>
+          <p className="text-lg text-center text-gray-600">
+            Find a taxi, shuttle or bus easily and go anywhere you want in
+            Uttarakhand
+          </p>
+        </div>
+        <Feature />
       </main>
       <footer>
         <Footer />
