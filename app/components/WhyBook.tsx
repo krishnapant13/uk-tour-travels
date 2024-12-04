@@ -60,7 +60,7 @@ const WhyBook = () => {
         </h1>
       </div>
       <div className="w-full h-full flex justify-center items-center">
-        <div className="md:h-96 h-72 md:w-96 w-72 border border-dashed border-blue-600 flex justify-center items-center rounded-full relative border-s-0 border-e-0">
+        <div className="md:h-96 h-full md:w-96 w-72 border border-dashed border-blue-600 flex justify-center items-center rounded-full relative border-s-0 border-e-0">
           {images.map((image, index) => (
             <Image
               key={index}
