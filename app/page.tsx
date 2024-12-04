@@ -8,7 +8,7 @@ import Feature from "./components/Feature";
 export default async function Home() {
   return (
     <>
-      <main className="px-2 md:px-14">
+      <main className="px-6 md:px-14">
         <Navbar />
         <Enquiry />
         <HomeData

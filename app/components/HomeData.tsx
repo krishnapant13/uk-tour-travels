@@ -78,11 +78,20 @@ const HomeData: React.FC<HomeComponentProps> = ({
   return (
     <main>
       <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-4 py-5 mt-16 mb-4">
-        <div className=" space-y-0 md:space-y-4 flex flex-col  justify-end items-start ">
-          <h2 className="text-4xl md:text-6xl font-bold  text-gray-800 leading-snug">
+        <div className="flex flex-col justify-between md:justify-end items-start h-full md:space-y-4 space-y-10">
+          <h2 className="text-[2em] md:text-6xl font-bold text-gray-800 leading-snug">
             {title}
           </h2>
-          <p className="text-gray-600 text-xl leading-snug">{description}</p>
+          <p className="text-gray-600 text-lg md:text-xl leading-snug">
+            {description}
+          </p>
+          <Button
+            variant="contained"
+            color="primary"
+            className="block md:hidden w-[59%] md:w-auto"
+          >
+            Start Your Search
+          </Button>
           <Tabs
             value={activeTab}
             onChange={handleChange}
@@ -115,6 +124,7 @@ const HomeData: React.FC<HomeComponentProps> = ({
             <Tab label="TOURS" />
           </Tabs>
         </div>
+
         <ImageGrid imageSrc={imageSrc} />
       </div>
       <Box
@@ -368,18 +378,18 @@ const HomeData: React.FC<HomeComponentProps> = ({
           </Box>
         </TabPanel>
       </Box>
-      <div className="flex flex-col md:flex-row justify-between md:justify-center md:h-auto items-center w-full mt-10 ml-8 md:ml-auto pb-20 border-b border-gray-300 ">
-        <div className="flex flex-row md:justify-center justify-start items-center w-[60%] md:w-full text-center md:text-left mb-4">
+      <div className="hidden md:flex flex-col md:flex-row justify-between md:justify-center md:h-auto items-center w-full mt-10 ml-8 md:ml-auto pb-20 border-b border-gray-300 ">
+        <div className="flex flex-row md:justify-center justify-start items-center md:w-full text-center md:text-left mb-4">
           <IoMdCheckmarkCircleOutline className="mr-2" color="blue" size={25} />
           <p>Checked Only Vehicles</p>
         </div>
 
-        <div className="flex flex-row md:justify-center justify-start items-center  w-[60%]  md:w-full text-center md:text-left mb-4">
+        <div className="flex flex-row md:justify-center justify-start items-center   md:w-full text-center md:text-left mb-4">
           <IoIosTimer className="mr-2" color="blue" size={25} />
           <p>Real Time Confirmation</p>
         </div>
 
-        <div className="flex flex-row md:justify-center justify-start items-center  w-[60%]  md:w-full text-center md:text-left">
+        <div className="flex flex-row md:justify-center justify-start items-center   md:w-full text-center md:text-left">
           <FaRegCreditCard className="mr-2" color="blue" size={25} />
           <p>Safe payments</p>
         </div>

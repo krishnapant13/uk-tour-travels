@@ -34,16 +34,28 @@ const Carousel: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto overflow-hidden">
+    <div
+      style={{
+        margin: "20px",
+        maxWidth: "100%",
+        marginLeft: "auto",
+        marginRight: "auto",
+      }}
+    >
       <Slider {...settings}>
         {citiesData.map((city, index) => (
-          <div key={index} className="relative px-2">
+          <div key={index} className="relative ">
             <Image
               src={city.image}
               alt={`Slide ${index + 1}`}
               width={500}
               height={300}
-              className="object-cover rounded-lg w-full h-[20em]"
+              style={{
+                objectFit: "cover",
+                borderRadius: "8px",
+                height: "20em",
+                width: "95%",
+              }}
             />
             <p className="absolute top-4 left-4 px-2 py-1 rounded-full bg-blue-700 text-[0.8em] text-white">
               {city.attractions.length} Tours
