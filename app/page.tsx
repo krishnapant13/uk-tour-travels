@@ -1,5 +1,3 @@
-import Navbar from "./components/Navbar";
-import Enquiry from "./components/Enquiry";
 import Carousel from "./components/Carousel";
 import HomeData from "./components/HomeData";
 import WhyBook from "./components/WhyBook";
@@ -9,8 +7,6 @@ export default async function Home() {
   return (
     <>
       <main className="px-6 md:px-14">
-        <Navbar />
-        <Enquiry />
         <HomeData
           title=" Book private transfers and tours"
           description="Explore all available options for taxis, vans and buses in

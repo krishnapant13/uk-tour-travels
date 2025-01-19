@@ -1,0 +1,138 @@
+// app/[city]/[attraction]/page.tsx
+import React from "react";
+import citiesData from "../../citiesData.json";
+import Image from "next/image";
+import SelectVehicleForm from "@/app/components/SelectVehicleForm";
+import WhyBook from "@/app/components/WhyBook";
+import { FaCircleCheck } from "react-icons/fa6";
+import { RxCrossCircled } from "react-icons/rx";
+import VehicleCarousel from "@/app/components/VehicleCarousel";
+import { vehicles } from "@/app/components/vehicles";
+import Navbar from "@/app/components/Navbar";
+
+const AttractionPage = async ({
+  params,
+}: {
+  params: { city: string; attraction: string };
+}) => {
+  const { city, attraction } = await params;
+
+  // Find the city data
+  const cityData = citiesData.find(
+    (data) => data.city.toLowerCase() === city.toLowerCase()
+  );
+
+  if (!cityData) {
+    return (
+      <div>
+        <h1>City Not Found</h1>
+        <p>The city "{city}" does not exist in our database.</p>
+      </div>
+    );
+  }
+
+  // Find the attraction data
+  const attractionData = cityData.attractions.find((attr) => {
+    const formattedAttraction = `${attr.name
+      .toLowerCase()
+      .split(" ")
+      .join("-")}-${attr.header.toLowerCase().split(" ").join("-")}`;
+    return formattedAttraction === attraction.toLowerCase();
+  });
+
+  if (!attractionData) {
+    return (
+      <div>
+        <h1>Attraction Not Found</h1>
+        <p>The attraction "{attraction}" does not exist in our database.</p>
+      </div>
+    );
+  }
+  return (
+    <div className="px-5 md:px-14 relative ease-linear duration-300">
+      <Navbar />
+      <div className="flex flex-col items-start py-20">
+        <h1 className="font-bold text-4xl text-center leading-snug text-gray-800">
+          {attractionData.name}
+        </h1>
+        <p className="text-lg text-center text-gray-600">
+          {attractionData.header}
+        </p>
+      </div>
+      <div className="w-full">
+        <img
+          src={attractionData.images[0]}
+          alt={attractionData.name}
+          className="w-full h-96 object-cover rounded-lg"
+        />
+        <div className=" grid md:grid-cols-3 grid-cols-1">
+          <div className=" col-span-2 ">
+            <h2 className="text-2xl font-bold mt-2">Description</h2>
+            <p className="py-5 text-gray-700">{attractionData.description}</p>
+            <h2 className="text-2xl font-bold mt-2">Recommended Stops</h2>
+            <p>
+              You can visit all the places from the list or pick only the ones
+              you like. Just inform your driver about your choice during the
+              ride. During the stops you can do whatever you want: visit the
+              landmarks, take pictures e.t.c. Take as much time as you want
+              within the overall max duration of the trip.
+            </p>
+            <div className="flex flex-wrap gap-4 mt-5">
+              {attractionData.stops.map((stop, index) => (
+                <div
+                  key={index}
+                  className="w-[250px] flex-shrink-0  flex flex-col items-center  overflow-hidden"
+                >
+                  <Image
+                    src={stop.image}
+                    alt={`Stop ${index + 1}: ${stop.name}`}
+                    width={250}
+                    height={150}
+                    className=" rounded-2xl"
+                    objectFit="cover"
+                  />
+                  <div className="bg-gray-100 text-start p-2 w-full">
+                    <p className=" text-base font-bold text-gray-800">
+                      Stop {index + 1}: {stop.name}
+                    </p>
+                    <p className="text-xs text-gray-600">{stop.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col justify-start items-start py-10">
+              <h2 className="text-2xl font-bold mt-2">Price Analysis</h2>
+              <p className="py-4 font-bold text-base text-gray-500">Included</p>
+              <div className="flex justify-start items-center text-gray-500 mb-4">
+                <FaCircleCheck className="mr-3" />
+                All taxes and handling charges, Custom pick-up and drop-off
+                location, Fuel and tolls
+              </div>
+              <p className="py-4 font-bold text-base text-gray-500">
+                Not Included
+              </p>
+              <div className="flex justify-start items-center  text-gray-500">
+                <RxCrossCircled className="mr-3" />
+                Entrance fees for all attractions, Tips and gratuities, Meals
+                and beverages
+              </div>
+              <h2
+                className="text-2xl font-bold mb-2 mt-10"
+                id="vehicle-section"
+              >
+                Vehicles
+              </h2>
+              <VehicleCarousel vehicles={vehicles} />
+            </div>
+          </div>
+          <div className="mt-[15em]">
+            <SelectVehicleForm />
+          </div>
+        </div>{" "}
+      </div>
+      <WhyBook />
+    </div>
+  );
+};
+
+export default AttractionPage;

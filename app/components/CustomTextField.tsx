@@ -6,6 +6,7 @@ const CustomTextField: React.FC<TextFieldProps> = (props) => {
     <TextField
       {...props}
       sx={{
+        width: { xs: "100%", sm: "100%", md: "auto", lg: "auto", xl: "auto" },
         "& .MuiFilledInput-root": {
           backgroundColor: "#e0e0e0",
           borderRadius: "8px",

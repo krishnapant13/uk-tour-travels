@@ -51,8 +51,6 @@ const ImageGrid: React.FC<ImageGridProps> = ({ imageSrc }) => {
         </div>
       );
     }
-    // If imageSrc is an array but not 3 images, you can adjust this part if needed
-    // For now, we just show the first image of the array
     return (
       <div className="relative w-full h-full">
         <Image
@@ -67,7 +65,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ imageSrc }) => {
   } else {
     // If it's a single string (single image), show that image
     return (
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-[40vh] md:h-[70vh]">
         <Image
           src={imageSrc} // Single image
           alt="Single Image"

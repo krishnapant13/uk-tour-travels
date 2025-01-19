@@ -1,118 +1,1066 @@
 [
   {
     "city": "Dehradun",
-    "attractions": [
-      "Robber's Cave",
-      "Sahastradhara",
-      "Forest Research Institute",
-      "Tapkeshwar Temple",
-      "Mindrolling Monastery",
-      "Rajaji National Park"
+    "images": [
+      "https://i.pinimg.com/736x/9e/0e/01/9e0e012ffde6c8a1f5901973e3e2916e.jpg",
+      "https://example.com/dehradun2.jpg",
+      "https://example.com/dehradun3.jpg"
     ],
-    "image": "https://i.pinimg.com/736x/9e/0e/01/9e0e012ffde6c8a1f5901973e3e2916e.jpg",
+    "attractions": [
+      {
+        "name": "Robber's Cave",
+        "images": [
+          "https://i.pinimg.com/736x/10/52/51/105251742a2f6aa3d1bf6bcaad33d273.jpg",
+          "https://i.pinimg.com/736x/af/16/1d/af161d0bfc7e2508599e5e1645cc0307.jpg",
+          "https://i.pinimg.com/736x/8a/63/e4/8a63e492474345bf07a5940e5a7ba61b.jpg"
+        ],
+        "header": "Nature's Hidden Marvel",
+        "description": "Robber's Cave is a natural cave formation known for its unique streams running through the cave. It is an excellent spot for nature lovers and photographers.",
+        "recommended_stops": ["Cave Entrance", "Water Stream Area"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Cave Entrance",
+            "description": "The starting point with panoramic views of the hills.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Water Stream Area",
+            "description": "A refreshing stream flowing inside the cave.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Sahastradhara",
+        "images": [
+          "https://i.pinimg.com/736x/4b/87/c0/4b87c0f1118ae33a6f8aa0d70cd2ec7e.jpg",
+          "https://i.pinimg.com/736x/05/ce/40/05ce408035e8b4c05bf61a319e4f24ca.jpg",
+          "https://i.pinimg.com/736x/d6/12/71/d61271af8b60584d6296aa6441efe73a.jpg"
+        ],
+        "header": "Thousandfold Springs of Joy",
+        "description": "Sahastradhara is a therapeutic sulfur spring surrounded by lush greenery, offering a peaceful retreat.",
+        "recommended_stops": ["Main Spring", "Cable Car Point"],
+        "duration": "3-4 hours",
+        "stops": [
+          {
+            "name": "Main Spring",
+            "description": "The core attraction with healing waters.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Cable Car Point",
+            "description": "A vantage point offering spectacular views of the valley.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Forest Research Institute",
+        "images": [
+          "https://i.pinimg.com/736x/ac/5d/ac/ac5dacd1a6d5adbda1c6472da2863379.jpg",
+          "https://i.pinimg.com/736x/3c/2b/af/3c2baf5f27f5919f3f30f5c600d16c5e.jpg",
+          "https://i.pinimg.com/736x/81/ef/99/81ef9953e195e2cfc4532ffea1018094.jpg"
+        ],
+        "header": "Architectural Marvel in the Woods",
+        "description": "The Forest Research Institute is a grand colonial-style campus housing botanical museums and lush gardens.",
+        "recommended_stops": ["Main Building", "Botanical Museum"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Main Building",
+            "description": "A historical landmark with stunning architecture.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Botanical Museum",
+            "description": "Explore plant species and forest resources.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Tapkeshwar Temple",
+        "images": [
+          "https://i.pinimg.com/736x/66/0a/b8/660ab8e47b0db1b599ec9d8170d9441d.jpg",
+          "https://i.pinimg.com/736x/cc/09/7b/cc097be3cf2e0c34cc1b339e40534ea5.jpg",
+          "https://i.pinimg.com/736x/cc/09/7b/cc097be3cf2e0c34cc1b339e40534ea5.jpg"
+        ],
+        "header": "A Sacred Abode",
+        "description": "Dedicated to Lord Shiva, Tapkeshwar Temple is nestled in a serene cave with a natural stream flowing inside.",
+        "recommended_stops": ["Main Shrine", "Nearby Springs"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Main Shrine",
+            "description": "A tranquil place for offering prayers.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Nearby Springs",
+            "description": "Natural springs enhancing the beauty of the location.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Mindrolling Monastery",
+        "images": [
+          "https://i.pinimg.com/736x/46/e0/b7/46e0b70af9120bf3686edd7db1cd3e3d.jpg",
+          "https://i.pinimg.com/736x/46/e0/b7/46e0b70af9120bf3686edd7db1cd3e3d.jpg",
+          "https://i.pinimg.com/736x/46/e0/b7/46e0b70af9120bf3686edd7db1cd3e3d.jpg"
+        ],
+        "header": "The Spiritual Retreat",
+        "description": "One of the largest Buddhist centers in India, Mindrolling Monastery is a peaceful and spiritually enriching destination.",
+        "recommended_stops": ["Main Monastery", "Garden"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Main Monastery",
+            "description": "The grand building with beautiful murals.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Garden",
+            "description": "A serene garden for meditation and relaxation.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Rajaji National Park",
+        "images": [
+          "https://i.pinimg.com/736x/1e/16/51/1e1651e7de7ee33f799c8d959b8b9a5e.jpg",
+          "https://i.pinimg.com/736x/ea/7b/36/ea7b362403b52038351c090cea9b0dec.jpg",
+          "https://i.pinimg.com/736x/25/a8/ed/25a8ed6d477cdff3d8276c9583f8e640.jpg"
+        ],
+        "header": "A Wildlife Adventure",
+        "description": "Rajaji National Park is a haven for wildlife enthusiasts, offering safaris to spot elephants, leopards, and various bird species.",
+        "recommended_stops": ["Safari Point", "Watchtower"],
+        "duration": "4-5 hours",
+        "stops": [
+          {
+            "name": "Safari Point",
+            "description": "Start your thrilling wildlife safari here.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Watchtower",
+            "description": "A perfect spot for bird watching and panoramic views.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      }
+    ],
     "link": "/dehradun",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Dehradun: The Gateway to Serenity",
+    "description": "Nestled in the foothills of the Himalayas, Dehradun is a perfect blend of natural beauty and urban charm. Renowned for its picturesque landscapes and pleasant weather, this city is home to iconic attractions like Robber's Cave and the Forest Research Institute. Dehradun invites you to experience tranquility and adventure alike"
   },
   {
     "city": "Nainital",
-    "attractions": [
-      "Naini Lake",
-      "Naina Devi Temple",
-      "Snow View Point",
-      "The Mall Road",
-      "Tiffin Top",
-      "Sattal"
+    "images": [
+      "https://i.pinimg.com/736x/18/68/08/1868087a9175e0a76d658480c74a82b1.jpg"
     ],
-    "image": "https://i.pinimg.com/736x/18/68/08/1868087a9175e0a76d658480c74a82b1.jpg",
+    "attractions": [
+      {
+        "name": "Naini Lake",
+        "images": [
+          "https://i.pinimg.com/736x/d1/d0/81/d1d081f3b649bcf26c0051b63855ee5f.jpg",
+          "https://i.pinimg.com/736x/83/ca/86/83ca860d2aec1411134e623de621316f.jpg",
+          "https://i.pinimg.com/736x/fd/8b/9b/fd8b9bb38e25080f8c3c8dd18368b27e.jpg"
+        ],
+        "header": "The Heart of Nainital",
+        "description": "Naini Lake, the jewel of Nainital, is a picturesque freshwater body surrounded by majestic hills. It's a perfect spot for boating and relaxing amidst nature.",
+        "recommended_stops": ["Boat Club", "Lake View Point"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Boat Club",
+            "description": "Enjoy paddle or row boating on the serene waters of Naini Lake.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Lake View Point",
+            "description": "A scenic viewpoint offering breathtaking views of the lake and surrounding hills.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 400
+      },
+      {
+        "name": "Naina Devi Temple",
+        "images": [
+          "https://i.pinimg.com/736x/48/84/90/488490c6185d26947f8e42bd4b04d1a8.jpg",
+          "https://i.pinimg.com/736x/48/84/90/488490c6185d26947f8e42bd4b04d1a8.jpg"
+        ],
+        "header": "A Divine Escape",
+        "description": "Naina Devi Temple, perched near Naini Lake, is a sacred shrine dedicated to Goddess Naina Devi. The temple offers peace and spiritual solace.",
+        "recommended_stops": ["Main Temple", "Bell Tower"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Main Temple",
+            "description": "The sanctum of the temple, where devotees gather to seek blessings.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Bell Tower",
+            "description": "A symbolic tower where devotees tie bells as part of their prayers.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 400
+      },
+      {
+        "name": "Snow View Point",
+        "images": [
+          "https://i.pinimg.com/736x/4a/eb/4c/4aeb4cbd869f24e256173ba42c7b7fab.jpg",
+          "https://i.pinimg.com/736x/25/d2/83/25d283b42f70eb626f3cd149751d5690.jpg"
+        ],
+        "header": "Panoramic Himalayan Views",
+        "description": "Snow View Point offers breathtaking vistas of the snow-capped Himalayan ranges. Accessible by a cable car, it’s a must-visit for nature lovers.",
+        "recommended_stops": ["Cable Car Station", "Viewing Deck"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Cable Car Station",
+            "description": "The starting point for a thrilling cable car ride to Snow View Point.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Viewing Deck",
+            "description": "A designated area offering unobstructed views of the majestic Himalayas.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 400
+      },
+      {
+        "name": "The Mall Road",
+        "images": [
+          "https://i.pinimg.com/736x/a0/ad/e4/a0ade42890096bf9520b3c6c1bebc4ad.jpg",
+          "https://i.pinimg.com/736x/19/f1/8b/19f18bc03c03094ff238257f34008055.jpg"
+        ],
+        "header": "Shop and Stroll",
+        "description": "The Mall Road is a bustling hub of activity with shops, cafes, and local crafts. It's perfect for an evening stroll or souvenir shopping.",
+        "recommended_stops": ["Local Handicrafts Shop", "Street Food Stalls"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Local Handicrafts Shop",
+            "description": "Browse through traditional Kumaoni crafts and souvenirs.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Street Food Stalls",
+            "description": "Taste local delicacies and snacks as you explore the road.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 400
+      },
+      {
+        "name": "Tiffin Top",
+        "images": [
+          "https://i.pinimg.com/736x/1a/f3/db/1af3db93e1a5101855d07916cc96f857.jpg",
+          "https://i.pinimg.com/736x/45/99/54/4599540d710fd3c0d21913f73cacf0a3.jpg"
+        ],
+        "header": "A Picnic Paradise",
+        "description": "Tiffin Top, also known as Dorothy’s Seat, is a popular picnic spot offering panoramic views of the hills and valleys.",
+        "recommended_stops": ["Viewpoint", "Picnic Area"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Viewpoint",
+            "description": "A scenic spot ideal for capturing memorable photographs.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Picnic Area",
+            "description": "A tranquil place to relax and enjoy a meal amidst nature.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 400
+      },
+      {
+        "name": "Sattal",
+        "images": [
+          "https://i.pinimg.com/736x/fd/00/8c/fd008c6d1866bd05b955850e5d526f73.jpg",
+          "https://i.pinimg.com/736x/cc/ca/4c/ccca4c8d176f36ef3b307e0ae4b45cea.jpg"
+        ],
+        "header": "Seven Lakes of Serenity",
+        "description": "Sattal is a group of seven interconnected freshwater lakes surrounded by lush greenery. It's a paradise for bird watchers and campers.",
+        "recommended_stops": ["Kayaking Spot", "Bird Watching Point"],
+        "duration": "3-4 hours",
+        "stops": [
+          {
+            "name": "Kayaking Spot",
+            "description": "Enjoy kayaking on the tranquil waters of the lakes.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Bird Watching Point",
+            "description": "A perfect spot to observe various bird species in their natural habitat.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 400
+      }
+    ],
     "link": "/nainital",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Nainital: The City of Lakes",
+    "description": "Surrounded by lush hills and centered around the mesmerizing Naini Lake, Nainital is a picturesque retreat in Uttarakhand. From the sacred Naina Devi Temple to the bustling Mall Road, this hill station offers a serene and vibrant escape. Let the beauty of nature captivate your soul in Nainital"
   },
   {
     "city": "Rishikesh",
-    "attractions": [
-      "Lakshman Jhula",
-      "Triveni Ghat",
-      "Neelkanth Mahadev Temple",
-      "Beatles Ashram",
-      "Rajaji National Park"
+    "images": [
+      "https://i.pinimg.com/736x/36/2e/54/362e5407723ff06cd4f7889d222811f1.jpg",
+      "https://example.com/rishikesh2.jpg",
+      "https://example.com/rishikesh3.jpg"
     ],
-    "image": "https://i.pinimg.com/736x/36/2e/54/362e5407723ff06cd4f7889d222811f1.jpg",
+    "attractions": [
+      {
+        "name": "Lakshman Jhula",
+        "images": [
+          "https://i.pinimg.com/736x/2a/9c/25/2a9c25b1ccbd1a9538b76dc3948307ee.jpg",
+          "https://i.pinimg.com/736x/23/d2/0d/23d20d007104c8aff9d8d58c572327aa.jpg",
+          "https://i.pinimg.com/736x/10/f5/0d/10f50d4b113e7be3816ceaf89865ee9c.jpg"
+        ],
+        "header": "A Legendary Suspension Bridge",
+        "description": "Lakshman Jhula, a famous suspension bridge over the Ganges River, is a landmark steeped in mythology and offering panoramic views of the holy city.",
+        "recommended_stops": ["Bridge Walk", "River View Point"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Bridge Walk",
+            "description": "A peaceful stroll across the bridge, enjoying the scenic beauty of the Ganges.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "River View Point",
+            "description": "A spot to admire the serene flow of the river and surrounding hills.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Triveni Ghat",
+        "images": [
+          "https://i.pinimg.com/736x/1e/00/14/1e00143185047658067939ac9a1f65bc.jpg",
+          "https://i.pinimg.com/736x/57/0c/87/570c87666e4ff1089705477e5507d983.jpg"
+        ],
+        "header": "A Sacred Spot for Rituals",
+        "description": "Triveni Ghat is a holy bathing ghat where pilgrims gather to perform sacred rituals and witness the mesmerizing Ganga Aarti in the evening.",
+        "recommended_stops": ["Bathing Area", "Aarti Point"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Bathing Area",
+            "description": "A sacred spot where devotees take a holy dip in the Ganges.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Aarti Point",
+            "description": "A vibrant area to witness the spiritual Ganga Aarti ceremony.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Neelkanth Mahadev Temple",
+        "images": [
+          "https://i.pinimg.com/736x/18/77/b2/1877b2d6660d8d0c0705a8b2918621c3.jpg",
+          "https://i.pinimg.com/736x/00/45/16/00451650f828b16f13ae429d81c5aa16.jpg"
+        ],
+        "header": "A Sacred Abode of Lord Shiva",
+        "description": "Neelkanth Mahadev Temple is a revered shrine dedicated to Lord Shiva, nestled amidst lush forests and offering a peaceful spiritual experience.",
+        "recommended_stops": ["Main Temple", "Temple Surroundings"],
+        "duration": "3-4 hours",
+        "stops": [
+          {
+            "name": "Main Temple",
+            "description": "The sanctum of the temple, where devotees offer prayers and seek blessings.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Temple Surroundings",
+            "description": "A serene area offering breathtaking views of the forested hills.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Beatles Ashram",
+        "images": [
+          "https://i.pinimg.com/736x/e7/5c/ce/e75ccea7e6e1e09d20a345768bfeee7a.jpg",
+          "https://i.pinimg.com/736x/da/9a/f1/da9af1ed3211f7f67cc5db63749a3184.jpg",
+          "https://i.pinimg.com/736x/dd/66/00/dd6600f3a689e32f5f3d3d43797c86c9.jpg"
+        ],
+        "header": "A Blend of Music, Art, and Spirituality",
+        "description": "Beatles Ashram, where the legendary band once stayed, is a tranquil retreat featuring artistic graffiti and meditative vibes.",
+        "recommended_stops": ["Graffiti Walls", "Meditation Halls"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Graffiti Walls",
+            "description": "Walls adorned with vibrant graffiti inspired by The Beatles and spiritual themes.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Meditation Halls",
+            "description": "Peaceful halls where visitors can meditate and connect with nature.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      }
+    ],
     "link": "/rishikesh",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Rishikesh: The Yoga Capital of the World",
+    "description": "Where spirituality meets adventure, Rishikesh is a serene town on the banks of the holy Ganges River. Famous for its ashrams, yoga retreats, and thrilling activities like rafting, Rishikesh is a haven for peace-seekers and thrill-lovers alike. Discover the divine and daring side of life here"
   },
   {
     "city": "Haridwar",
-    "attractions": [
-      "Har Ki Pauri",
-      "Mansa Devi Temple",
-      "Chandi Devi Temple",
-      "Shanti Kunj",
-      "Sapt Rishi Ashram"
+    "images": [
+      "https://i.pinimg.com/736x/c7/5b/85/c75b8556a2c68fca8cc1ed9ae6a916d3.jpg",
+      "https://example.com/haridwar2.jpg",
+      "https://example.com/haridwar3.jpg"
     ],
-    "image": "https://i.pinimg.com/736x/c7/5b/85/c75b8556a2c68fca8cc1ed9ae6a916d3.jpg",
+    "attractions": [
+      {
+        "name": "Har Ki Pauri",
+        "images": [
+          "https://i.pinimg.com/736x/8a/e4/d0/8ae4d0af5e28829c4c84de025448213d.jpg",
+          "https://i.pinimg.com/736x/71/34/f1/7134f1cd70199499db6a581046b70a29.jpg"
+        ],
+        "header": "A Sacred Ghat by the Ganges",
+        "description": "Har Ki Pauri, the most iconic landmark in Haridwar, is a revered ghat on the banks of the Ganges. Known for its evening Ganga Aarti, it draws devotees and tourists from around the world.",
+        "recommended_stops": ["Main Ghat", "Ganga Aarti"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Main Ghat",
+            "description": "A serene spot to take a holy dip in the Ganges and soak in the divine atmosphere.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Ganga Aarti",
+            "description": "Witness the enchanting evening Aarti, where thousands of lamps light up the river.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Mansa Devi Temple",
+        "images": [
+          "https://i.pinimg.com/736x/2c/b9/86/2cb9868bc11d34b1e5e43babb692b4d6.jpg",
+          "https://i.pinimg.com/736x/09/e0/9f/09e09fe892600d7a438caad726ce9f71.jpg"
+        ],
+        "header": "A Temple of Wishes Fulfilled",
+        "description": "Situated on the Bilwa Parvat, Mansa Devi Temple is a sacred shrine dedicated to Goddess Mansa, believed to fulfill the wishes of her devotees.",
+        "recommended_stops": ["Cable Car Ride", "Temple Complex"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Cable Car Ride",
+            "description": "Enjoy a scenic cable car ride to the temple while taking in the panoramic views of Haridwar.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Temple Complex",
+            "description": "Explore the temple and offer prayers to the deity in this peaceful setting.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Shanti Kunj",
+        "images": [
+          "https://i.pinimg.com/736x/80/2b/88/802b88eb04c507a47144fb9c3bce4ac6.jpg",
+          "https://i.pinimg.com/736x/cf/ce/d4/cfced4c5a623cf2dfa5903709cfe797a.jpg",
+          "https://i.pinimg.com/736x/73/f8/f3/73f8f33b97bd8822a339fe672c6d9789.jpg"
+        ],
+        "header": "A Spiritual and Cultural Hub",
+        "description": "Shanti Kunj is a renowned ashram and learning center for spiritual growth, yoga, and meditation. It also serves as a hub for social and cultural activities.",
+        "recommended_stops": ["Meditation Halls", "Spiritual Library"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Meditation Halls",
+            "description": "Experience tranquility and inner peace through guided meditation sessions.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Spiritual Library",
+            "description": "A treasure trove of books and scriptures for spiritual seekers.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Sapt Rishi Ashram",
+        "images": [
+          "https://i.pinimg.com/736x/5f/97/c9/5f97c99c91f8f887ecc369d8b25d7bfd.jpg",
+          "https://i.pinimg.com/736x/5f/97/c9/5f97c99c91f8f887ecc369d8b25d7bfd.jpg",
+          "https://i.pinimg.com/736x/5f/97/c9/5f97c99c91f8f887ecc369d8b25d7bfd.jpg"
+        ],
+        "header": "An Ancient Ashram of Legends",
+        "description": "Sapt Rishi Ashram is a serene ashram where seven great sages, or Saptarishis, meditated. It is a place of immense spiritual significance and natural beauty.",
+        "recommended_stops": ["Meditation Point", "River Banks"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Meditation Point",
+            "description": "A tranquil spot for meditation and reflection amidst nature.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "River Banks",
+            "description": "A peaceful area by the river, perfect for relaxation and soaking in the serene vibes.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      }
+    ],
     "link": "/haridwar",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Haridwar: The Sacred City of Light",
+    "description": "A city of timeless spirituality, Haridwar is where the Ganges leaves the mountains and enters the plains. Known for the grand Ganga Aarti at Har Ki Pauri, this ancient town is a vibrant hub of culture and devotion. Step into Haridwar and let its sacred aura rejuvenate your soul."
   },
   {
     "city": "Mussoorie",
-    "attractions": [
-      "Kempty Falls",
-      "Gun Hill",
-      "Camel's Back Road",
-      "Mussoorie Lake",
-      "Mall Road"
+    "images": [
+      "https://i.pinimg.com/736x/52/f2/87/52f287429b7cb4f909309e42edf2a7e7.jpg",
+      "https://example.com/mussoorie2.jpg",
+      "https://example.com/mussoorie3.jpg"
     ],
-    "image": "https://i.pinimg.com/736x/52/f2/87/52f287429b7cb4f909309e42edf2a7e7.jpg",
+    "attractions": [
+      {
+        "name": "Kempty Falls",
+        "images": [
+          "https://i.pinimg.com/736x/2d/25/49/2d254941366269563a38afc9962b9309.jpg",
+          "https://i.pinimg.com/736x/6d/e8/ec/6de8ec4c7e921be8ff0fc05167e9640c.jpg",
+          "https://i.pinimg.com/736x/47/12/f2/4712f28174fa3dd9878dd8e1c8e227af.jpg"
+        ],
+        "header": "A Cascading Wonder",
+        "description": "Kempty Falls is one of the most popular attractions in Mussoorie, offering a refreshing escape with its cascading waterfalls and lush surroundings.",
+        "recommended_stops": ["Main Waterfall", "Picnic Area"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Main Waterfall",
+            "description": "The main waterfall is a breathtaking sight, perfect for photography and relaxation.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Picnic Area",
+            "description": "A serene spot nearby where visitors can enjoy a picnic with the sound of the falls in the background.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Gun Hill",
+        "images": [
+          "https://i.pinimg.com/736x/e8/87/7e/e8877e0b15ff7dcc0a4f73afe5af9101.jpg",
+          "https://i.pinimg.com/736x/e8/87/7e/e8877e0b15ff7dcc0a4f73afe5af9101.jpg"
+        ],
+        "header": "A View from the Heights",
+        "description": "Gun Hill is the second-highest peak in Mussoorie, offering panoramic views of the Doon Valley and surrounding Himalayan ranges.",
+        "recommended_stops": ["Cable Car Ride", "Viewpoint"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Cable Car Ride",
+            "description": "Enjoy a scenic ride to the top, surrounded by lush greenery and stunning vistas.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Viewpoint",
+            "description": "A perfect spot for soaking in the scenic beauty and capturing stunning photographs.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Mussoorie Lake",
+        "images": [
+          "https://i.pinimg.com/736x/94/c3/45/94c3457420a0316de7b2ce2de83d91c4.jpg",
+          "https://i.pinimg.com/736x/94/c3/45/94c3457420a0316de7b2ce2de83d91c4.jpg"
+        ],
+        "header": "A Peaceful Escape",
+        "description": "Mussoorie Lake is a beautiful picnic spot offering boating activities and a calm ambiance for relaxation.",
+        "recommended_stops": ["Boating Dock", "Viewpoint"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Boating Dock",
+            "description": "Enjoy a peaceful boating experience on the serene waters of the lake.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Viewpoint",
+            "description": "A lovely spot to admire the lake and surrounding greenery.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Mall Road",
+        "images": [
+          "https://i.pinimg.com/736x/fe/b1/6d/feb16d3635881ee9c6559a793cdac854.jpg",
+          "https://i.pinimg.com/736x/a0/43/9a/a0439aca2944919ed50d4b74d1ff20c7.jpg"
+        ],
+        "header": "The Heart of Mussoorie",
+        "description": "Mall Road is the bustling center of Mussoorie, lined with shops, restaurants, and scenic views, making it a favorite among tourists.",
+        "recommended_stops": ["Shopping Lane", "Viewpoint"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Shopping Lane",
+            "description": "Explore a variety of shops offering souvenirs, local handicrafts, and more.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Viewpoint",
+            "description": "A lovely area to sit and enjoy the views of the valley while sipping tea.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      }
+    ],
     "link": "/mussoorie",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Mussoorie: The Queen of the Hills",
+    "description": "Famous for its misty mountains and colonial charm, Mussoorie is an enchanting hill station that offers breathtaking views of the Himalayas. Whether it's a stroll down Camel's Back Road or a visit to the bustling Mall Road, Mussoorie is the perfect destination for romance and relaxation."
   },
   {
     "city": "Almora",
-    "attractions": [
-      "Nanda Devi Temple",
-      "Kasar Devi Temple",
-      "Bright End Corner",
-      "Chitai Golu Devta Temple"
+    "images": [
+      "https://i.pinimg.com/736x/47/29/a7/4729a757fb6c45bf59a93df79aff2c54.jpg",
+      "https://example.com/almora2.jpg",
+      "https://example.com/almora3.jpg"
     ],
-    "image": "https://i.pinimg.com/736x/47/29/a7/4729a757fb6c45bf59a93df79aff2c54.jpg",
+    "attractions": [
+      {
+        "name": "Nanda Devi Temple",
+        "images": [
+          "https://i.pinimg.com/736x/5b/99/d5/5b99d562da83b6a0a6af476f569f35e5.jpg",
+          "https://i.pinimg.com/736x/82/f0/e7/82f0e726cafd436b42d28572e1ffed26.jpg"
+        ],
+        "header": "A Sacred Jewel of Almora",
+        "description": "Nanda Devi Temple, dedicated to Goddess Nanda Devi, is a historic and spiritual site that reflects the rich cultural heritage of Almora.",
+        "recommended_stops": ["Temple Complex", "Nearby Market"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Temple Complex",
+            "description": "Explore the historic architecture and peaceful ambiance of this revered temple.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Nearby Market",
+            "description": "Shop for local artifacts and Kumaoni crafts at the nearby market.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Kasar Devi Temple",
+        "images": [
+          "https://i.pinimg.com/736x/2c/46/2a/2c462a52fd6033f4ed9bdea6bfcd5c9a.jpg",
+          "https://i.pinimg.com/736x/69/c6/68/69c6686544101566f31cb9ab4c40a8b9.jpg"
+        ],
+        "header": "A Tranquil Escape",
+        "description": "Kasar Devi Temple is known for its spiritual vibes and magnetic field, attracting meditation enthusiasts and nature lovers alike.",
+        "recommended_stops": ["Temple Grounds", "Scenic Viewpoint"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Temple Grounds",
+            "description": "Relax and meditate in the serene surroundings of the temple.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Scenic Viewpoint",
+            "description": "Witness breathtaking views of the surrounding valleys and hills.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Chitai Golu Devta Temple",
+        "images": [
+          "https://i.pinimg.com/736x/f4/95/76/f495764fa30f7bd7cb2ac6971fdca856.jpg",
+          "https://i.pinimg.com/736x/7c/b6/cb/7cb6cb8ec7b78f82957a1197eb454568.jpg"
+        ],
+        "header": "The Temple of Bells",
+        "description": "Chitai Golu Devta Temple is adorned with thousands of bells, representing the wishes of devotees.",
+        "recommended_stops": ["Bell Area", "Prayer Hall"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Bell Area",
+            "description": "Marvel at the thousands of bells tied as offerings by devotees.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Prayer Hall",
+            "description": "Offer prayers and experience the divine aura of this sacred temple.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Kausani",
+        "images": [
+          "https://i.pinimg.com/736x/ae/e0/da/aee0daa55b1609a6858bd022b562b347.jpg",
+          "https://i.pinimg.com/736x/ef/ac/af/efacafc1f2d6d28cf2cdaab68d31e41f.jpg",
+          "https://i.pinimg.com/736x/6f/39/60/6f39601bfec6bac57cab6065275296b6.jpg"
+        ],
+        "header": "The Switzerland of India",
+        "description": "Known for its panoramic views of the Himalayan peaks, Kausani is a tranquil retreat for nature enthusiasts.",
+        "recommended_stops": ["Viewpoint", "Tea Gardens"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Viewpoint",
+            "description": "Admire breathtaking views of Nanda Devi, Trishul, and Panchachuli peaks.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Tea Gardens",
+            "description": "Explore the lush tea plantations and learn about the tea-making process.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Baijnath",
+        "images": [
+          "https://i.pinimg.com/736x/07/06/04/0706047abafd943d4a4083aef9fbfd90.jpg",
+          "https://i.pinimg.com/736x/c2/f5/65/c2f5655cd621e092b20e425b7e161861.jpg"
+        ],
+        "header": "Ancient Temple Complex",
+        "description": "Baijnath is an ancient temple dedicated to Lord Shiva, showcasing exquisite architecture and serene surroundings.",
+        "recommended_stops": ["Main Temple", "Riverside"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Main Temple",
+            "description": "Admire the intricate carvings and spiritual ambiance of this historic temple.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Riverside",
+
+            "description": "Relax by the peaceful riverside near the temple.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      }
+    ],
     "link": "/almora",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Almora: A Cultural Haven in the Hills",
+    "description": "Cradled in the Kumaon hills, Almora is a delightful mix of natural beauty and cultural heritage. Known for its temples like Nanda Devi and Bright End Corner for sunsets, this town offers an authentic glimpse into the traditions of Uttarakhand. Let Almora's charm take you on a journey back in time"
   },
   {
     "city": "Pithoragarh",
-    "attractions": [
-      "Pithoragarh Fort",
-      "Munsiyari",
-      "Askot Wildlife Sanctuary",
-      "Ralam Glacier"
+    "images": [
+      "https://i.pinimg.com/736x/02/34/82/023482d3dbb967168cb055684bef412f.jpg",
+      "https://example.com/pithoragarh2.jpg",
+      "https://example.com/pithoragarh3.jpg"
     ],
-    "image": "https://i.pinimg.com/736x/02/34/82/023482d3dbb967168cb055684bef412f.jpg",
+    "attractions": [
+      {
+        "name": "Pithoragarh Fort",
+        "images": [
+          "https://i.pinimg.com/736x/73/53/f4/7353f4d53ecb6e1a810eec52d58ceeca.jpg",
+          "https://i.pinimg.com/736x/26/d2/de/26d2def613b1cfd7db4ca64406b4102d.jpg",
+          "https://i.pinimg.com/736x/ab/4a/ca/ab4aca053169b0ceacc6cae08aa98216.jpg"
+        ],
+        "header": "Historical Marvel of the Region",
+        "description": "Pithoragarh Fort, situated on a hilltop, offers a glimpse into the rich history of the region. The fort provides panoramic views of the surrounding mountains and valleys.",
+        "recommended_stops": ["Fort Grounds", "Panoramic Viewpoint"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Fort Grounds",
+            "description": "Explore the fort's ancient ruins and the history it holds.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Panoramic Viewpoint",
+            "description": "Enjoy the sweeping views of the Pithoragarh valley and the distant snow-capped peaks.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Munsiyari",
+        "images": [
+          "https://i.pinimg.com/736x/81/34/c4/8134c471e77803806f3e61d883404f13.jpg",
+          "https://i.pinimg.com/736x/eb/3c/7f/eb3c7fc426329448e96072ed25976883.jpg",
+          "https://i.pinimg.com/736x/4a/24/58/4a2458f300691c9ae4e57784c9950a8d.jpg"
+        ],
+        "header": "Gateway to the Himalayas",
+        "description": "Munsiyari is a tranquil hill station, popular for its trekking routes and views of the Nanda Devi range. A perfect getaway for adventure enthusiasts and nature lovers.",
+        "recommended_stops": ["Trekking Routes", "Local Market"],
+        "duration": "3-4 hours",
+        "stops": [
+          {
+            "name": "Trekking Routes",
+            "description": "Embark on treks that offer close-up views of the majestic Himalayan peaks.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Local Market",
+            "description": "Shop for local handicrafts and traditional Kumaoni products.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Askot Wildlife Sanctuary",
+        "images": [
+          "https://i.pinimg.com/736x/d6/a0/ab/d6a0abe396ac72c258c9f6aca62bc09f.jpg",
+          "https://i.pinimg.com/736x/a7/3d/87/a73d8726c8aa2b5c4c2aa2be3ada1493.jpg"
+        ],
+        "header": "Nature’s Bounty in the Wild",
+        "description": "A haven for nature lovers, the Askot Wildlife Sanctuary is home to diverse flora and fauna, including the endangered species like the Himalayan Musk Deer.",
+        "recommended_stops": ["Wildlife Viewing", "Nature Trails"],
+        "duration": "2-3 hours",
+        "stops": [
+          {
+            "name": "Wildlife Viewing",
+            "images": ["https://example.com/wildlifeviewing.jpg"],
+            "description": "Spot rare animals and birds in their natural habitat.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Nature Trails",
+            "images": ["https://example.com/naturetrails.jpg"],
+            "description": "Enjoy peaceful walks through the sanctuary's lush forest paths.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Ralam Glacier",
+        "images": [
+          "https://i.pinimg.com/736x/87/0f/4b/870f4b13393ce86c377b139ef8ca84fb.jpg",
+          "https://i.pinimg.com/736x/49/28/97/492897ab0e064481a11d016e778438c3.jpg"
+        ],
+        "header": "A Trekker’s Paradise",
+        "description": "Ralam Glacier is a hidden gem for trekkers seeking adventure. Located in the lap of the Himalayas, it offers breathtaking views and a thrilling trek for the adventurous soul.",
+        "recommended_stops": ["Glacier Trek", "Scenic Views"],
+        "duration": "5-6 hours",
+        "stops": [
+          {
+            "name": "Glacier Trek",
+            "images": ["https://example.com/glaciertrek.jpg"],
+            "description": "Trek to the glacier and witness the pristine ice formations up close.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Scenic Views",
+            "images": ["https://example.com/scenicviews.jpg"],
+            "description": "Marvel at the surrounding peaks and serene landscapes during your trek.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      }
+    ],
     "link": "/pithoragarh",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Pithoragarh: The Little Kashmir of India",
+    "description": "Surrounded by snow-capped peaks and lush valleys, Pithoragarh is a paradise for nature enthusiasts. Explore the serene beauty of Munsiyari or trek to the majestic Ralam Glacier. Pithoragarh is your gateway to Uttarakhand's unexplored treasures."
   },
   {
     "city": "Ramnagar",
-    "attractions": [
-      "Jim Corbett National Park",
-      "Corbett Waterfall",
-      "Dhangarhi Museum"
+    "images": [
+      "https://i.pinimg.com/736x/ce/72/45/ce7245d4d324613af9253a66507bf404.jpg",
+      "https://example.com/ramnagar2.jpg",
+      "https://example.com/ramnagar3.jpg"
     ],
-    "image": "https://i.pinimg.com/736x/ce/72/45/ce7245d4d324613af9253a66507bf404.jpg",
+    "attractions": [
+      {
+        "name": "Jim Corbett National Park",
+        "images": [
+          "https://i.pinimg.com/736x/90/5f/27/905f271b9fc973ddee459aa44cc906d5.jpg",
+          "https://i.pinimg.com/736x/c5/9d/6e/c59d6ebf6a9738e963f8a8ee2bc8dbb8.jpg",
+          "https://i.pinimg.com/736x/c2/99/61/c29961deb1cd6843e750c65b23fd4dbf.jpg"
+        ],
+        "header": "India's Oldest Wildlife Sanctuary",
+        "description": "Jim Corbett National Park is a famous wildlife reserve known for its diverse flora and fauna, including the Bengal Tiger. It offers thrilling safaris for wildlife enthusiasts.",
+        "recommended_stops": ["Tiger Safari", "Corbett Museum"],
+        "duration": "3-4 hours",
+        "stops": [
+          {
+            "name": "Tiger Safari",
+            "description": "Go on an exciting safari to spot the mighty Bengal tiger and other wildlife.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Corbett Museum",
+            "description": "Explore the museum dedicated to the life and work of Jim Corbett.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Corbett Waterfall",
+        "images": [
+          "https://i.pinimg.com/736x/f8/cb/14/f8cb1415d38b3f75db20ba2a32fb517c.jpg",
+          "https://i.pinimg.com/736x/59/8b/70/598b707c22ebaaadd33122b18d1775e0.jpg"
+        ],
+        "header": "A Refreshing Retreat in the Wild",
+        "description": "Corbett Waterfall is a serene waterfall nestled within the Corbett Park, offering a peaceful escape amidst nature.",
+        "recommended_stops": ["Waterfall Viewing", "Nature Walks"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Waterfall Viewing",
+            "description": "Relax and enjoy the natural beauty of the cascading waterfall.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Nature Walks",
+            "description": "Take a leisurely walk through the surrounding forest trails.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Dhangarhi Museum",
+        "images": [
+          "https://i.pinimg.com/736x/ab/14/d5/ab14d5c2465a31a137795d7453422927.jpg",
+          "https://i.pinimg.com/736x/5d/2c/5a/5d2c5a72370194b5a4b31b3cac385e6a.jpg"
+        ],
+        "header": "A Glimpse into the History of Corbett",
+        "description": "The Dhangarhi Museum in Ramnagar offers an insight into the history of Jim Corbett and the establishment of the park. A must-visit for history and wildlife buffs.",
+        "recommended_stops": ["Museum Exhibition", "Corbett Archives"],
+        "duration": "1 hour",
+        "stops": [
+          {
+            "name": "Museum Exhibition",
+            "images": ["https://example.com/museumexhibition.jpg"],
+            "description": "Explore the exhibition that highlights Corbett’s work and conservation efforts.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Corbett Archives",
+            "images": ["https://example.com/corbettarchives.jpg"],
+            "description": "Discover rare photographs, documents, and artifacts related to Jim Corbett’s life and legacy.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      }
+    ],
     "link": "/ramnagar",
-    "from": "Delhi"
-  },
-  {
-    "city": "Kashipur",
-    "attractions": ["Jhamtwala Temple", "Drona Sagar Lake", "Mango Orchards"],
-    "image": "https://i.pinimg.com/736x/e7/e6/d7/e7e6d776a678900a0bb5c0a81f3f37b3.jpg",
-    "link": "/kashipur",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Ramnagar: Gateway to Wilderness",
+    "description": "Ramnagar is your entry point to the renowned Jim Corbett National Park, India's oldest wildlife sanctuary. Enjoy thrilling safaris, serene waterfalls, and cultural insights at the Dhangarhi Museum. Discover nature's beauty and the call of the wild in Ramnagar"
   },
   {
     "city": "Champawat",
-    "attractions": ["Champawat Fort", "Banbirsingh Temple", "Lohaghat"],
-    "image": "https://i.pinimg.com/736x/6c/89/dc/6c89dc1e4292006249067c7d18538ec2.jpg",
+    "images": [
+      "https://i.pinimg.com/736x/a0/3e/32/a03e32bc61cb938e57f7951fa4788b94.jpg",
+      "https://example.com/champawat2.jpg",
+      "https://example.com/champawat3.jpg"
+    ],
+    "attractions": [
+      {
+        "name": "Baleshwar Temple",
+        "images": [
+          "https://i.pinimg.com/736x/1a/14/04/1a1404bc312dba14d959b480aaa678ee.jpg",
+          "https://i.pinimg.com/736x/01/fc/6e/01fc6e8a05748a454e8ccad27d468dd9.jpg"
+        ],
+        "header": "Ancient Temples in the Heart of Champawat",
+        "description": "Baleshwar Temple is an ancient temple complex in Champawat dedicated to Lord Shiva. Known for its exquisite stone carvings, the temple is a must-visit for history and architecture lovers.",
+        "recommended_stops": ["Temple Tour", "Stone Carvings"],
+        "duration": "1-2 hours",
+        "stops": [
+          {
+            "name": "Temple Tour",
+            "images": ["https://example.com/templetour.jpg"],
+            "description": "Explore the ancient temple grounds and its serene atmosphere.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Stone Carvings",
+            "images": ["https://example.com/stonecarvings.jpg"],
+            "description": "Admire the intricate stone carvings that adorn the temple walls.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      },
+      {
+        "name": "Panchachuli Peak",
+        "images": [
+          "https://i.pinimg.com/736x/42/7b/da/427bdacc5a0ee8b8f0baf0a4a427f745.jpg",
+          "https://i.pinimg.com/736x/26/33/03/263303c7b99a7d1a60789f818a27410d.jpg",
+          "https://i.pinimg.com/736x/17/52/69/1752698f1735472d825bac4bb4877591.jpg"
+        ],
+        "header": "Majestic Views from the Summit",
+        "description": "Panchachuli Peak is one of the highest peaks in Uttarakhand, offering an exhilarating trekking experience. The summit provides stunning views of the surrounding snow-capped mountains.",
+        "recommended_stops": ["Trekking", "Summit Views"],
+        "duration": "4-6 hours",
+        "stops": [
+          {
+            "name": "Trekking",
+            "images": ["https://example.com/trekking.jpg"],
+            "description": "Embark on a trek to the summit, passing through beautiful alpine meadows.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          },
+          {
+            "name": "Summit Views",
+            "images": ["https://example.com/summitviews.jpg"],
+            "description": "Marvel at the panoramic views of the mighty Himalayas from the top.",
+            "image": "https://i.pinimg.com/736x/17/a1/79/17a17988ddc979d726ec3a29221b41f8.jpg"
+          }
+        ],
+        "price": 500
+      }
+    ],
     "link": "/champawat",
-    "from": "Delhi"
+    "from": "Delhi",
+    "heading": "Champawat: A Blend of History and Nature",
+    "description": "Champawat is a captivating town in Uttarakhand, rich in culture and history. With ancient temples like Baleshwar, stunning treks like Panchachuli Peak, and peaceful spots like Lohaghat, it’s a must-visit destination for history buffs and nature lovers alike."
   }
 ]

@@ -25,21 +25,22 @@ const Navbar: React.FC = () => {
       } border-b border-gray-300 z-50`}
     >
       {/* Logo and Name */}
-      <div className="flex items-center space-x-4">
-        <Image
-          src="/yum.png" 
-          alt="Brand logo"
-          width={80}
-          height={80}
-        />
-      </div>
+      <Link href="/" className="flex items-center space-x-4">
+        <Image src="/logo.webp" alt="Brand logo" width={250} height={250} />
+      </Link>
 
       {/* Desktop Navigation Links */}
       <div className="hidden md:flex items-center space-x-6">
-        <Link href="/users" className="text-gray-700 text-sm hover:text-gray-900">
+        <Link
+          href="/users"
+          className="text-gray-700 text-sm hover:text-gray-900"
+        >
           Home
         </Link>
-        <Link href="/users/new" className="text-gray-700 text-sm hover:text-gray-900">
+        <Link
+          href="/users/new"
+          className="text-gray-700 text-sm hover:text-gray-900"
+        >
           Services
         </Link>
       </div>

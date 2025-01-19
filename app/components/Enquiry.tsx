@@ -3,8 +3,6 @@ import { useState } from "react";
 import CustomTextField from "./CustomTextField";
 
 const Enquiry: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   const [formData, setFormData] = useState({ email: "", phone: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,37 +20,13 @@ const Enquiry: React.FC = () => {
   return (
     <div>
       {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-10 md:top-20 right-10 md:left-10 w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center z-[1000] transition-transform ${
-          isOpen ? "rotate-45" : "rotate-0"
-        }`}
-        style={{ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)" }}
-        aria-label="Enquiry Form Toggle"
-      >
-        +
-      </button>
-
       {/* Enquiry Form */}
       <div
-        className={`fixed w-[300px] bg-white shadow-lg p-4 rounded-lg z-[999] transform transition-transform duration-500
-        ${
-          isOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }
-        ${
-          isOpen
-            ? "-translate-x-5 -translate-y-20"
-            : "-translate-x-5 -translate-y-15"
-        }
+        className={` w-[80%] bg-white shadow-lg p-4 rounded-lg z-[999] transform transition-transform duration-500
+
         bottom-10 right-5 
         md:bottom-auto md:right-auto md:top-10 md:left-5
-        ${
-          isOpen
-            ? "md:translate-x-20 md:translate-y-10"
-            : "md:translate-x-10 md:translate-y-10"
-        }`}
+      `}
         style={{
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
           transformOrigin: "bottom right",
@@ -70,6 +44,7 @@ const Enquiry: React.FC = () => {
             onChange={handleChange}
             required
             label="Email"
+            sx={{ width: "100%" }}
           />
           <CustomTextField
             label="Phone"
@@ -78,6 +53,7 @@ const Enquiry: React.FC = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
+            sx={{ width: "100%" }}
             required
           />
           <button

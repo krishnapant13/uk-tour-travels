@@ -47,9 +47,11 @@ const WhyBook = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center w-full h-[70vh] pb-10 my-10 bg-gradient-to-b from-gray-300  to-gray-100">
+    <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center w-full h-full md:h-[70vh] pb-10 my-10 bg-gradient-to-b from-gray-300  to-gray-100">
       <div className="w-full h-full p-4 md:p-28 justify-center  md:justify-start items-center">
-        <h2 className="text-4xl font-bold leading-loose md:text-left text-center ">Why book with us?</h2>
+        <h2 className="text-4xl font-bold leading-loose md:text-left text-center ">
+          Why book with us?
+        </h2>
         <h4 className="text-2xl font-bold text-blue-600 md:text-left text-center">
           We are a fully licensed transfer booking platform
         </h4>
@@ -60,7 +62,7 @@ const WhyBook = () => {
         </h1>
       </div>
       <div className="w-full h-full flex justify-center items-center">
-        <div className="md:h-96 h-full md:w-96 w-72 border border-dashed border-blue-600 flex justify-center items-center rounded-full relative border-s-0 border-e-0">
+        <div className="md:h-96 h-72 md:w-96 w-72 border border-dashed border-blue-600 flex justify-center items-center rounded-full relative border-s-0 border-e-0">
           {images.map((image, index) => (
             <Image
               key={index}

@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "name": "Mahindra Bolero",
+    "type": "SUV",
+    "image": "https://i.pinimg.com/564x/8f/12/ab/8f12abc34e5678d90a12b3456f789c12.jpg",
+    "seats": 7,
+    "features": [
+      {
+        "icon": "FaGasPump",
+        "tooltip": "Fuel Efficient"
+      },
+      {
+        "icon": "FaMountain",
+        "tooltip": "High Ground Clearance"
+      },
+      {
+        "icon": "FaTools",
+        "tooltip": "Durable Build"
+      },
+      {
+        "icon": "FaRoad",
+        "tooltip": "All-Terrain Drive"
+      },
+      {
+        "icon": "FaSnowflake",
+        "tooltip": "Air Conditioning"
+      },
+      {
+        "icon": "FaSuitcaseRolling",
+        "tooltip": "Large Boot Space"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Force Traveller",
+    "type": "Mini Bus",
+    "image": "https://i.pinimg.com/564x/bc/45/ef/bc45ef6789a1234567d89f01b2345678.jpg",
+    "seats": 12,
+    "features": [
+      {
+        "icon": "FaUsers",
+        "tooltip": "Spacious Interior"
+      },
+      {
+        "icon": "FaSnowflake",
+        "tooltip": "Air Conditioning"
+      },
+      {
+        "icon": "FaMountain",
+        "tooltip": "High Ground Clearance"
+      },
+      {
+        "icon": "FaCogs",
+        "tooltip": "Reliable Engine"
+      },
+      {
+        "icon": "FaChair",
+        "tooltip": "Comfortable Seating"
+      },
+      {
+        "icon": "FaShieldAlt",
+        "tooltip": "Safety Features"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Tata Sumo",
+    "type": "SUV",
+    "image": "https://i.pinimg.com/564x/23/67/ab/2367ab8901c234567d89f3456c789012.jpg",
+    "seats": 9,
+    "features": [
+      {
+        "icon": "FaGasPump",
+        "tooltip": "Fuel Efficient"
+      },
+      {
+        "icon": "FaTools",
+        "tooltip": "Durable Build"
+      },
+      {
+        "icon": "FaRoad",
+        "tooltip": "All-Terrain Drive"
+      },
+      {
+        "icon": "FaMountain",
+        "tooltip": "High Ground Clearance"
+      },
+      {
+        "icon": "FaChair",
+        "tooltip": "Rear Seat Comfort"
+      },
+      {
+        "icon": "FaShieldAlt",
+        "tooltip": "Safety Features"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Toyota Innova",
+    "type": "MPV",
+    "image": "https://i.pinimg.com/564x/67/89/ab/6789abcd12345678f90abc1234567c89.jpg",
+    "seats": 7,
+    "features": [
+      {
+        "icon": "FaUsers",
+        "tooltip": "Spacious Interior"
+      },
+      {
+        "icon": "FaSnowflake",
+        "tooltip": "Air Conditioning"
+      },
+      {
+        "icon": "FaCogs",
+        "tooltip": "Reliable Engine"
+      },
+      {
+        "icon": "FaChair",
+        "tooltip": "Comfortable Seating"
+      },
+      {
+        "icon": "FaGem",
+        "tooltip": "Luxury Features"
+      },
+      {
+        "icon": "FaMountain",
+        "tooltip": "High Ground Clearance"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Ashok Leyland Bus",
+    "type": "Public Bus",
+    "image": "https://i.pinimg.com/564x/78/90/ab/7890abc12345678f90abc1234567c890.jpg",
+    "seats": 30,
+    "features": [
+      {
+        "icon": "FaUsers",
+        "tooltip": "Large Seating Capacity"
+      },
+      {
+        "icon": "FaSnowflake",
+        "tooltip": "Air Conditioning"
+      },
+      {
+        "icon": "FaMountain",
+        "tooltip": "High Ground Clearance"
+      },
+      {
+        "icon": "FaCogs",
+        "tooltip": "Reliable Engine"
+      },
+      {
+        "icon": "FaUsers",
+        "tooltip": "Spacious Interior"
+      },
+      {
+        "icon": "FaShieldAlt",
+        "tooltip": "Safety Features"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Maruti Suzuki Alto",
+    "type": "Hatchback",
+    "image": "https://i.pinimg.com/564x/cd/89/ef/cd89ef12345678f90abc1234567c89ab.jpg",
+    "seats": 4,
+    "features": [
+      {
+        "icon": "FaGasPump",
+        "tooltip": "Fuel Efficient"
+      },
+      {
+        "icon": "FaCar",
+        "tooltip": "Compact Size"
+      },
+      {
+        "icon": "FaWrench",
+        "tooltip": "Easy Maintenance"
+      },
+      {
+        "icon": "FaDollarSign",
+        "tooltip": "Affordable Price"
+      },
+      {
+        "icon": "FaSnowflake",
+        "tooltip": "Air Conditioning"
+      },
+      {
+        "icon": "FaCogs",
+        "tooltip": "Reliable Engine"
+      }
+    ]
+  }
+]
