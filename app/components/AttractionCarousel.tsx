@@ -13,7 +13,6 @@ const Slider = dynamic(() => import("react-slick"), { ssr: false });
 const AttractionCarousel = ({
   attraction,
   city,
-  layout,
 }: {
   attraction: any;
   city: string;

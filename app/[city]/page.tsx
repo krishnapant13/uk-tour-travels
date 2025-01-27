@@ -14,7 +14,7 @@ const CityPage = async ({ params }: { params: { city: string } }) => {
     return (
       <div>
         <h1>City Not Found</h1>
-        <p>The city "{city}" does not exist in our database.</p>
+        <p>The city {city} does not exist in our database.</p>
       </div>
     );
   }

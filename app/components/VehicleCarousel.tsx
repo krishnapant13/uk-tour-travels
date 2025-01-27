@@ -16,52 +16,68 @@ import CustomButton from "./CustomButton";
 
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
-const VehicleCarousel = ({ vehicles }: { vehicles: any[] }) => {
-  const iconMap: { [key: string]: JSX.Element } = {
-    MdAirlineSeatReclineExtra: <MdAirlineSeatReclineExtra />,
-    MdWifi: <MdWifi />,
-    MdAcUnit: <MdAcUnit />,
-    MdOutlineDirectionsCar: <MdOutlineDirectionsCar />,
-    MdOutlineBatteryChargingFull: <MdOutlineBatteryChargingFull />,
-  };
+const iconMap = {
+  MdAirlineSeatReclineExtra: <MdAirlineSeatReclineExtra />,
+  MdWifi: <MdWifi />,
+  MdAcUnit: <MdAcUnit />,
+  MdOutlineDirectionsCar: <MdOutlineDirectionsCar />,
+  MdOutlineBatteryChargingFull: <MdOutlineBatteryChargingFull />,
+};
+
+type IconKeys = keyof typeof iconMap;
+
+interface Vehicle {
+  id: string;
+  brand: string;
+  name: string;
+  type: string;
+  seats: number;
+  price: number;
+  image: string[];
+  features: {
+    icon: IconKeys;
+    tooltip: string;
+  }[];
+}
+
+const VehicleCarousel = ({ vehicles }: { vehicles: Vehicle[] }) => {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  // Custom Arrow Component
+  const CustomArrow = ({
+    onClick,
+    direction,
+  }: {
+    onClick?: () => void;
+    direction: "left" | "right";
+  }) => (
+    <div
+      onClick={onClick}
+      className={`absolute top-1/2 transform -translate-y-1/2 cursor-pointer text-white ${
+        direction === "left" ? "left-2" : "right-2"
+      }`}
+      style={{
+        display: hoveredId ? "flex" : "none",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "rgba(150, 150, 150, 1)",
+        borderRadius: "50%",
+        width: "30px",
+        height: "30px",
+        zIndex: 10,
+      }}
+    >
+      {direction === "left" ? (
+        <FaAngleLeft size={15} />
+      ) : (
+        <FaAngleRight size={15} />
+      )}
+    </div>
+  );
 
   return (
     <div className="carousel-container flex flex-col space-y-4 w-[70%] scroll-smooth">
       {vehicles.map((vehicle) => {
-        const [hovered, setHovered] = useState(false);
-
-        // Custom Arrow Component
-        const CustomArrow = ({
-          onClick,
-          direction,
-        }: {
-          onClick?: () => void;
-          direction: "left" | "right";
-        }) => (
-          <div
-            onClick={onClick}
-            className={`absolute top-1/2 transform -translate-y-1/2 cursor-pointer text-white ${
-              direction === "left" ? "left-2" : "right-2"
-            }`}
-            style={{
-              display: hovered ? "flex" : "none",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "rgba(150, 150, 150, 1)",
-              borderRadius: "50%",
-              width: "30px",
-              height: "30px",
-              zIndex: 10,
-            }}
-          >
-            {direction === "left" ? (
-              <FaAngleLeft size={15} />
-            ) : (
-              <FaAngleRight size={15} />
-            )}
-          </div>
-        );
-
         // Slider Settings
         const settings = {
           dots: true,
@@ -79,19 +95,19 @@ const VehicleCarousel = ({ vehicles }: { vehicles: any[] }) => {
         return (
           <div
             key={vehicle.id}
-            className="vehicle-carousel overflow-hidden grid grid-cols-1 md:grid-cols-2 relative w-auto mx-auto border-b-[1px] border-gray-300 "
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
+            className="vehicle-carousel overflow-hidden grid grid-cols-1 md:grid-cols-2 relative w-auto mx-auto border-b-[1px] border-gray-300"
+            onMouseEnter={() => setHoveredId(vehicle.id)}
+            onMouseLeave={() => setHoveredId(null)}
           >
             <Slider {...settings}>
-              {vehicle.image.map((image: string, imageIndex: number) => (
+              {vehicle.image.map((image, imageIndex) => (
                 <Image
                   key={imageIndex}
                   src={image}
                   alt={`${vehicle.name} Image ${imageIndex + 1}`}
                   width={500}
                   height={300}
-                  className="rounded-lg "
+                  className="rounded-lg"
                 />
               ))}
             </Slider>
@@ -102,7 +118,7 @@ const VehicleCarousel = ({ vehicles }: { vehicles: any[] }) => {
                 <p className="text-gray-600">{vehicle.type}</p>
                 <p className="text-gray-600">{vehicle.seats} Seater Car</p>
                 <div className="flex space-x-4 my-4">
-                  {vehicle.features.map((feature: any, index: number) => (
+                  {vehicle.features.map((feature, index) => (
                     <div key={index} className="relative group">
                       <span className="text-xl">{iconMap[feature.icon]}</span>
                       <span className="absolute left-1/2 -translate-x-1/2 bottom-8 text-sm bg-blue-600 text-white p-1 rounded opacity-0 group-hover:opacity-100">
@@ -114,9 +130,9 @@ const VehicleCarousel = ({ vehicles }: { vehicles: any[] }) => {
               </div>
               <div className="flex justify-between items-center w-full">
                 <p>
-                  Price: <span className=" font-bold">{vehicle.price} ₹ </span>{" "}
+                  Price: <span className=" font-bold">{vehicle.price} ₹</span>
                 </p>
-                {hovered && <CustomButton title="Book" />}
+                {hoveredId === vehicle.id && <CustomButton title="Book" />}
               </div>
             </div>
           </div>

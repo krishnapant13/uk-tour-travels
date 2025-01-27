@@ -26,7 +26,7 @@ const AttractionPage = async ({
     return (
       <div>
         <h1>City Not Found</h1>
-        <p>The city "{city}" does not exist in our database.</p>
+        <p>The city {city} does not exist in our database.</p>
       </div>
     );
   }
@@ -44,7 +44,7 @@ const AttractionPage = async ({
     return (
       <div>
         <h1>Attraction Not Found</h1>
-        <p>The attraction "{attraction}" does not exist in our database.</p>
+        <p>The attraction {attraction} does not exist in our database.</p>
       </div>
     );
   }
@@ -89,7 +89,7 @@ const AttractionPage = async ({
                     width={250}
                     height={150}
                     className=" rounded-2xl"
-                    objectFit="cover"
+                    style={{ objectFit: "cover" }}
                   />
                   <div className="bg-gray-100 text-start p-2 w-full">
                     <p className=" text-base font-bold text-gray-800">
