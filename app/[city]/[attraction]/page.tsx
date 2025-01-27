@@ -60,10 +60,13 @@ const AttractionPage = async ({
         </p>
       </div>
       <div className="w-full">
-        <img
+        <Image
           src={attractionData.images[0]}
           alt={attractionData.name}
           className="w-full h-96 object-cover rounded-lg"
+          width={250}
+          height={150}
+          style={{ objectFit: "cover" }}
         />
         <div className=" grid md:grid-cols-3 grid-cols-1">
           <div className=" col-span-2 ">

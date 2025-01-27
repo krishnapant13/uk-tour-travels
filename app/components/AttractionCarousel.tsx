@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-import { useRouter } from "next/navigation"; // Use router for navigation
+import { useRouter } from "next/navigation";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
@@ -10,11 +10,20 @@ import CustomButton from "./CustomButton";
 
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
+interface Attraction {
+  name: string;
+  header: string;
+  images: string[];
+  duration: string;
+  recommended_stops: string[];
+  price: number;
+}
+
 const AttractionCarousel = ({
   attraction,
   city,
 }: {
-  attraction: any;
+  attraction: Attraction;
   city: string;
   layout: "row" | "column";
 }) => {
@@ -89,7 +98,7 @@ const AttractionCarousel = ({
     >
       <div>
         <Slider {...settings}>
-          {attraction.images.map((image: string, index: number) => (
+          {attraction.images.map((image, index) => (
             <Image
               key={index}
               src={image}
@@ -111,7 +120,7 @@ const AttractionCarousel = ({
           Duration: {attraction.duration}
         </h5>
         <div className="flex justify-start items-center mt-1">
-          {attraction.recommended_stops.map((stop: string, index: number) => (
+          {attraction.recommended_stops.map((stop, index) => (
             <div
               key={index}
               className="px-2 py-1 text-xs text-gray-500 bg-gray-200 rounded-md mx-1"
@@ -121,9 +130,9 @@ const AttractionCarousel = ({
           ))}
         </div>
         <div
-          className={`flex justify-between  ${
+          className={`flex ${
             isHovered ? "justify-between" : "md:justify-start"
-          } items-center mt-4 `}
+          } items-center mt-4`}
         >
           <div className="flex flex-col justify-start items-center">
             <p className="text-sm">From</p>
@@ -135,13 +144,13 @@ const AttractionCarousel = ({
             <CustomButton
               title="Learn More"
               onClick={handleNavigation}
-              sx={{ width: "50%", display: { xs: "none", md: "block " } }}
+              sx={{ width: "50%", display: { xs: "none", md: "block" } }}
             />
           )}
           <CustomButton
             title="Learn More"
             onClick={handleNavigation}
-            sx={{ display: { xs: "block", md: "none " }, width: "50%" }}
+            sx={{ display: { xs: "block", md: "none" }, width: "50%" }}
           />
         </div>
       </div>

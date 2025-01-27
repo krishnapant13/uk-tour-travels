@@ -4,7 +4,7 @@ export interface Feature {
 }
 
 export interface Vehicle {
-  id: number;
+  id: string;
   name: string;
   brand: string;
   type: string;
@@ -17,7 +17,7 @@ export interface Vehicle {
 
 export const vehicles: Vehicle[] = [
   {
-    id: 1,
+    id: "1",
     name: "Toyota Corolla",
     brand: "Toyota",
     type: "Sedan",
@@ -40,7 +40,7 @@ export const vehicles: Vehicle[] = [
       "A comfortable sedan with advanced features, perfect for city travel.",
   },
   {
-    id: 2,
+    id: "2",
     name: "Ford Explorer",
     brand: "Ford",
     type: "SUV",
@@ -62,7 +62,7 @@ export const vehicles: Vehicle[] = [
     description: "A powerful SUV suitable for long trips and rough terrain.",
   },
   {
-    id: 3,
+    id: "3",
     name: "BMW 7 Series",
     brand: "BMW",
     type: "Luxury Sedan",
@@ -85,7 +85,7 @@ export const vehicles: Vehicle[] = [
       "A luxury sedan with premium features and cutting-edge technology.",
   },
   {
-    id: 4,
+    id: "4",
     name: "Honda Fit",
     brand: "Honda",
     type: "Hatchback",
@@ -107,7 +107,7 @@ export const vehicles: Vehicle[] = [
     description: "A small and efficient car, ideal for urban travel.",
   },
   {
-    id: 5,
+    id: "5",
     name: "Mazda MX-5",
     brand: "Mazda",
     type: "Convertible",
@@ -130,7 +130,7 @@ export const vehicles: Vehicle[] = [
       "A convertible perfect for scenic drives and luxury experiences.",
   },
   {
-    id: 6,
+    id: "6",
     name: "Chrysler Pacifica",
     brand: "Chrysler",
     type: "Minivan",
@@ -152,7 +152,7 @@ export const vehicles: Vehicle[] = [
     description: "A spacious minivan, perfect for family trips.",
   },
   {
-    id: 7,
+    id: "7",
     name: "Tesla Model S",
     brand: "Tesla",
     type: "Electric Sedan",
@@ -174,7 +174,7 @@ export const vehicles: Vehicle[] = [
     description: "An eco-friendly electric sedan with cutting-edge features.",
   },
   {
-    id: 8,
+    id: "8",
     name: "Bolero",
     brand: "Mahindra",
     type: "Pickup Truck",
@@ -196,7 +196,7 @@ export const vehicles: Vehicle[] = [
     description: "A powerful truck with a robust build and ample space.",
   },
   {
-    id: 9,
+    id: "9",
     name: "Cuope",
     brand: "Porche",
     type: "Luxury SUV",
@@ -218,7 +218,7 @@ export const vehicles: Vehicle[] = [
     description: "A luxurious SUV with unmatched comfort and performance.",
   },
   {
-    id: 10,
+    id: "10",
     name: "Spider",
     brand: "Ferrari",
     type: "Sports Car",
