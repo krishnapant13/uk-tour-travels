@@ -33,8 +33,8 @@ export async function generateStaticParams() {
   return params;
 }
 
-const AttractionPage = ({ params }: AttractionPageProps) => {
-  const { city, attraction } = params;
+const AttractionPage = async ({ params }: AttractionPageProps) => {
+  const { city, attraction } = await params;
 
   const cityData = citiesData.find(
     (data) => data.city.toLowerCase() === city.toLowerCase()
