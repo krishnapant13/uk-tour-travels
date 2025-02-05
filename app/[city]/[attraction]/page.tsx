@@ -1,5 +1,5 @@
 import React from "react";
-import citiesData from "../../citiesData.json";
+// import citiesData from "../../citiesData.json";
 // import Image from "next/image";
 // import SelectVehicleForm from "@/app/components/SelectVehicleForm";
 // import WhyBook from "@/app/components/WhyBook";
@@ -9,62 +9,62 @@ import citiesData from "../../citiesData.json";
 // import { vehicles } from "@/app/components/vehicles";
 import Navbar from "@/app/components/Navbar";
 
-type AttractionPageProps = {
-  params: { city: string; attraction: string };
-};
+// type AttractionPageProps = {
+//   params: { city: string; attraction: string };
+// };
 
-export async function generateStaticParams() {
-  const params: { city: string; attraction: string }[] = [];
+// export async function generateStaticParams() {
+//   const params: { city: string; attraction: string }[] = [];
 
-  citiesData.forEach((city) => {
-    city.attractions.forEach((attraction) => {
-      const formattedAttraction = `${attraction.name
-        .toLowerCase()
-        .split(" ")
-        .join("-")}-${attraction.header.toLowerCase().split(" ").join("-")}`;
+//   citiesData.forEach((city) => {
+//     city.attractions.forEach((attraction) => {
+//       const formattedAttraction = `${attraction.name
+//         .toLowerCase()
+//         .split(" ")
+//         .join("-")}-${attraction.header.toLowerCase().split(" ").join("-")}`;
 
-      params.push({
-        city: city.city.toLowerCase(),
-        attraction: formattedAttraction,
-      });
-    });
-  });
+//       params.push({
+//         city: city.city.toLowerCase(),
+//         attraction: formattedAttraction,
+//       });
+//     });
+//   });
 
-  return params;
-}
+//   return params;
+// }
 
-const AttractionPage = async ({ params }: AttractionPageProps) => {
-  const { city, attraction } = await params;
+const AttractionPage = async (/* { params }: AttractionPageProps */) => {
+  // const { city, attraction } = await params;
 
-  const cityData = citiesData.find(
-    (data) => data.city.toLowerCase() === city.toLowerCase()
-  );
+  // const cityData = citiesData.find(
+  //   (data) => data.city.toLowerCase() === city.toLowerCase()
+  // );
 
-  if (!cityData) {
-    return (
-      <div>
-        <h1>City Not Found</h1>
-        <p>The city {city} does not exist in our database.</p>
-      </div>
-    );
-  }
+  // if (!cityData) {
+  //   return (
+  //     <div>
+  //       <h1>City Not Found</h1>
+  //       <p>The city {city} does not exist in our database.</p>
+  //     </div>
+  //   );
+  // }
 
-  const attractionData = cityData.attractions.find((attr) => {
-    const formattedAttraction = `${attr.name
-      .toLowerCase()
-      .split(" ")
-      .join("-")}-${attr.header.toLowerCase().split(" ").join("-")}`;
-    return formattedAttraction === attraction.toLowerCase();
-  });
+  // const attractionData = cityData.attractions.find((attr) => {
+  //   const formattedAttraction = `${attr.name
+  //     .toLowerCase()
+  //     .split(" ")
+  //     .join("-")}-${attr.header.toLowerCase().split(" ").join("-")}`;
+  //   return formattedAttraction === attraction.toLowerCase();
+  // });
 
-  if (!attractionData) {
-    return (
-      <div>
-        <h1>Attraction Not Found</h1>
-        <p>The attraction {attraction} does not exist in our database.</p>
-      </div>
-    );
-  }
+  // if (!attractionData) {
+  //   return (
+  //     <div>
+  //       <h1>Attraction Not Found</h1>
+  //       <p>The attraction {attraction} does not exist in our database.</p>
+  //     </div>
+  //   );
+  // }
   return (
     <div className="px-5 md:px-14 relative ease-linear duration-300">
       <Navbar />
