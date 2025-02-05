@@ -15,7 +15,7 @@ const AttractionPage = async ({
 }: {
   params: { city: string; attraction: string };
 }) => {
-  const { city, attraction } = await params;
+  const { city, attraction } = params;
 
   // Find the city data
   const cityData = citiesData.find(
