@@ -68,7 +68,7 @@ const AttractionPage = async ({ params }: AttractionPageProps) => {
   return (
     <div className="px-5 md:px-14 relative ease-linear duration-300">
       <Navbar />
-      <div className="flex flex-col items-start py-20">
+      {/* <div className="flex flex-col items-start py-20">
         <h1 className="font-bold text-4xl text-center leading-snug text-gray-800">
           {attractionData.name}
         </h1>
@@ -150,7 +150,8 @@ const AttractionPage = async ({ params }: AttractionPageProps) => {
           </div>
         </div>{" "}
       </div>
-      <WhyBook />
+      <WhyBook /> */}
+      Will Update Soon...
     </div>
   );
 };
