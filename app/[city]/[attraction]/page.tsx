@@ -1,4 +1,3 @@
-// app/[city]/[attraction]/page.tsx
 import React from "react";
 import citiesData from "../../citiesData.json";
 import Image from "next/image";
@@ -10,14 +9,33 @@ import VehicleCarousel from "@/app/components/VehicleCarousel";
 import { vehicles } from "@/app/components/vehicles";
 import Navbar from "@/app/components/Navbar";
 
-const AttractionPage = async ({
-  params,
-}: {
+type AttractionPageProps = {
   params: { city: string; attraction: string };
-}) => {
+};
+
+export async function generateStaticParams() {
+  const params: { city: string; attraction: string }[] = [];
+
+  citiesData.forEach((city) => {
+    city.attractions.forEach((attraction) => {
+      const formattedAttraction = `${attraction.name
+        .toLowerCase()
+        .split(" ")
+        .join("-")}-${attraction.header.toLowerCase().split(" ").join("-")}`;
+
+      params.push({
+        city: city.city.toLowerCase(),
+        attraction: formattedAttraction,
+      });
+    });
+  });
+
+  return params;
+}
+
+const AttractionPage = ({ params }: AttractionPageProps) => {
   const { city, attraction } = params;
 
-  // Find the city data
   const cityData = citiesData.find(
     (data) => data.city.toLowerCase() === city.toLowerCase()
   );
@@ -31,7 +49,6 @@ const AttractionPage = async ({
     );
   }
 
-  // Find the attraction data
   const attractionData = cityData.attractions.find((attr) => {
     const formattedAttraction = `${attr.name
       .toLowerCase()
