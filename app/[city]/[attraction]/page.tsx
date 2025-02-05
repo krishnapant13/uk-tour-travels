@@ -1,12 +1,12 @@
 import React from "react";
 import citiesData from "../../citiesData.json";
-import Image from "next/image";
-import SelectVehicleForm from "@/app/components/SelectVehicleForm";
-import WhyBook from "@/app/components/WhyBook";
-import { FaCircleCheck } from "react-icons/fa6";
-import { RxCrossCircled } from "react-icons/rx";
-import VehicleCarousel from "@/app/components/VehicleCarousel";
-import { vehicles } from "@/app/components/vehicles";
+// import Image from "next/image";
+// import SelectVehicleForm from "@/app/components/SelectVehicleForm";
+// import WhyBook from "@/app/components/WhyBook";
+// import { FaCircleCheck } from "react-icons/fa6";
+// import { RxCrossCircled } from "react-icons/rx";
+// import VehicleCarousel from "@/app/components/VehicleCarousel";
+// import { vehicles } from "@/app/components/vehicles";
 import Navbar from "@/app/components/Navbar";
 
 type AttractionPageProps = {
