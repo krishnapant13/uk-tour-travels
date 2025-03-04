@@ -69,7 +69,7 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
   const city = Array.isArray(params?.city)
     ? params.city[0]
     : params?.city ?? "";
-  const [fromInput, setFromInput] = useState<string>(city);
+  // const [fromInput, setFromInput] = useState<string>(city);
 
   const handleLocationSelect = (
     type: "from" | "to" | "attraction",
@@ -123,7 +123,7 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
   };
   useEffect(() => {
     setActiveTab(city ? 1 : 0);
-  }, []);
+  }, [city]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);

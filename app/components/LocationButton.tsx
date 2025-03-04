@@ -8,6 +8,13 @@ interface Location {
   lat: string;
   lon: string;
 }
+interface Place {
+  formatted: string;
+  geometry: {
+    lat: string;
+    lng: string;
+  };
+}
 
 interface LocationSearchProps {
   label: string;
@@ -23,6 +30,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
 }) => {
   const [query, setQuery] = useState<string>("");
   const [suggestions, setSuggestions] = useState<Location[]>([]);
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false); // Control visibility
@@ -68,7 +76,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
           return;
         }
 
-        const locations = data.results.map((place: any) => ({
+        const locations = data.results.map((place: Place) => ({
           display_name: place.formatted,
           lat: place.geometry.lat,
           lon: place.geometry.lng,

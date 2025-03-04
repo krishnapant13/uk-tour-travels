@@ -14,7 +14,7 @@ interface MapProps {
 
 const LeafletMap: React.FC<MapProps> = ({ fromLat, fromLon, toLat, toLon }) => {
   const mapRef = useRef<L.Map | null>(null);
-  //@ts-expect-error
+  // @ts-expect-error: This error occurs due to a missing type definition in the library
   const routingRef = useRef<L.Routing.Control | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
@@ -76,7 +76,7 @@ const LeafletMap: React.FC<MapProps> = ({ fromLat, fromLon, toLat, toLon }) => {
     }
 
     // **Initialize Routing**
-    //@ts-expect-error
+    // @ts-expect-error: This error occurs due to a missing type definition in the library
     routingRef.current = L.Routing.control({
       waypoints: [L.latLng(fromLat, fromLon), L.latLng(toLat, toLon)],
       routeWhileDragging: true,
