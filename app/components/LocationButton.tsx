@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { List, ListItem, ListItemButton, Box, Typography } from "@mui/material";
+import { List, ListItem, ListItemButton, Typography } from "@mui/material";
 import CustomTextField from "./CustomTextField";
 import { debounce } from "lodash";
 
@@ -23,7 +23,6 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
 }) => {
   const [query, setQuery] = useState<string>("");
   const [suggestions, setSuggestions] = useState<Location[]>([]);
-  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false); // Control visibility
@@ -112,7 +111,6 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-    setSelectedLocation(null);
     setShowSuggestions(true);
     fetchLocations(e.target.value);
   };
@@ -124,7 +122,6 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
     }
 
     setQuery(location.display_name);
-    setSelectedLocation(location.display_name);
     setShowSuggestions(false);
     onSelectLocation(location);
   };

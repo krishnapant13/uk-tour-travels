@@ -37,7 +37,7 @@ const Enquiry: React.FC = () => {
         alert("Failed to send enquiry. Please try again.");
       }
     } catch (error) {
-      alert("Something went wrong. Please try again later.");
+      alert(`Something went wrong. ${error}`);
     } finally {
       setLoading(false); // ✅ Hide loading state after response
     }
@@ -78,7 +78,7 @@ const Enquiry: React.FC = () => {
                 inputProps={{
                   inputMode: "numeric",
                   pattern: "[0-9]*",
-                  maxLength: 10,  
+                  maxLength: 10,
                 }}
               />
             </div>

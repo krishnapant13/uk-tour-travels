@@ -14,7 +14,6 @@ import LocationButton from "./LocationButton";
 import { useRouter } from "next/navigation";
 import dayjs, { Dayjs } from "dayjs";
 import { useParams } from "next/navigation";
-import LocationSelect from "./PlaceSelector";
 
 interface TabPanelProps {
   children?: React.ReactNode;
