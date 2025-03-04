@@ -3,6 +3,7 @@ import React from "react";
 
 interface CustomButtonProps {
   title: string;
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
   variant?: "text" | "outlined" | "contained";
   color?:
@@ -24,6 +25,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   color = "primary",
   sx = {},
   hideOn,
+  type = "button",
 }) => {
   const display =
     hideOn === "small"
@@ -40,8 +42,9 @@ const CustomButton: React.FC<CustomButtonProps> = ({
         display,
         ...sx,
       }}
-      onClick={onClick}
+      onClick={type === "submit" ? undefined : onClick}
       className="w-full"
+      type={type}
     >
       {title}
     </Button>

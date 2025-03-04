@@ -14,9 +14,7 @@ interface Attraction {
   name: string;
   header: string;
   images: string[];
-  duration: string;
   recommended_stops: string[];
-  price: number;
 }
 
 const AttractionCarousel = ({
@@ -92,7 +90,7 @@ const AttractionCarousel = ({
 
   return (
     <div
-      className="carousel-container overflow-hidden flex flex-col relative w-full md:w-[23%] "
+      className="carousel-container overflow-hidden flex flex-col relative w-full md:w-[23%] cursor-pointer "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -103,22 +101,25 @@ const AttractionCarousel = ({
               key={index}
               src={image}
               alt={`${attraction.name} - ${index + 1}`}
-              width={200}
-              height={200}
-              className="rounded-2xl md:h-[60%] sm:h-auto bg-cover"
+              width={500}
+              height={300}
+              className="rounded-2xl md:h-[13em] sm:h-auto bg-cover"
               loading="lazy"
               quality={75}
               onClick={handleNavigation}
-              objectFit="cover"
+              style={{
+                objectFit: "fill",
+                borderRadius: "8px",
+                height: "20em",
+                width: "95%",
+              }}
             />
           ))}
         </Slider>
         <h3 className="text-base font-bold pt-4 text-gray-800">
           {attraction.name}: {attraction.header}
         </h3>
-        <h5 className="text-sm text-gray-600">
-          Duration: {attraction.duration}
-        </h5>
+        <h5 className="text-sm text-gray-600"></h5>
         <div className="flex justify-start items-center mt-1">
           {attraction.recommended_stops.map((stop, index) => (
             <div
@@ -134,19 +135,6 @@ const AttractionCarousel = ({
             isHovered ? "justify-between" : "md:justify-start"
           } items-center mt-4`}
         >
-          <div className="flex flex-col justify-start items-center">
-            <p className="text-sm">From</p>
-            <p className="text-lg text-blue-700 font-bold">
-              {attraction.price}₹
-            </p>
-          </div>
-          {isHovered && (
-            <CustomButton
-              title="Learn More"
-              onClick={handleNavigation}
-              sx={{ width: "50%", display: { xs: "none", md: "block" } }}
-            />
-          )}
           <CustomButton
             title="Learn More"
             onClick={handleNavigation}

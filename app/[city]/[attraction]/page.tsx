@@ -1,74 +1,75 @@
 import React from "react";
-// import citiesData from "../../citiesData.json";
-// import Image from "next/image";
-// import SelectVehicleForm from "@/app/components/SelectVehicleForm";
-// import WhyBook from "@/app/components/WhyBook";
-// import { FaCircleCheck } from "react-icons/fa6";
-// import { RxCrossCircled } from "react-icons/rx";
-// import VehicleCarousel from "@/app/components/VehicleCarousel";
-// import { vehicles } from "@/app/components/vehicles";
+import citiesData from "../../citiesData.json";
+import Image from "next/image";
+import SelectVehicleForm from "@/app/components/SelectVehicleForm";
+import WhyBook from "@/app/components/WhyBook";
+import { FaCircleCheck } from "react-icons/fa6";
+import { RxCrossCircled } from "react-icons/rx";
+import VehicleCarousel from "@/app/components/VehicleCarousel";
 import Navbar from "@/app/components/Navbar";
 
-// type AttractionPageProps = {
-//   params: { city: string; attraction: string };
-// };
+type AttractionPageProps = {
+  params: { city: string; attraction: string };
+};
 
-// export async function generateStaticParams() {
-//   const params: { city: string; attraction: string }[] = [];
+export async function generateStaticParams() {
+  const params: { city: string; attraction: string }[] = [];
 
-//   citiesData.forEach((city) => {
-//     city.attractions.forEach((attraction) => {
-//       const formattedAttraction = `${attraction.name
-//         .toLowerCase()
-//         .split(" ")
-//         .join("-")}-${attraction.header.toLowerCase().split(" ").join("-")}`;
+  citiesData.forEach((city) => {
+    city.attractions.forEach((attraction) => {
+      const formattedAttraction = `${attraction.name
+        .toLowerCase()
+        .split(" ")
+        .join("-")}-${attraction.header.toLowerCase().split(" ").join("-")}`;
 
-//       params.push({
-//         city: city.city.toLowerCase(),
-//         attraction: formattedAttraction,
-//       });
-//     });
-//   });
+      params.push({
+        city: city.city.toLowerCase(),
+        attraction: formattedAttraction,
+      });
+    });
+  });
 
-//   return params;
-// }
+  return params;
+}
 
-const AttractionPage = async (/* { params }: AttractionPageProps */) => {
-  // const { city, attraction } = await params;
+const AttractionPage = async ({ params }: AttractionPageProps) => {
+  const { city, attraction } = await params;
 
-  // const cityData = citiesData.find(
-  //   (data) => data.city.toLowerCase() === city.toLowerCase()
-  // );
+  const cityData = citiesData.find(
+    (data) => data.city.toLowerCase() === city.toLowerCase()
+  );
 
-  // if (!cityData) {
-  //   return (
-  //     <div>
-  //       <h1>City Not Found</h1>
-  //       <p>The city {city} does not exist in our database.</p>
-  //     </div>
-  //   );
-  // }
+  if (!cityData) {
+    return (
+      <div>
+        <h1>City Not Found</h1>
+        <p>The city {city} does not exist in our database.</p>
+      </div>
+    );
+  }
 
-  // const attractionData = cityData.attractions.find((attr) => {
-  //   const formattedAttraction = `${attr.name
-  //     .toLowerCase()
-  //     .split(" ")
-  //     .join("-")}-${attr.header.toLowerCase().split(" ").join("-")}`;
-  //   return formattedAttraction === attraction.toLowerCase();
-  // });
+  const attractionData = cityData.attractions.find((attr) => {
+    const formattedAttraction = `${attr.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")}-${attr.header
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")}`;
 
-  // if (!attractionData) {
-  //   return (
-  //     <div>
-  //       <h1>Attraction Not Found</h1>
-  //       <p>The attraction {attraction} does not exist in our database.</p>
-  //     </div>
-  //   );
-  // }
+    return formattedAttraction === attraction.toLowerCase();
+  });
+
+  if (!attractionData) {
+    return (
+      <div>
+        <h1>Attraction Not Found</h1>
+        <p>The attraction {attraction} does not exist in our database.</p>
+      </div>
+    );
+  }
   return (
     <div className="px-5 md:px-14 relative ease-linear duration-300">
       <Navbar />
-      {/* <div className="flex flex-col items-start py-20">
+      <div className="flex flex-col items-start py-20">
         <h1 className="font-bold text-4xl text-center leading-snug text-gray-800">
           {attractionData.name}
         </h1>
@@ -142,7 +143,7 @@ const AttractionPage = async (/* { params }: AttractionPageProps */) => {
               >
                 Vehicles
               </h2>
-              <VehicleCarousel vehicles={vehicles} />
+              <VehicleCarousel />
             </div>
           </div>
           <div className="mt-[15em]">
@@ -150,8 +151,7 @@ const AttractionPage = async (/* { params }: AttractionPageProps */) => {
           </div>
         </div>{" "}
       </div>
-      <WhyBook /> */}
-      Will Update Soon...
+      <WhyBook />
     </div>
   );
 };

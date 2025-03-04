@@ -20,9 +20,9 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full h-16 flex items-center justify-between px-6 bg-white transition-shadow duration-300 ${
+      className={`fixed top-0 left-0 w-full h-16 flex items-center justify-between md:px-6 pr-4 bg-white transition-shadow duration-300 ${
         isScrolled ? "shadow-lg" : ""
-      } border-b border-gray-300 z-50`}
+      } border-b border-gray-300 z-40 `}
     >
       {/* Logo and Name */}
       <Link href="/" className="flex items-center space-x-4">

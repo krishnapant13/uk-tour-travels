@@ -46,7 +46,7 @@ const Carousel: React.FC = () => {
                 width={500}
                 height={300}
                 style={{
-                  objectFit: "cover",
+                  objectFit:"fill",
                   borderRadius: "8px",
                   height: "20em",
                   width: "95%",

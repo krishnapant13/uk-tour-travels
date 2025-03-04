@@ -30,10 +30,10 @@ const HomeData: React.FC<HomeComponentProps> = ({
     <main className=" relative ">
       <Navbar />
       <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-4 py-5 mt-16 mb-4">
-        <div className="flex flex-col justify-between md:justify-center items-start h-full md:space-y-4 space-y-10 ">
+        <div className="flex flex-col justify-between md:justify-start items-start h-full md:space-y-4 space-y-10 ">
           <Enquiry />
 
-          <h2 className="text-[2em] md:text-6xl font-bold text-gray-800 leading-snug">
+          <h2 className="text-[2em] md:text-5xl font-bold text-gray-800 leading-snug">
             {title}
           </h2>
           <p className="text-gray-600 text-lg md:text-xl leading-snug">
@@ -43,7 +43,7 @@ const HomeData: React.FC<HomeComponentProps> = ({
           <CustomButton
             hideOn="large"
             onClick={toggleSearch}
-            title="Start Your Search"
+            title="Look for Vehicle Booking"
           />
         </div>
         <ImageGrid imageSrc={imageSrc} />
@@ -51,7 +51,7 @@ const HomeData: React.FC<HomeComponentProps> = ({
       <SwitchTab
         showCapsuleTabs={true}
         absolutePosition={{
-          bottom: "40%",
+          bottom: "37%",
           left: "0",
           transform: "translateX(0)",
         }}
@@ -73,7 +73,6 @@ const HomeData: React.FC<HomeComponentProps> = ({
         </div>
       </div>
       <SlidingPanel isOpen={isSearchOpen} onClose={toggleSearch}>
-        {/* Add your search form or content here */}
         <Box>
           <SwitchTab showCapsuleTabs={true} mobileView={true} />
         </Box>

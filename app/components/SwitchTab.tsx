@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Tab,
-  Tabs,
-} from "@mui/material";
+import { Box, Button, Tab, Tabs } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CustomTextField from "./CustomTextField";
 import { MdArrowCircleRight } from "react-icons/md";
@@ -19,6 +10,11 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { FaSearch } from "react-icons/fa";
 import { IoSwapHorizontal } from "react-icons/io5";
+import LocationButton from "./LocationButton";
+import { useRouter } from "next/navigation";
+import dayjs, { Dayjs } from "dayjs";
+import { useParams } from "next/navigation";
+import LocationSelect from "./PlaceSelector";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -34,7 +30,6 @@ interface SwitchTabProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -55,10 +50,80 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<number | null>(null);
   const [transferTab, setTransferTab] = useState<number>(0);
-  const [fromInput, setFromInput] = useState<string>("");
+  const [fromData, setFromData] = useState<string | null>(null);
+  const [fromLatData, setFromLatData] = useState<string | null>(null);
+  const [fromLonData, setFromLonData] = useState<string | null>(null);
+  const [toLatData, setToLatData] = useState<string | null>(null);
+  const [toLonData, setToLonData] = useState<string | null>(null);
+  const [toData, setToData] = useState<string | null>(null);
+  const [attractionLatData, setAttractionLatData] = useState<string | null>(
+    null
+  );
+  const [attractionLonData, setAttractionLonData] = useState<string | null>(
+    null
+  );
+  const [attractionData, setAttractionData] = useState<string | null>(null);
+  const [departureTime, setDepartureTime] = useState<Dayjs | null>(null);
+  const [returnTime, setReturnTime] = useState<Dayjs | null>(null);
+  const [passengers, setPassengers] = useState<number | null>(null);
+  const params = useParams();
+  const city = Array.isArray(params?.city)
+    ? params.city[0]
+    : params?.city ?? "";
+  const [fromInput, setFromInput] = useState<string>(city);
 
+  const handleLocationSelect = (
+    type: "from" | "to" | "attraction",
+    location: { display_name: string; lat: string; lon: string }
+  ) => {
+    if (type === "from") {
+      setFromData(location.display_name);
+      setFromLatData(location.lat);
+      setFromLonData(location.lon);
+    } else if (type === "attraction") {
+      setAttractionData(location.display_name);
+      setAttractionLatData(location.lat);
+      setAttractionLonData(location.lon);
+    } else {
+      setToData(location.display_name);
+      setToLatData(location.lat);
+      setToLonData(location.lon);
+    }
+  };
+
+  const router = useRouter();
+  const handleSearch = () => {
+    if (
+      (!fromData &&
+        (activeTab === 0 ? !toData : !attractionData) &&
+        !departureTime) ||
+      (!returnTime && !passengers)
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+    const queryParams = new URLSearchParams({
+      transport:
+        transferTab === 0
+          ? `transfer ${activeTab === 0 ? "oneway" : "roundtrip"}`
+          : "tour",
+      fromData: fromData || "",
+      fromLatData: fromLatData || "",
+      fromLonData: fromLonData || "",
+      toData: toData || "",
+      toLatData: toLatData || "",
+      toLonData: toLonData || "",
+      attractionData: attractionData || "",
+      attractionLatData: attractionLatData || "",
+      attractionLonData: attractionLonData || "",
+      departureTime: departureTime?.toString() || "",
+      returnTime: returnTime?.toString() || "",
+      passengers: passengers?.toString() || "",
+    }).toString();
+    router.push(`/result?${queryParams}`);
+  };
   useEffect(() => {
-    setActiveTab(0);
+    setActiveTab(city ? 1 : 0);
   }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -120,7 +185,7 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
           display: { xs: mobileView ? "flex" : "none", md: "flex" },
           bgcolor: "#f9f5f5",
           alignItems: "flex-start",
-          margin: { md: "auto", xs: "1em 0 0 0" },
+          margin: { md: "0.2em 0 0 0", xs: "1em 0 0 0" },
           width: "100%",
           boxShadow: { xs: 5, md: 20 },
           "& .MuiBox-root": {
@@ -157,48 +222,47 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
             }}
           >
             <div className="relative flex md:flex-row flex-col items-center justify-center w-full md:w-fit">
-              <CustomTextField
+              <LocationButton
                 label="From"
-                sx={{
-                  "& .MuiFilledInput-root": {
-                    borderRadius: { xs: "8px 8px 0 0", md: "8px 0 0 8px" },
-                    "&:before, &:after": {
-                      display: "none",
-                    },
-                  },
-                }}
+                onSelectLocation={(location) =>
+                  handleLocationSelect("from", location)
+                }
               />
               <MdArrowCircleRight
                 size={20}
                 color="#757575"
-                className="absolute top-1/2 left-1/2 -translate-y-1/2  -translate-x-1/2"
-              />
-
-              <CustomTextField
+                className="absolute top-1/2 left-1/2 -translate-y-1/2  -translate-x-1/2 z-10"
+              />{" "}
+              <LocationButton
                 label="To"
-                sx={{
-                  "& .MuiFilledInput-root": {
-                    borderRadius: { xs: "0 0 8px 8px", md: "8px 0 0 8px" },
-                    "&:before, &:after": {
-                      display: "none",
-                    },
-                  },
-                }}
+                onSelectLocation={(location) =>
+                  handleLocationSelect("to", location)
+                }
               />
             </div>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["MobileDateTimePicker"]}>
-                <div className="relative flex md:flex-row flex-col items-center justify-center w-full md:w-fit">
+              <DemoContainer
+                components={["MobileDateTimePicker"]}
+                sx={{
+                  width: { xs: "100%", md: "25%" },
+                }}
+              >
+                <div className="relative flex md:flex-row flex-col items-center justify-center w-full">
                   <MobileDateTimePicker
                     label="Departure"
                     disablePast
+                    onChange={(newValue) => {
+                      setDepartureTime(newValue);
+                    }}
                     sx={{
                       flexGrow: 1,
+                      width: "100%",
                       "& .MuiInputBase-root": {
                         backgroundColor: "#e0e0e0",
                         marginBottom: "8px",
-                        borderRadius:
-                          transferTab === 1 ? "8px 8px 0 0" : "8px 0 0 8px",
+                        // minWidth: "10em",
+                        width: "full",
+                        borderRadius: transferTab === 1 ? "8px 0 0 8px" : "8px",
                         padding: "0",
                         "&:hover": {
                           backgroundColor: "#c9c9c9",
@@ -222,20 +286,23 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
                     <IoSwapHorizontal
                       size={30}
                       color="#757575"
-                      className="absolute top-1/2 left-1/2 -translate-y-1/2  -translate-x-1/2"
+                      className="absolute top-1/2 left-1/2 -translate-y-1/2  -translate-x-1/2  z-10"
                     />
                   )}
                   {transferTab === 1 && (
                     <MobileDateTimePicker
                       label="Return"
                       disablePast
+                      minDateTime={departureTime || dayjs()}
+                      onChange={(newValue) => {
+                        setReturnTime(newValue);
+                      }}
                       sx={{
                         flexGrow: 1,
+                        width: "100%",
                         "& .MuiInputBase-root": {
                           backgroundColor: "#e0e0e0",
-                          borderRadius: mobileView
-                            ? "0 0 8px 8px"
-                            : "0 8px 8px 0",
+                          borderRadius: mobileView ? "8px" : "0 8px 8px 0",
                           marginBottom: "8px",
                           padding: 0,
                           "&:hover": {
@@ -261,10 +328,15 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
               </DemoContainer>
             </LocalizationProvider>
 
-            <CustomTextField label="Passengers" type="number" />
+            <CustomTextField
+              label="Passengers"
+              type="number"
+              onChange={(e) => setPassengers(Number(e.target.value))}
+            />
             <Button
               variant="contained"
               color="primary"
+              onClick={handleSearch}
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -292,57 +364,30 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
               mt: 2,
             }}
           >
-            <CustomTextField
+            <LocationButton
               label="From"
-              sx={{
-                "& .MuiFilledInput-root": {
-                  borderRadius: "8px",
-                  "&:before, &:after": {
-                    display: "none",
-                  },
-                },
-              }}
+              onSelectLocation={(location) =>
+                handleLocationSelect("from", location)
+              }
             />
-            <FormControl sx={{ width: { xs: "100%", sm: "100%", md: "20%" } }}>
-              <InputLabel>Attraction</InputLabel>
-              <Select
-                value={fromInput}
-                onChange={(e) => setFromInput(e.target.value)}
-                label="From"
-                variant="filled"
-                sx={{
-                  "& .MuiFilledInput-root": {
-                    backgroundColor: "#e0e0e0",
-                    borderRadius: "8px",
-                    "&:hover": {
-                      backgroundColor: "#c9c9c9",
-                    },
-                    "&:before, &:after": {
-                      display: "none",
-                    },
-                  },
-                  "& .MuiInputLabel-root": {
-                    color: "#757575",
-                  },
-                  "& .MuiInputLabel-root.Mui-focused": {
-                    color: "#1976D2",
-                  },
-                }}
-              >
-                <MenuItem value="Place 1">Place 1</MenuItem>
-                <MenuItem value="Place 2">Place 2</MenuItem>
-                <MenuItem value="Place 3">Place 3</MenuItem>
-              </Select>
-            </FormControl>
+            {/* <LocationSelect value={fromInput} onChange={setFromInput} /> */}
+            <LocationButton
+              label="Attraction"
+              onSelectLocation={(location) =>
+                handleLocationSelect("attraction", location)
+              }
+            />
             <CustomTextField label="days" type="number" />
             {/* Date Pickers */}
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["MobileDateTimePicker"]}>
+              <DemoContainer
+                components={["MobileDateTimePicker"]}
+                sx={{ width: "60%" }}
+              >
                 <MobileDateTimePicker
                   label="Departure"
                   disablePast
                   sx={{
-                    flexGrow: 1,
                     "& .MuiInputBase-root": {
                       backgroundColor: "#e0e0e0",
                       marginBottom: "8px",
@@ -368,9 +413,11 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
               </DemoContainer>
             </LocalizationProvider>
             <CustomTextField label="Passengers" type="number" />
+
             <Button
               variant="contained"
               color="primary"
+              onClick={handleSearch}
               sx={{
                 display: "flex",
                 alignItems: "center",
