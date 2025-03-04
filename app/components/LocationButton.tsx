@@ -83,21 +83,21 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
 
         if (label === "From") {
           setSuggestions([
-            { display_name: "📍 Use Current Location", lat: "", lon: "" }, // Add "Use Current Location" at the top
+            { display_name: "📍 Use Current Location", lat: "", lon: "" },
             ...locations,
           ]);
         } else {
           setSuggestions(locations);
         }
-      } catch (error: any) {
-        if (error.name !== "AbortError") {
+      } catch (error) {
+        if ((error as Error).name !== "AbortError") {
           setError("Failed to fetch location data.");
         }
       } finally {
         setIsLoading(false);
       }
     }, 200),
-    [label]
+    [label, API_URL, API_KEY, abortControllerRef] // ✅ Ensure all dependencies are included
   );
 
   useEffect(() => {
