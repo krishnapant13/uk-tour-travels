@@ -14,7 +14,7 @@ interface MapProps {
 
 const LeafletMap: React.FC<MapProps> = ({ fromLat, fromLon, toLat, toLon }) => {
   const mapRef = useRef<L.Map | null>(null);
-  //@ts-ignore
+  //@ts-expect-error
   const routingRef = useRef<L.Routing.Control | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
@@ -76,7 +76,7 @@ const LeafletMap: React.FC<MapProps> = ({ fromLat, fromLon, toLat, toLon }) => {
     }
 
     // **Initialize Routing**
-    //@ts-ignore
+    //@ts-expect-error
     routingRef.current = L.Routing.control({
       waypoints: [L.latLng(fromLat, fromLon), L.latLng(toLat, toLon)],
       routeWhileDragging: true,

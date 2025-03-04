@@ -8,7 +8,7 @@ export interface Vehicle {
   name: string;
   brand: string;
   type: string;
-  seats: any;
+  seats: number;
   price: number;
   features: Feature[];
   image: string[];

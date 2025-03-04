@@ -32,34 +32,10 @@ const iconMap = {
   MdTerrain: <MdTerrain />,
 };
 
-type IconKeys = keyof typeof iconMap;
-
-interface Vehicle {
-  id: string;
-  brand: string;
-  name: string;
-  type: string;
-  seats: number;
-  price: number;
-  image: string[];
-  features: {
-    icon:
-      | "MdAirlineSeatReclineExtra"
-      | "MdWifi"
-      | "MdAcUnit"
-      | "MdOutlineDirectionsCar"
-      | "MdOutlineBatteryChargingFull"
-      | "MdSecurity"
-      | "MdLocalGasStation"
-      | "MdTerrain";
-    tooltip: string;
-  }[];
-}
-
 const VehicleCarousel = () => {
   const router = useRouter();
   const handleBooking = (vehicleId: string) => {
-    router.push("/booking");
+    router.push(`/booking${vehicleId}`);
   };
   // Custom Arrow Component
   const CustomArrow = ({
