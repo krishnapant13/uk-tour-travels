@@ -35,9 +35,8 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
   const [showSuggestions, setShowSuggestions] = useState<boolean>(false); // Control visibility
   const containerRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
-
   const fetchLocations = useCallback(
-    debounce(async (input: string) => {
+    async (input: string) => {
       if (input.length < 3) {
         setSuggestions(label === "From" ? [] : []);
         return;
@@ -81,24 +80,26 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
           lon: place.geometry.lng,
         }));
 
-        if (label === "From") {
-          setSuggestions([
-            { display_name: "📍 Use Current Location", lat: "", lon: "" },
-            ...locations,
-          ]);
-        } else {
-          setSuggestions(locations);
-        }
-      } catch (error) {
+        setSuggestions(
+          label === "From"
+            ? [
+                { display_name: "📍 Use Current Location", lat: "", lon: "" },
+                ...locations,
+              ]
+            : locations
+        );
+      } catch (error: unknown) {
         if ((error as Error).name !== "AbortError") {
           setError("Failed to fetch location data.");
         }
       } finally {
         setIsLoading(false);
       }
-    }, 200),
-    [label, API_URL, API_KEY, abortControllerRef] // ✅ Ensure all dependencies are included
-  );
+    },
+    [label]
+  ); // Proper dependency array
+
+  const debouncedFetchLocations = useRef(debounce(fetchLocations, 200)).current;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -119,7 +120,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
     setShowSuggestions(true);
-    fetchLocations(e.target.value);
+    debouncedFetchLocations(e.target.value);
   };
 
   const handleSelectLocation = (location: Location) => {

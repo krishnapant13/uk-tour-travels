@@ -1,19 +1,15 @@
 "use client";
 
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import Navbar from "../components/Navbar";
 import VehicleCarousel from "../components/VehicleCarousel";
 import { FaArrowRightLong, FaPencil } from "react-icons/fa6";
-import dynamic from "next/dynamic";
-// import { useState } from "react";
-// import { motion } from "framer-motion";
-// import SwitchTab from "../components/SwitchTab";
 
-const MapComponent = dynamic(() => import("./MapComponent"), {
-  ssr: false,
-});
+const MapComponent = dynamic(() => import("./MapComponent"), { ssr: false });
 
-const ResultPage: React.FC = () => {
+const ResultPageContent: React.FC = () => {
   const searchParams = useSearchParams();
   const fromData = searchParams.get("fromData") || "Starting Point";
   const toData = searchParams.get("toData") || "Destination";
@@ -29,21 +25,9 @@ const ResultPage: React.FC = () => {
     searchParams.get("attractionLonData") || "0"
   );
   const passengers = searchParams.get("passengers") || "1";
-  // const [showSwitchTab, setShowSwitchTab] = useState(false);
 
   return (
     <div className="relative">
-      {/* <motion.div
-        initial={{ y: "180%", opacity: 0 }}
-        animate={{
-          y: showSwitchTab ? "-10%" : "-180%",
-          opacity: showSwitchTab ? 1 : 0,
-        }}
-        transition={{ type: "spring", stiffness: 100 }}
-        className="absolute top-0 left-0 w-full shadow-md p-4 z-50"
-      >
-        <SwitchTab />
-      </motion.div> */}
       <Navbar />
       <div className="info-bar w-full h-auto p-2 flex flex-wrap justify-evenly items-center bg-gray-200 mt-16 shadow-md relative">
         <div className="flex justify-center items-center pr-4 border-r border-black">
@@ -64,12 +48,7 @@ const ResultPage: React.FC = () => {
         <p className="border-r border-black pr-4">
           👥 Passengers: {passengers}
         </p>
-        <FaPencil
-          size={18}
-          color="black"
-          className="cursor-pointer"
-          // onClick={() => setShowSwitchTab((prev) => !prev)}
-        />
+        <FaPencil size={18} color="black" className="cursor-pointer" />
       </div>
       <div className="grid grid-cols-2">
         <div className="md:col-span-1 col-span-2 p-4 overflow-scroll h-[100vh]">
@@ -89,4 +68,10 @@ const ResultPage: React.FC = () => {
   );
 };
 
-export default ResultPage;
+export default function ResultPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultPageContent />
+    </Suspense>
+  );
+}
