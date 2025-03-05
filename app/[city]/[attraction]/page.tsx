@@ -19,8 +19,9 @@ export async function generateStaticParams() {
     city.attractions.forEach((attraction) => {
       const formattedAttraction = `${attraction.name
         .toLowerCase()
-        .split(" ")
-        .join("-")}-${attraction.header.toLowerCase().split(" ").join("-")}`;
+        .replace(/[^a-z0-9]+/g, "-")}-${attraction.header
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")}`;
 
       params.push({
         city: city.city.toLowerCase(),
@@ -32,8 +33,9 @@ export async function generateStaticParams() {
   return params;
 }
 
-const AttractionPage = async ({ params }: AttractionPageProps) => {
-  const { city, attraction } = await params;
+// Attraction Page Component
+const AttractionPage = ({ params }: AttractionPageProps) => {
+  const { city, attraction } = params; // ✅ Removed `await`
 
   const cityData = citiesData.find(
     (data) => data.city.toLowerCase() === city.toLowerCase()
@@ -66,6 +68,7 @@ const AttractionPage = async ({ params }: AttractionPageProps) => {
       </div>
     );
   }
+
   return (
     <div className="px-5 md:px-14 relative ease-linear duration-300">
       <Navbar />
@@ -86,8 +89,8 @@ const AttractionPage = async ({ params }: AttractionPageProps) => {
           height={150}
           style={{ objectFit: "cover" }}
         />
-        <div className=" grid md:grid-cols-3 grid-cols-1">
-          <div className=" col-span-2 ">
+        <div className="grid md:grid-cols-3 grid-cols-1">
+          <div className="col-span-2">
             <h2 className="text-2xl font-bold mt-2">Description</h2>
             <p className="py-5 text-gray-700">{attractionData.description}</p>
             <h2 className="text-2xl font-bold mt-2">Recommended Stops</h2>
@@ -95,25 +98,25 @@ const AttractionPage = async ({ params }: AttractionPageProps) => {
               You can visit all the places from the list or pick only the ones
               you like. Just inform your driver about your choice during the
               ride. During the stops you can do whatever you want: visit the
-              landmarks, take pictures e.t.c. Take as much time as you want
+              landmarks, take pictures, etc. Take as much time as you want
               within the overall max duration of the trip.
             </p>
             <div className="flex flex-wrap gap-4 mt-5">
               {attractionData.stops.map((stop, index) => (
                 <div
                   key={index}
-                  className="w-[250px] flex-shrink-0  flex flex-col items-center  overflow-hidden"
+                  className="w-[250px] flex-shrink-0 flex flex-col items-center overflow-hidden"
                 >
                   <Image
                     src={stop.image}
                     alt={`Stop ${index + 1}: ${stop.name}`}
                     width={250}
                     height={150}
-                    className=" rounded-2xl"
+                    className="rounded-2xl"
                     style={{ objectFit: "cover" }}
                   />
                   <div className="bg-gray-100 text-start p-2 w-full">
-                    <p className=" text-base font-bold text-gray-800">
+                    <p className="text-base font-bold text-gray-800">
                       Stop {index + 1}: {stop.name}
                     </p>
                     <p className="text-xs text-gray-600">{stop.description}</p>
@@ -132,7 +135,7 @@ const AttractionPage = async ({ params }: AttractionPageProps) => {
               <p className="py-4 font-bold text-base text-gray-500">
                 Not Included
               </p>
-              <div className="flex justify-start items-center  text-gray-500">
+              <div className="flex justify-start items-center text-gray-500">
                 <RxCrossCircled className="mr-3" />
                 Entrance fees for all attractions, Tips and gratuities, Meals
                 and beverages
@@ -149,7 +152,7 @@ const AttractionPage = async ({ params }: AttractionPageProps) => {
           <div className="mt-[15em]">
             <SelectVehicleForm />
           </div>
-        </div>{" "}
+        </div>
       </div>
       <WhyBook />
     </div>
