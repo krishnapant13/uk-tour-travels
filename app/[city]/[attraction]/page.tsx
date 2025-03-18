@@ -3,12 +3,11 @@
 import { useParams, notFound } from "next/navigation";
 import Image from "next/image";
 import citiesData from "@/app/citiesData.json";
-import SelectVehicleForm from "@/app/components/SelectVehicleForm";
 import WhyBook from "@/app/components/WhyBook";
 import { FaCircleCheck } from "react-icons/fa6";
 import { RxCrossCircled } from "react-icons/rx";
-import VehicleCarousel from "@/app/components/VehicleCarousel";
 import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 
 export default function AttractionPage() {
   const params = useParams();
@@ -107,24 +106,15 @@ export default function AttractionPage() {
                 Entrance fees for all attractions, Tips and gratuities, Meals
                 and beverages
               </div>
-
-              <h2
-                className="text-2xl font-bold mb-2 mt-10"
-                id="vehicle-section"
-              >
-                Vehicles
-              </h2>
-              <VehicleCarousel />
             </div>
           </div>
 
-          <div className="mt-[15em]">
-            <SelectVehicleForm />
-          </div>
+          <div className="mt-[15em]"></div>
         </div>
       </div>
 
       <WhyBook />
+      <Footer/>
     </div>
   );
 }

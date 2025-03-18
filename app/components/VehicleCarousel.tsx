@@ -32,12 +32,42 @@ const iconMap = {
   MdTerrain: <MdTerrain />,
 };
 
+interface Vehicle {
+  id: string;
+  name: string;
+  image: string[];
+  brand: string;
+  type: string;
+  seats: number;
+  price: number;
+  features: { icon: string; tooltip: string }[];
+}
+
 const VehicleCarousel = () => {
   const router = useRouter();
-  const handleBooking = (vehicleId: string) => {
-    router.push(`/booking${vehicleId}`);
+
+  const handleBooking = (vehicle: Vehicle) => {
+    const existingSearchData = localStorage.getItem("searchData");
+    const searchData = existingSearchData ? JSON.parse(existingSearchData) : {};
+
+    const updatedSearchData = {
+      ...searchData,
+      vehicle: {
+        id: vehicle.id,
+        name: vehicle.name,
+        image: vehicle.image[0],
+        brand: vehicle.brand,
+        type: vehicle.type,
+        seats: vehicle.seats,
+        price: vehicle.price,
+        features: vehicle.features,
+      },
+    };
+
+    localStorage.setItem("searchData", JSON.stringify(updatedSearchData));
+
+    router.push(`/booking`);
   };
-  // Custom Arrow Component
   const CustomArrow = ({
     onClick,
     direction,
@@ -70,7 +100,6 @@ const VehicleCarousel = () => {
 
   const searchParams = useSearchParams();
   const passengers = parseInt(searchParams.get("passengers") || "0", 10);
-  console.log(passengers);
   const sortedVehicles = [...vehicles]
     .filter((v) => v.seats - 1 >= passengers)
     .sort((a, b) => a.seats - 1 - (b.seats - 1))
@@ -83,7 +112,6 @@ const VehicleCarousel = () => {
   return (
     <div className="carousel-container flex flex-col space-y-4 w-full scroll-smooth">
       {sortedVehicles.map((vehicle) => {
-        // Slider Settings
         const settings = {
           dots: true,
           infinite: true,
@@ -151,7 +179,7 @@ const VehicleCarousel = () => {
                 <CustomButton
                   title="Book Now"
                   sx={{ width: "40%", padding: "2px" }}
-                  onClick={() => handleBooking(vehicle.id)}
+                  onClick={() => handleBooking(vehicle)}
                 />
               </div>
             </div>

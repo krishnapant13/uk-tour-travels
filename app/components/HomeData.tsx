@@ -23,31 +23,41 @@ const HomeData: React.FC<HomeComponentProps> = ({
 }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  // https://opencagedata.com/dashboard#geocoding
-
   const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
+
   return (
-    <main className=" relative ">
+    <main className="relative">
+      {/* Navbar */}
       <Navbar />
-      <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-4 py-5 mt-16 mb-4">
-        <div className="flex flex-col justify-between md:justify-start items-start h-full md:space-y-4 space-y-10 ">
+
+      {/* Main Section */}
+      <section className="grid grid-cols-1 md:grid-cols-2 h-full gap-4 py-5 mt-16 mb-4">
+        <div className="flex flex-col justify-between md:justify-start items-start h-full md:space-y-4 space-y-10">
+          {/* Enquiry Form */}
           <Enquiry />
 
-          <h2 className="text-[2em] md:text-5xl font-bold text-gray-800 leading-snug">
+          {/* Main Heading (SEO Boost) */}
+          <h1 className="text-[2em] md:text-5xl font-bold text-gray-800 leading-snug">
             {title}
-          </h2>
+          </h1>
+
+          {/* Description */}
           <p className="text-gray-600 text-lg md:text-xl leading-snug">
             {description}
           </p>
 
+          {/* Call-to-Action Button */}
           <CustomButton
             hideOn="large"
             onClick={toggleSearch}
             title="Look for Vehicle Booking"
           />
         </div>
+
+        {/* Image Grid */}
         <ImageGrid imageSrc={imageSrc} />
-      </div>
+      </section>
+
       <SwitchTab
         showCapsuleTabs={true}
         absolutePosition={{
@@ -56,22 +66,32 @@ const HomeData: React.FC<HomeComponentProps> = ({
           transform: "translateX(0)",
         }}
       />
-      <div className="hidden md:flex flex-col md:flex-row justify-between md:justify-center md:h-auto items-center w-full mt-10 ml-8 md:ml-auto pb-20 border-b border-gray-300 ">
-        <div className="flex flex-row md:justify-center justify-start items-center md:w-full text-center md:text-left mb-4">
+
+      {/* Features Section */}
+      <section
+        className="hidden md:flex flex-col md:flex-row justify-between md:justify-center items-center w-full mt-10 ml-8 md:ml-auto pb-20 border-b border-gray-300"
+        aria-label="Key Features"
+      >
+        {/* Feature: Checked Vehicles */}
+        <div className="flex items-center md:w-full text-center md:text-left mb-4">
           <IoMdCheckmarkCircleOutline className="mr-2" color="blue" size={25} />
           <p>Checked Only Vehicles</p>
         </div>
 
-        <div className="flex flex-row md:justify-center justify-start items-center   md:w-full text-center md:text-left mb-4">
+        {/* Feature: Real-time Confirmation */}
+        <div className="flex items-center md:w-full text-center md:text-left mb-4">
           <IoIosTimer className="mr-2" color="blue" size={25} />
-          <p>Real Time Confirmation</p>
+          <p>Real-Time Confirmation</p>
         </div>
 
-        <div className="flex flex-row md:justify-center justify-start items-center   md:w-full text-center md:text-left">
+        {/* Feature: Safe Payments */}
+        <div className="flex items-center md:w-full text-center md:text-left">
           <FaRegCreditCard className="mr-2" color="blue" size={25} />
-          <p>Safe payments</p>
+          <p>Safe Payments</p>
         </div>
-      </div>
+      </section>
+
+      {/* Sliding Panel for Search */}
       <SlidingPanel isOpen={isSearchOpen} onClose={toggleSearch}>
         <Box>
           <SwitchTab showCapsuleTabs={true} mobileView={true} />

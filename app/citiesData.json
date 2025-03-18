@@ -200,6 +200,8 @@
       {
         "name": "The Mall Road",
         "images": [
+          "https://i.pinimg.com/736x/26/ca/c0/26cac00a8e8085603169a0a1b85b18ba.jpg",
+          "https://i.pinimg.com/736x/26/ca/c0/26cac00a8e8085603169a0a1b85b18ba.jpg",
           "https://i.pinimg.com/736x/26/ca/c0/26cac00a8e8085603169a0a1b85b18ba.jpg"
         ],
         "header": "Shop and Stroll",
@@ -796,7 +798,7 @@
           "https://i.pinimg.com/736x/c5/9d/6e/c59d6ebf6a9738e963f8a8ee2bc8dbb8.jpg",
           "https://i.pinimg.com/736x/c2/99/61/c29961deb1cd6843e750c65b23fd4dbf.jpg"
         ],
-        "header": "India's Oldest Wildlife Sanctuary",
+        "header": "Oldest Wildlife Sanctuary of India",
         "description": "Jim Corbett National Park is a famous wildlife reserve known for its diverse flora and fauna, including the Bengal Tiger. It offers thrilling safaris for wildlife enthusiasts.",
         "recommended_stops": ["Tiger Safari", "Corbett Museum"],
         "stops": [
@@ -862,7 +864,7 @@
     "link": "/ramnagar",
     "from": "Delhi",
     "heading": "Ramnagar: Gateway to Wilderness",
-    "description": "Ramnagar is your entry point to the renowned Jim Corbett National Park, India's oldest wildlife sanctuary. Enjoy thrilling safaris, serene waterfalls, and cultural insights at the Dhangarhi Museum. Discover nature's beauty and the call of the wild in Ramnagar"
+    "description": "Ramnagar is your entry point to the renowned Jim Corbett National Park,oldest wildlife sanctuary of india. Enjoy thrilling safaris, serene waterfalls, and cultural insights at the Dhangarhi Museum. Discover nature's beauty and the call of the wild in Ramnagar"
   },
   {
     "city": "Champawat",

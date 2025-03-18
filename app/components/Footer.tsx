@@ -1,5 +1,5 @@
-import Link from "next/link";
 import React from "react";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
   return (
@@ -15,48 +15,18 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Center Section (Links) */}
-          <div className="mb-4 md:mb-0">
-            <ul className="flex flex-wrap justify-center md:justify-start">
-              <li className="mx-3">
-                <Link
-                  href="/about"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li className="mx-3">
-                <Link
-                  href="/services"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Services
-                </Link>
-              </li>
-              <li className="mx-3">
-                <Link
-                  href="/contact"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li className="mx-3">
-                <Link
-                  href="/privacy"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
+          <div className="mb-4 md:mb-0 w-full flex flex-wrap justify-around items-center">
+            <h3 className="font-bold text-xl"> Contact</h3>
+            <FaFacebook size={40} />
+            <FaInstagram size={40} />
+            <FaWhatsapp size={40} />
           </div>
 
           {/* Right Section */}
           <div>
             <p className="text-sm text-gray-400">
-              &copy; {new Date().getFullYear()} Uttarakhand Tour & Travels. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} Uttarakhand Tour & Travels. All
+              rights reserved.
             </p>
           </div>
         </div>

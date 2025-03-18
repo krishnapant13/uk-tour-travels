@@ -1,3 +1,4 @@
+"use client";
 import { Box, Button, Tab, Tabs } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CustomTextField from "./CustomTextField";
@@ -13,7 +14,7 @@ import { IoSwapHorizontal } from "react-icons/io5";
 import LocationButton from "./LocationButton";
 import { useRouter } from "next/navigation";
 import dayjs, { Dayjs } from "dayjs";
-import { useParams } from "next/navigation";
+import { toast } from "react-toastify";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -65,11 +66,8 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
   const [departureTime, setDepartureTime] = useState<Dayjs | null>(null);
   const [returnTime, setReturnTime] = useState<Dayjs | null>(null);
   const [passengers, setPassengers] = useState<number | null>(null);
-  const params = useParams();
-  const city = Array.isArray(params?.city)
-    ? params.city[0]
-    : params?.city ?? "";
-  // const [fromInput, setFromInput] = useState<string>(city);
+  const [days, setDays] = useState<number | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleLocationSelect = (
     type: "from" | "to" | "attraction",
@@ -90,21 +88,57 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
     }
   };
 
+  const validateInputs = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!fromData) newErrors.fromData = "From location is required";
+
+    if (activeTab === 0) {
+      // Transfers Tab
+      if (!toData) newErrors.toData = "To location is required";
+      if (!departureTime)
+        newErrors.departureTime = "Departure time is required";
+
+      if (transferTab === 1 && !returnTime) {
+        newErrors.returnTime = "Return time is required for roundtrip";
+      }
+
+      if (!passengers || passengers < 1) {
+        newErrors.passengers = "At least 1 passenger is required";
+      }
+    } else {
+      // Tours Tab
+      if (!attractionData) newErrors.attractionData = "Attraction is required";
+      if (!departureTime)
+        newErrors.departureTime = "Departure time is required";
+
+      if (!days || days < 1) {
+        newErrors.days = "Days must be at least 1";
+      }
+
+      if (!passengers || passengers < 1) {
+        newErrors.passengers = "At least 1 passenger is required";
+      }
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
+
   const router = useRouter();
   const handleSearch = () => {
-    if (
-      (!fromData &&
-        (activeTab === 0 ? !toData : !attractionData) &&
-        !departureTime) ||
-      (!returnTime && !passengers)
-    ) {
-      alert("Please fill in all required fields.");
+    if (!validateInputs()) {
+      const firstErrorKey = Object.keys(errors)[0];
+      if (firstErrorKey) {
+        toast.error(errors[firstErrorKey]);
+      }
       return;
     }
     const queryParams = new URLSearchParams({
       transport:
-        transferTab === 0
-          ? `transfer ${activeTab === 0 ? "oneway" : "roundtrip"}`
+        activeTab === 0
+          ? ` ${transferTab === 0 ? "oneway" : "roundtrip"}`
           : "tour",
       fromData: fromData || "",
       fromLatData: fromLatData || "",
@@ -118,12 +152,31 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
       departureTime: departureTime?.toString() || "",
       returnTime: returnTime?.toString() || "",
       passengers: passengers?.toString() || "",
+      days: days?.toString() || "",
     }).toString();
+    const searchData = {
+      transport:
+        activeTab === 0
+          ? ` ${transferTab === 0 ? "oneway" : "roundtrip"}`
+          : "tour",
+      fromData,
+      fromLatData,
+      fromLonData,
+      toData,
+      toLatData,
+      toLonData,
+      departureTime: departureTime?.toString(),
+      returnTime: returnTime?.toString(),
+      passengers,
+      days,
+    };
+    localStorage.setItem("searchData", JSON.stringify(searchData));
+
     router.push(`/result?${queryParams}`);
   };
   useEffect(() => {
-    setActiveTab(city ? 1 : 0);
-  }, [city]);
+    setActiveTab(0);
+  }, []);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
@@ -369,28 +422,39 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
                 handleLocationSelect("from", location)
               }
             />
-            {/* <LocationSelect value={fromInput} onChange={setFromInput} /> */}
             <LocationButton
               label="Attraction"
               onSelectLocation={(location) =>
                 handleLocationSelect("attraction", location)
               }
             />
-            <CustomTextField label="days" type="number" />
+            <CustomTextField
+              label="days"
+              type="number"
+              onChange={(e) => setDays(Number(e.target.value))}
+            />
             {/* Date Pickers */}
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer
                 components={["MobileDateTimePicker"]}
-                sx={{ width: "60%" }}
+                sx={{ width: "40%" }}
               >
                 <MobileDateTimePicker
                   label="Departure"
                   disablePast
+                  onChange={(newValue) => {
+                    setDepartureTime(newValue);
+                  }}
                   sx={{
+                    flexGrow: 1,
+                    width: "100%",
                     "& .MuiInputBase-root": {
                       backgroundColor: "#e0e0e0",
                       marginBottom: "8px",
-                      borderRadius: "8px",
+                      // minWidth: "10em",
+                      width: "full",
+                      borderRadius: transferTab === 1 ? "8px 0 0 8px" : "8px",
+                      padding: "0",
                       "&:hover": {
                         backgroundColor: "#c9c9c9",
                       },
@@ -411,7 +475,11 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
                 />
               </DemoContainer>
             </LocalizationProvider>
-            <CustomTextField label="Passengers" type="number" />
+            <CustomTextField
+              label="Passengers"
+              type="number"
+              onChange={(e) => setPassengers(Number(e.target.value))}
+            />
 
             <Button
               variant="contained"

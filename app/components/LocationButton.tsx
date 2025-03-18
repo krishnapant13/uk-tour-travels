@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { List, ListItem, ListItemButton, Typography } from "@mui/material";
 import CustomTextField from "./CustomTextField";
 import { debounce } from "lodash";
+import { useParams } from "next/navigation";
 
 interface Location {
   display_name: string;
@@ -28,17 +29,28 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
   label,
   onSelectLocation,
 }) => {
-  const [query, setQuery] = useState<string>("");
+  const params = useParams();
+  const city = Array.isArray(params?.city)
+    ? params.city[0]
+    : params?.city ?? "";
+
+  const capitalizedCity = city
+    ? city.charAt(0).toUpperCase() + city.slice(1)
+    : "";
+
+  const [query, setQuery] = useState<string>(
+    label === "To" || label === "Attraction" ? capitalizedCity : ""
+  );
   const [suggestions, setSuggestions] = useState<Location[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [showSuggestions, setShowSuggestions] = useState<boolean>(false); // Control visibility
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
   const fetchLocations = useCallback(
-    async (input: string) => {
+    async (input: string, autofill = false) => {
       if (input.length < 3) {
-        setSuggestions(label === "From" ? [] : []);
+        setSuggestions([]);
         return;
       }
 
@@ -80,14 +92,17 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
           lon: place.geometry.lng,
         }));
 
-        setSuggestions(
-          label === "From"
-            ? [
-                { display_name: "📍 Use Current Location", lat: "", lon: "" },
-                ...locations,
-              ]
-            : locations
-        );
+        setSuggestions(locations);
+
+        if (
+          autofill &&
+          locations.length > 0 &&
+          (label === "To" || label === "Attraction")
+        ) {
+          const firstLocation = locations[0];
+          setQuery(firstLocation.display_name);
+          onSelectLocation(firstLocation);
+        }
       } catch (error: unknown) {
         if ((error as Error).name !== "AbortError") {
           setError("Failed to fetch location data.");
@@ -96,10 +111,18 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
         setIsLoading(false);
       }
     },
-    [label]
-  ); // Proper dependency array
+    [onSelectLocation, label]
+  );
 
-  const debouncedFetchLocations = useRef(debounce(fetchLocations, 200)).current;
+  useEffect(() => {
+    if (capitalizedCity && (label === "To" || label === "Attraction")) {
+      fetchLocations(capitalizedCity, true);
+    }
+  }, [capitalizedCity, label, fetchLocations]);
+
+  const debouncedFetchLocations = useRef(
+    debounce((input) => fetchLocations(input), 200)
+  ).current;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -124,64 +147,13 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
   };
 
   const handleSelectLocation = (location: Location) => {
-    if (location.display_name === "📍 Use Current Location") {
-      handleUseCurrentLocation();
-      return;
-    }
-
     setQuery(location.display_name);
     setShowSuggestions(false);
     onSelectLocation(location);
   };
 
-  const handleUseCurrentLocation = () => {
-    if (!navigator.geolocation) {
-      setError("Geolocation is not supported by this browser.");
-      return;
-    }
-
-    setIsLoading(true);
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-
-        try {
-          const response = await fetch(
-            `${API_URL}?q=${latitude}+${longitude}&key=${API_KEY}`
-          );
-          const data = await response.json();
-
-          if (data.status.code === 200 && data.results.length > 0) {
-            const location = {
-              display_name: "Current Location",
-              lat: latitude.toString(),
-              lon: longitude.toString(),
-            };
-            handleSelectLocation(location);
-          } else {
-            setError("Failed to fetch address for your location.");
-          }
-        } catch {
-          setError("Failed to fetch location data.");
-        } finally {
-          setIsLoading(false);
-        }
-      },
-      () => {
-        setError("Failed to get your location.");
-        setIsLoading(false);
-      }
-    );
-  };
-
   const handleFocus = () => {
     setShowSuggestions(true);
-
-    if (label === "From") {
-      setSuggestions([
-        { display_name: "📍 Use Current Location", lat: "", lon: "" },
-      ]);
-    }
   };
 
   return (
@@ -194,18 +166,12 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
         onFocus={handleFocus}
       />
       {isLoading && (
-        <Typography
-          color="primary"
-          className="absolute top-1/2 left-1/2 -translate-y-1/2 translate-x-0"
-        >
+        <Typography color="primary" className="absolute top-1/2 left-1/2">
           Searching...
         </Typography>
       )}
       {error && (
-        <Typography
-          color="error"
-          className="absolute top-1/2 left-1/2 -translate-y-1/2 translate-x-0"
-        >
+        <Typography color="error" className="absolute top-1/2 left-1/2">
           {error}
         </Typography>
       )}

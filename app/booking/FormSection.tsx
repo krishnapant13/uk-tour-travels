@@ -1,7 +1,7 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import CustomButton from "../components/CustomButton";
+import CustomTextField from "../components/CustomTextField";
 
 interface Country {
   name: { common: string };
@@ -25,7 +25,6 @@ const FormSection = () => {
   const [countryList, setCountryList] = useState<ProcessedCountry[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch country codes dynamically
   useEffect(() => {
     const fetchCountryCodes = async () => {
       try {
@@ -50,7 +49,6 @@ const FormSection = () => {
     fetchCountryCodes();
   }, []);
 
-  // Generic input handler
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -59,42 +57,65 @@ const FormSection = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Form submission handler
-  const handleBooking = (e: React.FormEvent) => {
+  const handleBooking = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Booking Confirmed! ✅");
+
+    const bookingData = {
+      ...formData,
+      bookingDetails: JSON.parse(localStorage.getItem("searchData") || "{}"),
+    };
+
+    console.log("Booking Data:", bookingData);
+
+    // Save booking data in localStorage (for testing)
+    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+
+    try {
+      const response = await fetch("/api/sendBookingEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingData),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert("Booking confirmed and email sent successfully!");
+      } else {
+        alert("Failed to send booking email.");
+      }
+    } catch (error) {
+      console.error("Error sending booking email:", error);
+      alert("Something went wrong!");
+    }
   };
 
   return (
     <form className="mt-4 space-y-4" onSubmit={handleBooking}>
-      {/* Full Name */}
-      <input
+      <CustomTextField
+        label="Full name"
         type="text"
         name="fullName"
-        placeholder="Full Name"
-        className="w-full p-2 border rounded-md"
         value={formData.fullName}
         onChange={handleChange}
+        sx={{ width: "100%" }}
         required
       />
-
-      {/* Email */}
-      <input
-        type="email"
+      <CustomTextField
+        label="Email"
         name="email"
-        placeholder="Email"
-        className="w-full p-2 border rounded-md"
+        type="email"
         value={formData.email}
         onChange={handleChange}
+        sx={{ width: "100%" }}
         required
       />
 
-      {/* Mobile Number with Country Code */}
       <div className="flex space-x-2">
         <select
           name="countryCode"
-          className="p-2 border rounded-md w-[20%]"
+          className="p-2 border rounded-md w-[30%]"
           value={formData.countryCode}
           onChange={handleChange}
           disabled={loading}
@@ -109,31 +130,29 @@ const FormSection = () => {
             ))
           )}
         </select>
-        <input
+        <CustomTextField
+          label="Mobile Number"
           type="tel"
           name="mobileNumber"
-          placeholder="Mobile Number"
-          className="flex-1 p-2 border rounded-md"
           value={formData.mobileNumber}
           onChange={handleChange}
+          sx={{ width: "100%" }}
           required
         />
       </div>
 
-      {/* Notes/Requests for Driver */}
       <textarea
         name="notes"
         placeholder="Notes/Requests for the driver (Optional)"
-        className="w-full p-2 border rounded-md"
+        className="w-full p-2 border rounded-md bg-gray-200 outline-none"
         value={formData.notes}
         onChange={handleChange}
       ></textarea>
 
-      {/* Pay & Book Button */}
       <CustomButton
         title="Pay & Book"
         type="submit"
-        sx={{ backgroundColor: "#ff40ff", width: "30%" }}
+        sx={{ backgroundColor: "#ff40ff", width: { md: "30%", sm: "50%" } }}
       />
     </form>
   );

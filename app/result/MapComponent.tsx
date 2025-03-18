@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine";
@@ -17,33 +17,36 @@ const LeafletMap: React.FC<MapProps> = ({ fromLat, fromLon, toLat, toLon }) => {
   // @ts-expect-error: This error occurs due to a missing type definition in the library
   const routingRef = useRef<L.Routing.Control | null>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
 
-  useEffect(() => {
+  // **Debounced map initialization to prevent re-rendering**
+  const initializeMap = useCallback(() => {
     if (!mapContainerRef.current) return;
 
-    // **Destroy Existing Map If Present**
-    if (mapRef.current) {
-      mapRef.current.remove(); // Remove map instance
-      mapRef.current = null; // Reset ref
+    if (!mapRef.current) {
+      // **Create Map Once**
+      const map = L.map(mapContainerRef.current, {
+        zoomControl: true,
+        scrollWheelZoom: true,
+      }).setView([fromLat, fromLon], 10);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; Uttarakhand Tour & Travels",
+      }).addTo(map);
+
+      mapRef.current = map;
+    } else {
+      // **Smoothly pan to new location**
+      mapRef.current.panTo([fromLat, fromLon]);
     }
 
-    // **Initialize New Map**
-    const map = L.map(mapContainerRef.current, {
-      zoomControl: true,
-      scrollWheelZoom: true,
-    }).setView([fromLat, fromLon], 10);
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; Uttarakhand Tour & Travels",
-    }).addTo(map);
-
     // **Add Markers**
-    const createMarker = (
+    const addMarker = (
       lat: number,
       lon: number,
       label: string,
       color: string
-    ) =>
+    ) => {
       L.marker([lat, lon], {
         icon: L.divIcon({
           className: "custom-marker",
@@ -64,45 +67,61 @@ const LeafletMap: React.FC<MapProps> = ({ fromLat, fromLon, toLat, toLon }) => {
           iconSize: [50, 25],
           iconAnchor: [25, 25],
         }),
-      }).addTo(map);
+      }).addTo(mapRef.current!);
+    };
 
-    createMarker(fromLat, fromLon, "Start", "#007bff");
-    createMarker(toLat, toLon, "End", "#dc3545");
+    addMarker(fromLat, fromLon, "Start", "#007bff");
+    addMarker(toLat, toLon, "End", "#dc3545");
 
-    // **Remove Existing Routing Control If Present**
+    setIsMapLoaded(true);
+  }, [fromLat, fromLon, toLat, toLon]);
+
+  // **Efficient Route Initialization**
+  const initializeRoute = useCallback(() => {
+    if (!mapRef.current || !isMapLoaded) return;
+
+    // Remove previous route if exists
     if (routingRef.current) {
-      map.removeControl(routingRef.current); // Remove old route
+      mapRef.current.removeControl(routingRef.current);
       routingRef.current = null;
     }
 
-    // **Initialize Routing**
     // @ts-expect-error: This error occurs due to a missing type definition in the library
     routingRef.current = L.Routing.control({
       waypoints: [L.latLng(fromLat, fromLon), L.latLng(toLat, toLon)],
-      routeWhileDragging: true,
+      routeWhileDragging: false,
       lineOptions: { styles: [{ color: "blue", weight: 4 }] },
       createMarker: () => null,
       addWaypoints: false,
       draggableWaypoints: false,
       fitSelectedRoutes: true,
       show: false,
-    }).addTo(map);
+    }).addTo(mapRef.current);
+  }, [fromLat, fromLon, toLat, toLon, isMapLoaded]);
 
-    // **Save map instance**
-    mapRef.current = map;
+  useEffect(() => {
+    initializeMap();
+  }, [initializeMap]);
 
+  useEffect(() => {
+    if (isMapLoaded) {
+      initializeRoute();
+    }
+  }, [initializeRoute, isMapLoaded]);
+
+  useEffect(() => {
     return () => {
       // **Clean Up on Unmount**
       if (mapRef.current) {
-        mapRef.current.off(); // Remove all event listeners
-        mapRef.current.remove(); // Destroy map
+        mapRef.current.off();
+        mapRef.current.remove();
         mapRef.current = null;
       }
       if (routingRef.current) {
         routingRef.current = null;
       }
     };
-  }, [fromLat, fromLon, toLat, toLon]);
+  }, []);
 
   return <div ref={mapContainerRef} className="h-full w-full" />;
 };
