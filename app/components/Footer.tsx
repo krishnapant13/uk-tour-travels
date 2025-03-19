@@ -1,7 +1,17 @@
+"use client";
 import React from "react";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
+  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP;
+  const message = encodeURIComponent(
+    "Hello, I am interested in booking one of the tours!"
+  );
+
+  const handleWhatsAppClick = () => {
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, "_blank");
+  };
   return (
     <footer className="bg-gray-800 text-white py-6 mt-10">
       <div className="container mx-auto px-4">
@@ -19,7 +29,12 @@ const Footer: React.FC = () => {
             <h3 className="font-bold text-xl"> Contact</h3>
             <FaFacebook size={40} />
             <FaInstagram size={40} />
-            <FaWhatsapp size={40} />
+            <FaWhatsapp
+              size={40}
+              className="cursor-pointer"
+              aria-label="Chat with us on WhatsApp"
+              onClick={handleWhatsAppClick}
+            />
           </div>
 
           {/* Right Section */}
