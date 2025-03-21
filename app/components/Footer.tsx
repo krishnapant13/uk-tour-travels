@@ -1,5 +1,7 @@
 "use client";
+import Link from "next/link";
 import React from "react";
+import { FaInfoCircle } from "react-icons/fa";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
@@ -26,7 +28,9 @@ const Footer: React.FC = () => {
 
           {/* Center Section (Links) */}
           <div className="mb-4 md:mb-0 w-full flex flex-wrap justify-around items-center">
-            <h3 className="font-bold text-xl"> Contact</h3>
+            <Link href="/about">
+              <FaInfoCircle size={40} />
+            </Link>
             <FaFacebook size={40} />
             <FaInstagram size={40} />
             <FaWhatsapp

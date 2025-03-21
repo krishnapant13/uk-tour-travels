@@ -1,22 +1,24 @@
 import { MetadataRoute } from "next";
+import citiesData from "@/app/citiesData.json";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://uttarakhandtravelss.com";
 
-  const routes = [
+  // Static Pages
+  const routes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/`, lastModified: new Date().toISOString() },
     { url: `${baseUrl}/about`, lastModified: new Date().toISOString() },
-    { url: `${baseUrl}/contact`, lastModified: new Date().toISOString() },
   ];
 
-  // Dynamically add city and attraction pages
-  const cities = ["nainital", "rishikesh"];
-  const attractions = ["naina-devi-temple", "ram-jhula"];
+  // Dynamically Add City and Attraction Pages
+  citiesData.forEach((city) => {
+    city.attractions.forEach((attraction) => {
+      const formattedAttraction = `${attraction.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")}`;
 
-  cities.forEach((city) => {
-    attractions.forEach((attraction) => {
       routes.push({
-        url: `${baseUrl}/${city}/${attraction}`,
+        url: `${baseUrl}/${city.city.toLowerCase()}/${formattedAttraction}`,
         lastModified: new Date().toISOString(),
       });
     });
