@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import citiesData from "@/app/citiesData.json";
 
 export async function GET() {
@@ -27,7 +26,7 @@ export async function GET() {
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   ${pages
     .map(
       (page) => `
@@ -39,10 +38,11 @@ export async function GET() {
     </url>
   `
     )
-    .join("")}
+    .join("\n")}
 </urlset>`;
 
-  return new NextResponse(sitemap, {
+  // Return XML response with correct content type
+  return new Response(sitemap, {
     headers: {
       "Content-Type": "application/xml",
     },
