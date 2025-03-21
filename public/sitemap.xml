@@ -1,26 +1,51 @@
-import { MetadataRoute } from "next";
+import { NextResponse } from "next/server";
+import citiesData from "@/app/citiesData.json";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://uttarakhandtravelss.com";
+export async function GET() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://uttarakhandtravelss.com";
 
-  return [
-    {
-      url: `${baseUrl}/`,
-      lastModified: new Date().toISOString(),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/tours`,
-      lastModified: new Date().toISOString(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date().toISOString(),
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
+  const staticPages = [
+    "",
+    "about",
+    "contact",
+    "terms",
+    "privacy-policy"
   ];
+
+  const dynamicPages = citiesData.flatMap((city) =>
+    city.attractions.map((attr) => ({
+      loc: `${baseUrl}/${city.city.toLowerCase()}/${attr.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${attr.header.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      lastmod: new Date().toISOString(),
+    }))
+  );
+
+  const pages = [
+    ...staticPages.map((page) => ({
+      loc: `${baseUrl}/${page}`,
+      lastmod: new Date().toISOString(),
+    })),
+    ...dynamicPages,
+  ];
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${pages
+    .map(
+      (page) => `
+    <url>
+      <loc>${page.loc}</loc>
+      <lastmod>${page.lastmod}</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+  `
+    )
+    .join("")}
+</urlset>`;
+
+  return new NextResponse(sitemap, {
+    headers: {
+      "Content-Type": "application/xml",
+    },
+  });
 }
