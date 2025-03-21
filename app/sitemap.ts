@@ -1,50 +1,26 @@
-import citiesData from "@/app/citiesData.json";
+import { MetadataRoute } from "next";
 
-export async function GET() {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://uttarakhandtravelss.com";
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = "https://uttarakhandtravelss.com";
 
-  const staticPages = ["", "about", "contact", "terms", "privacy-policy"];
-
-  const dynamicPages = citiesData.flatMap((city) =>
-    city.attractions.map((attr) => ({
-      loc: `${baseUrl}/${city.city.toLowerCase()}/${attr.name
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")}-${attr.header
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")}`,
-      lastmod: new Date().toISOString(),
-    }))
-  );
-
-  const pages = [
-    ...staticPages.map((page) => ({
-      loc: `${baseUrl}/${page}`,
-      lastmod: new Date().toISOString(),
-    })),
-    ...dynamicPages,
+  const routes = [
+    { url: `${baseUrl}/`, lastModified: new Date().toISOString() },
+    { url: `${baseUrl}/about`, lastModified: new Date().toISOString() },
+    { url: `${baseUrl}/contact`, lastModified: new Date().toISOString() },
   ];
 
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  ${pages
-    .map(
-      (page) => `
-    <url>
-      <loc>${page.loc}</loc>
-      <lastmod>${page.lastmod}</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-  `
-    )
-    .join("\n")}
-</urlset>`;
+  // Dynamically add city and attraction pages
+  const cities = ["nainital", "rishikesh"];
+  const attractions = ["naina-devi-temple", "ram-jhula"];
 
-  // Return XML response with correct content type
-  return new Response(sitemap, {
-    headers: {
-      "Content-Type": "application/xml",
-    },
+  cities.forEach((city) => {
+    attractions.forEach((attraction) => {
+      routes.push({
+        url: `${baseUrl}/${city}/${attraction}`,
+        lastModified: new Date().toISOString(),
+      });
+    });
   });
+
+  return routes;
 }
