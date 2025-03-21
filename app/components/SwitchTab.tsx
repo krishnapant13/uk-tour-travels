@@ -196,7 +196,7 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
     return null;
   }
   return (
-    <div>
+    <div className="mt-10">
       {showCapsuleTabs && (
         <Tabs
           value={activeTab}
@@ -213,7 +213,7 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
             backgroundColor: "#E0E0E0",
             width: "20em",
             boxShadow: { xs: 5, md: 20 },
-            margin: { xs: "auto", md: "" },
+            margin: { xs: "auto", md: "0 0 1.5em 0" },
             display: { xs: mobileView ? "flex" : "none", md: "flex" },
             "& .MuiTab-root": {
               flex: 1,
@@ -257,6 +257,7 @@ const SwitchTab: React.FC<SwitchTabProps> = ({
               "& .MuiTab-root": {
                 fontWeight: "bold",
                 fontSize: "0.8em",
+                marginTop: "1em",
               },
             }}
           >

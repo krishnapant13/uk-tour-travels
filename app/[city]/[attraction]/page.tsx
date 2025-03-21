@@ -6,7 +6,6 @@ import citiesData from "@/app/citiesData.json";
 import WhyBook from "@/app/components/WhyBook";
 import { FaCircleCheck } from "react-icons/fa6";
 import { RxCrossCircled } from "react-icons/rx";
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 
 export default function AttractionPage() {
@@ -34,7 +33,6 @@ export default function AttractionPage() {
   if (!attractionData) return notFound();
   return (
     <div className="px-5 md:px-14 relative ease-linear duration-300">
-      <Navbar />
       <div className="flex flex-col items-start py-20">
         <h1 className="font-bold text-4xl text-center leading-snug text-gray-800">
           {attractionData.name}
@@ -114,7 +112,7 @@ export default function AttractionPage() {
       </div>
 
       <WhyBook />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

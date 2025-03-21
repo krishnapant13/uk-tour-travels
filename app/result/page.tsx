@@ -3,7 +3,6 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
-import Navbar from "../components/Navbar";
 import VehicleCarousel from "../components/VehicleCarousel";
 import { FaArrowRightLong, FaPencil } from "react-icons/fa6";
 
@@ -28,7 +27,6 @@ const ResultPageContent: React.FC = () => {
 
   return (
     <div className="relative">
-      <Navbar />
       <div className="info-bar w-full h-auto p-2 flex flex-wrap justify-evenly items-center bg-gray-200 mt-16 shadow-md relative">
         <div className="flex justify-center items-center pr-4 border-r border-black">
           <p

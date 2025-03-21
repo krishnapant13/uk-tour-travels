@@ -15,6 +15,7 @@ interface SearchData {
   days?: number;
   fromData: string;
   toData: string;
+  attractionData?: string;
   departureTime?: string;
   passengers: number;
   vehicle?: Vehicle;
@@ -40,6 +41,7 @@ const Card = () => {
     return <p>Loading...</p>;
   }
 
+  console.log(data);
   const formattedDateTime = data.departureTime
     ? new Date(data.departureTime).toLocaleString("en-US", {
         year: "numeric",
@@ -85,7 +87,7 @@ const Card = () => {
           <div className="text-gray-600 space-y-2">
             <p>
               <span>
-                {data.fromData} - {data.toData} {" • "}
+                {data.fromData} - {data.toData || data.attractionData} {" • "}
               </span>
               <span>
                 {formattedDateTime} {" • "}

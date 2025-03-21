@@ -1,0 +1,10 @@
+# Allow all crawlers to access everything
+User-agent: *
+Disallow: 
+
+# Block specific directories
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location (for better indexing)
+Sitemap: https://uttarakhandtravelss.com/sitemap.xml

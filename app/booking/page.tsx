@@ -1,11 +1,9 @@
 import FormSection from "@/app/booking/FormSection";
-import Navbar from "../components/Navbar";
 import Card from "./Card";
 
 export default async function ConfirmBookingPage() {
   return (
     <>
-      <Navbar />
       <div className="grid grid-cols-1 md:grid-cols-2 md:flex-row w-full bg-white rounded-lg md:mt-14 mt-20 overflow-hidden">
         <div className="order-1 md:order-2">
           <Card />
