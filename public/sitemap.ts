@@ -2,19 +2,18 @@ import { NextResponse } from "next/server";
 import citiesData from "@/app/citiesData.json";
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://uttarakhandtravelss.com";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://uttarakhandtravelss.com";
 
-  const staticPages = [
-    "",
-    "about",
-    "contact",
-    "terms",
-    "privacy-policy"
-  ];
+  const staticPages = ["", "about", "contact", "terms", "privacy-policy"];
 
   const dynamicPages = citiesData.flatMap((city) =>
     city.attractions.map((attr) => ({
-      loc: `${baseUrl}/${city.city.toLowerCase()}/${attr.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${attr.header.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+      loc: `${baseUrl}/${city.city.toLowerCase()}/${attr.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")}-${attr.header
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")}`,
       lastmod: new Date().toISOString(),
     }))
   );
