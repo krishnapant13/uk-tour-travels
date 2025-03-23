@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import CustomButton from "../components/CustomButton";
 import CustomTextField from "../components/CustomTextField";
 import CryptoJS from "crypto-js";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface Country {
   name: { common: string };
@@ -26,6 +26,7 @@ const FormSection = () => {
 
   const [countryList, setCountryList] = useState<ProcessedCountry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const secretKey = process.env.NEXT_PUBLIC_ENCRYPTION_KEY as string;
   const encryptData = (data: object) => {
     const jsonData = JSON.stringify(data);
@@ -64,10 +65,10 @@ const FormSection = () => {
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  const router = useRouter();
   const handleBooking = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setIsSubmitting(true);
     const bookingData = {
       ...formData,
       bookingDetails: JSON.parse(localStorage.getItem("searchData") || "{}"),
@@ -90,6 +91,8 @@ const FormSection = () => {
         toast.success(
           "Travel request received successfully! You'll get a call back soon"
         );
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        router.push("/");
         setFormData({
           fullName: "",
           email: "",
@@ -106,6 +109,8 @@ const FormSection = () => {
         error instanceof Error ? error.message : "Unknown error occurred";
 
       toast.error(`❌ Something went wrong! ${errorMessage}`);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -167,11 +172,22 @@ const FormSection = () => {
         onChange={handleChange}
       ></textarea>
 
-      <CustomButton
-        title="Submit Travel Request"
+      <button
         type="submit"
-        sx={{ backgroundColor: "#90f911", width: "50%" }}
-      />
+        className={`w-full bg-blue-600 text-white rounded-md p-2 text-sm font-medium hover:bg-blue-700 transition flex justify-center items-center ${
+          isSubmitting ? "cursor-not-allowed opacity-75" : ""
+        }`}
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? (
+          <>
+            <span className="w-5 h-5 border-t-2 border-white border-solid rounded-full animate-spin mr-2"></span>
+            Sending Request...
+          </>
+        ) : (
+          "Submit Travel Request"
+        )}
+      </button>
     </form>
   );
 };
