@@ -20,7 +20,9 @@ const ImageGrid: React.FC<ImageGridProps> = ({ imageSrc }) => {
                 height={400}
                 width={400}
                 alt="Image 1"
-                objectFit="cover"
+                style={{
+                  objectFit: "cover",
+                }}
                 className="rounded-lg shadow-lg"
               />
             </div>
@@ -30,7 +32,9 @@ const ImageGrid: React.FC<ImageGridProps> = ({ imageSrc }) => {
                 height={400}
                 width={400}
                 alt="Image 2"
-                objectFit="cover"
+                style={{
+                  objectFit: "cover",
+                }}
                 className="rounded-lg shadow-lg"
               />
             </div>
@@ -44,7 +48,9 @@ const ImageGrid: React.FC<ImageGridProps> = ({ imageSrc }) => {
                 alt="Image 3"
                 height={400}
                 width={400}
-                objectFit="cover"
+                style={{
+                  objectFit: "cover",
+                }}
                 className="rounded-lg shadow-lg mt-5"
               />
             </div>

@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import CustomButton from "../components/CustomButton";
 import CustomTextField from "../components/CustomTextField";
+import CryptoJS from "crypto-js";
+import { toast } from "react-toastify";
 
 interface Country {
   name: { common: string };
@@ -24,6 +26,12 @@ const FormSection = () => {
 
   const [countryList, setCountryList] = useState<ProcessedCountry[]>([]);
   const [loading, setLoading] = useState(true);
+  const secretKey = process.env.NEXT_PUBLIC_ENCRYPTION_KEY as string;
+  const encryptData = (data: object) => {
+    const jsonData = JSON.stringify(data);
+    const encrypted = CryptoJS.AES.encrypt(jsonData, secretKey).toString();
+    return encrypted;
+  };
 
   useEffect(() => {
     const fetchCountryCodes = async () => {
@@ -65,10 +73,7 @@ const FormSection = () => {
       bookingDetails: JSON.parse(localStorage.getItem("searchData") || "{}"),
     };
 
-    console.log("Booking Data:", bookingData);
-
-    // Save booking data in localStorage (for testing)
-    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+    const encryptedData = encryptData(bookingData);
 
     try {
       const response = await fetch("/api/sendBookingEmail", {
@@ -76,18 +81,31 @@ const FormSection = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(bookingData),
+        body: JSON.stringify({ encryptedData }),
       });
 
       const result = await response.json();
-      if (result.success) {
-        alert("Booking confirmed and email sent successfully!");
+
+      if (response.ok && result.success) {
+        toast.success(
+          "Travel request received successfully! You'll get a call back soon"
+        );
+        setFormData({
+          fullName: "",
+          email: "",
+          mobileNumber: "",
+          notes: "",
+          countryCode: "+91",
+        });
       } else {
-        alert("Failed to send booking email.");
+        toast.error(`❌ Failed: ${result.message || "Unknown error occurred"}`);
       }
     } catch (error) {
       console.error("Error sending booking email:", error);
-      alert("Something went wrong!");
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error occurred";
+
+      toast.error(`❌ Something went wrong! ${errorMessage}`);
     }
   };
 
@@ -152,7 +170,7 @@ const FormSection = () => {
       <CustomButton
         title="Submit Travel Request"
         type="submit"
-        sx={{ backgroundColor: "#90f911", width: "50%"}}
+        sx={{ backgroundColor: "#90f911", width: "50%" }}
       />
     </form>
   );

@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import CustomTextField from "./CustomTextField";
+import CryptoJS from "crypto-js";
+import { toast } from "react-toastify"; // ✅ For better error/success handling
 
 const Enquiry: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,9 +10,19 @@ const Enquiry: React.FC = () => {
     phone: "",
     message: "",
   });
-  const [loading, setLoading] = useState(false); // ✅ Added loading state
 
-  // Handle input change correctly
+  const [loading, setLoading] = useState(false);
+
+  const ENCRYPTION_KEY = process.env.NEXT_PUBLIC_ENCRYPTION_KEY as string;
+
+  // ✅ Encrypt form data before sending
+  const encryptData = (data: object) => {
+    const jsonData = JSON.stringify(data);
+    const encrypted = CryptoJS.AES.encrypt(jsonData, ENCRYPTION_KEY).toString();
+    return encrypted;
+  };
+
+  // Handle input change
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -20,26 +32,29 @@ const Enquiry: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true); // ✅ Show loading state
+    setLoading(true);
 
     try {
+      const encryptedData = encryptData(formData);
       const response = await fetch("/api/sendMail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ encryptedData }),
       });
 
       const data = await response.json();
+
       if (data.success) {
-        alert("Thank you! We’ll get back to you soon.");
+        toast.success("Thank you! We’ll get back to you soon.");
         setFormData({ email: "", phone: "", message: "" });
       } else {
-        alert("Failed to send enquiry. Please try again.");
+        toast.error("Failed to send enquiry. Please try again.");
       }
     } catch (error) {
-      alert(`Something went wrong. ${error}`);
+      console.error("Error sending enquiry:", error);
+      toast.error("Something went wrong. Please try again.");
     } finally {
-      setLoading(false); // ✅ Hide loading state after response
+      setLoading(false);
     }
   };
 

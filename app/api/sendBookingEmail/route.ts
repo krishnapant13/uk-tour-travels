@@ -1,8 +1,33 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import CryptoJS from "crypto-js";
 
 export async function POST(req: Request) {
   try {
+    const { encryptedData } = await req.json();
+
+    if (!encryptedData) {
+      return NextResponse.json({
+        success: false,
+        message: "No encrypted data received.",
+      });
+    }
+
+    const ENCRYPTION_KEY = process.env.NEXT_PUBLIC_ENCRYPTION_KEY as string;
+    let decryptedFormData;
+
+    try {
+      const bytes = CryptoJS.AES.decrypt(encryptedData, ENCRYPTION_KEY);
+      decryptedFormData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    } catch (error) {
+      console.error("Decryption failed:", error);
+      return NextResponse.json({
+        success: false,
+        message: "Failed to decrypt form data.",
+        error: (error as Error).message,
+      });
+    }
+
     const {
       fullName,
       email,
@@ -10,9 +35,15 @@ export async function POST(req: Request) {
       notes,
       countryCode,
       bookingDetails,
-    } = await req.json();
+    } = decryptedFormData;
 
-    // Extract required details from bookingDetails
+    if (!bookingDetails) {
+      return NextResponse.json({
+        success: false,
+        message: "Booking details missing!",
+      });
+    }
+
     const {
       fromData,
       toData,
@@ -30,7 +61,6 @@ export async function POST(req: Request) {
       attractionLonData,
     } = bookingDetails;
 
-    // Determine the destination and generate the correct Google Maps link
     const destination = toData || attractionData || "N/A";
     const destinationLat = toLatData || attractionLatData;
     const destinationLon = toLonData || attractionLonData;
@@ -40,16 +70,17 @@ export async function POST(req: Request) {
         ? `https://www.google.com/maps/dir/${fromLatData},${fromLonData}/${destinationLat},${destinationLon}`
         : "#";
 
-    // Email transporter configuration
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: process.env.EMAIL_HOST || "smtp.gmail.com",
+      port: Number(process.env.EMAIL_PORT) || 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
     });
 
-    // Create beautiful HTML email content
+    // ✅ Send booking email to business
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
@@ -108,7 +139,7 @@ export async function POST(req: Request) {
             <tr>
               <td style="padding: 10px; border: 1px solid #ddd;"><strong>Vehicle:</strong></td>
               <td style="padding: 10px; border: 1px solid #ddd;">
-                <div style="display: flex; flex-direction:"column"; align-items: center; gap: 10px;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
                   <img src="${
                     vehicle?.image || "https://via.placeholder.com/100"
                   }" alt="${vehicle?.name || "Vehicle"}" 
@@ -126,13 +157,12 @@ export async function POST(req: Request) {
             googleMapsLink !== "#"
               ? `
             <div style="text-align: center; margin-top: 20px;">
-              <a href="${googleMapsLink}" target="_blank" 
-                style="display: inline-block; background: #007BFF; color: #fff; text-decoration: none; 
-                padding: 12px 25px; border-radius: 5px; font-size: 16px; font-weight: bold;">
-                View Route on Google Maps
-              </a>
-            </div>
-          `
+                  <a href="${googleMapsLink}" target="_blank" 
+                    style="display: inline-block; background: #007BFF; color: #fff; text-decoration: none; 
+                    padding: 12px 25px; border-radius: 5px; font-size: 16px; font-weight: bold;">
+                    View Route on Google Maps
+                  </a>
+                </div>`
               : ""
           }
 
@@ -141,18 +171,78 @@ export async function POST(req: Request) {
       `,
     };
 
-    await transporter.sendMail(mailOptions);
+    const confirmationEmail = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "🌟 Travel Request Confirmation",
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; padding: 40px; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 0 15px #ccc;">
+    
+          <!-- Logo Section -->
+          <div style="text-align: center; margin-bottom: 30px;">
+            <img src="https://www.uttarakhandtravelss.com/android-chrome-512x512.png" 
+              alt="Uttarakhand Travels Logo" 
+              style="width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          </div>
+    
+          <!-- Header -->
+          <h2 style="text-align: center; color: #007BFF; margin-bottom: 20px;">🌟 Thank You, ${fullName}!</h2>
+    
+          <!-- Message Section -->
+          <p style="text-align: center; font-size: 18px; color: #555;">
+            Your travel request has been received. Our team will contact you shortly.
+          </p>
+    
+          <!-- Booking Details -->
+          <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h3 style="color: #28A745; margin-bottom: 10px;">📄 Travel Details</h3>
+            <table style="width: 100%; border-collapse: collapse; font-size: 16px;">
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>📞 Contact:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">${countryCode} ${mobileNumber}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>✉️ Email:</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd;">${email}</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px;"><strong>📍 From:</strong></td>
+                <td style="padding: 10px;">${
+                  bookingDetails?.fromData || "N/A"
+                }</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px;"><strong>🚩 To:</strong></td>
+                <td style="padding: 10px;">${
+                  bookingDetails?.toData || "N/A"
+                }</td>
+              </tr>
+            </table>
+          </div>
+    
+          <!-- Footer -->
+          <p style="text-align: center; color: #777; font-size: 14px; margin-top: 30px;">
+            🚗 <strong>Uttarakhand Tour & Travels</strong> <br>
+            Thank you for choosing us for your travel needs!
+          </p>
+        </div>
+      `,
+    };
+
+    await Promise.all([
+      transporter.sendMail(mailOptions),
+      transporter.sendMail(confirmationEmail),
+    ]);
 
     return NextResponse.json({
       success: true,
-      message: "Booking email sent successfully!",
+      message: "Booking and confirmation emails sent!",
     });
   } catch (error) {
-    console.error("Error sending booking email:", error);
+    console.error("Error:", error);
     return NextResponse.json({
       success: false,
-      message: "Failed to send booking email.",
-      error,
+      message: "Failed to send emails.",
     });
   }
 }
