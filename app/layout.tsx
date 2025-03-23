@@ -64,7 +64,17 @@ export default function RootLayout({
       <head>
         {/* Canonical link for SEO */}
         <link rel="canonical" href="https://uttarakhandtravelss.com" />
-
+        {/* ✅ SVG Favicon */}
+        <link rel="icon" href="/vercel.svg" type="image/svg+xml" />
+        {/* ✅ PNG Fallback */}
+        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" />
+        {/* ✅ Apple Touch Icon */}
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.png"
+          sizes="180x180"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
         {/* Structured data (JSON-LD) */}
         <script
           type="application/ld+json"

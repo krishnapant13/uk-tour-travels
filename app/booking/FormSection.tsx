@@ -150,9 +150,9 @@ const FormSection = () => {
       ></textarea>
 
       <CustomButton
-        title="Pay & Book"
+        title="Submit Travel Request"
         type="submit"
-        sx={{ backgroundColor: "#ff40ff", width: { md: "30%", sm: "50%" } }}
+        sx={{ backgroundColor: "#90f911", width: "50%"}}
       />
     </form>
   );

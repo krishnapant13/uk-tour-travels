@@ -1,10 +1,25 @@
-# Allow all crawlers to access everything
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  const baseUrl = "https://uttarakhandtravelss.com";
+
+  const robotsTxt = `
 User-agent: *
-Disallow: 
+Allow: /
+Disallow: /admin
+Disallow: /api/  /* Prevent indexing API routes
+Disallow: /_next/ /* Prevent Next.js internal folders
+Disallow: /404    /* Prevent indexing of error pages
 
-# Block specific directories
-Disallow: /admin/
-Disallow: /private/
+# Better sitemap structure
+Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${baseUrl}/city-sitemap.xml
+Sitemap: ${baseUrl}/attraction-sitemap.xml
+`;
 
-# Sitemap location (for better indexing)
-Sitemap: https://uttarakhandtravelss.com/sitemap.xml
+  return new NextResponse(robotsTxt, {
+    headers: {
+      "Content-Type": "text/plain",
+    },
+  });
+}

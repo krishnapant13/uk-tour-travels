@@ -1,5 +1,227 @@
 [
   {
+    "city": "Kedarnath",
+    "images": [
+      "https://i.pinimg.com/736x/53/be/c7/53bec74aac83a52096c57b0fd55a7c30.jpg",
+      "https://i.pinimg.com/736x/1d/3a/05/1d3a05ecea6f61155bd434909ea6ccc9.jpg",
+      "https://i.pinimg.com/736x/4f/e7/96/4fe796e83b8519eec7aae8f0607ee284.jpg"
+    ],
+    "attractions": [
+      {
+        "name": "Kedarnath Temple",
+        "images": [
+          "https://i.pinimg.com/736x/05/8a/78/058a78f05988f88c069ed8501420cac6.jpg",
+          "https://i.pinimg.com/736x/0c/1c/75/0c1c75c87048ec5ec72d5e81e16dba72.jpg",
+          "https://i.pinimg.com/736x/bc/1a/3c/bc1a3cda7aa4c49fb420ae7fbc93f4d9.jpg"
+        ],
+        "header": "The Sacred Abode of Shiva",
+        "description": "Kedarnath Temple is one of the most revered shrines dedicated to Lord Shiva, located amidst the breathtaking Himalayan range.",
+        "recommended_stops": ["Temple Entrance", "Shiva Lingam"],
+        "stops": [
+          {
+            "name": "Temple Entrance",
+            "description": "The grand stone entrance leading to the holy shrine.",
+            "image": "https://i.pinimg.com/736x/57/06/10/5706105926e38cdb6827858a8b563952.jpg"
+          },
+          {
+            "name": "Shiva Lingam",
+            "description": "The sacred Shiva Lingam inside the temple, attracting thousands of devotees.",
+            "image": "https://i.pinimg.com/736x/95/8d/ab/958dab54906ea86c43eb36f015aae164.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Vasuki Tal",
+        "images": [
+          "https://i.pinimg.com/736x/a4/5c/a4/a45ca42b5cedf5abb07b75be77a2de2a.jpg",
+          "https://i.pinimg.com/736x/05/c3/90/05c39073c0bb4af8a5eb2b433b9cd4f8.jpg",
+          "https://i.pinimg.com/736x/a4/5c/a4/a45ca42b5cedf5abb07b75be77a2de2a.jpg"
+        ],
+        "header": "A Pristine High-Altitude Lake",
+        "description": "Vasuki Tal is a glacial lake situated at an altitude of 14,200 feet, offering mesmerizing views of the Chaukhamba peaks.",
+        "recommended_stops": ["Lake Shore", "Chaukhamba Viewpoint"],
+        "stops": [
+          {
+            "name": "Lake Shore",
+            "description": "The serene lakeside with crystal-clear waters.",
+            "image": "https://i.pinimg.com/736x/a4/5c/a4/a45ca42b5cedf5abb07b75be77a2de2a.jpg"
+          },
+          {
+            "name": "Chaukhamba Viewpoint",
+            "description": "A scenic spot offering breathtaking views of the Chaukhamba peaks.",
+            "image": "https://i.pinimg.com/736x/05/c3/90/05c39073c0bb4af8a5eb2b433b9cd4f8.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Gaurikund",
+        "images": [
+          "https://i.pinimg.com/736x/be/57/18/be5718ce1ada7fa5f5ee5f29795a2ec2.jpg",
+          "https://i.pinimg.com/736x/96/e4/2e/96e42e7e8f2ffb2319a100f97ead02ae.jpg",
+          "https://i.pinimg.com/736x/be/57/18/be5718ce1ada7fa5f5ee5f29795a2ec2.jpg"
+        ],
+        "header": "The Sacred Pilgrimage Starting Point",
+        "description": "Gaurikund is the base camp for the Kedarnath trek and a significant religious site dedicated to Goddess Parvati.",
+        "recommended_stops": ["Hot Water Springs", "Temple of Gauri"],
+        "stops": [
+          {
+            "name": "Hot Water Springs",
+            "description": "Natural hot water springs believed to have healing properties.",
+            "image": "https://i.pinimg.com/736x/be/57/18/be5718ce1ada7fa5f5ee5f29795a2ec2.jpg"
+          },
+          {
+            "name": "Temple of Gauri",
+            "description": "A small temple dedicated to Goddess Parvati.",
+            "image": "https://i.pinimg.com/736x/96/e4/2e/96e42e7e8f2ffb2319a100f97ead02ae.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Bhairavnath Temple",
+        "images": [
+          "https://i.pinimg.com/736x/06/82/b8/0682b8c743082aa99f903419beac5ea9.jpg",
+          "https://i.pinimg.com/736x/11/bc/bc/11bcbcfe90237ad031ab9ebca3c239e9.jpg",
+          "https://i.pinimg.com/736x/de/3f/f5/de3ff53d3fb961d1f655ac16ff33e47d.jpg"
+        ],
+        "header": "The Protector of Kedarnath",
+        "description": "Bhairavnath Temple is dedicated to Lord Bhairav, believed to guard the Kedarnath valley during the winter months.",
+        "recommended_stops": ["Temple Courtyard", "Valley Viewpoint"],
+        "stops": [
+          {
+            "name": "Temple Courtyard",
+            "description": "The main courtyard with stunning valley views.",
+            "image": "https://i.pinimg.com/736x/47/55/9d/47559dd034cc5d87a7b02614530cca8a.jpg"
+          },
+          {
+            "name": "Valley Viewpoint",
+            "description": "A scenic spot overlooking the Kedarnath valley.",
+            "image": "https://i.pinimg.com/736x/ed/51/dd/ed51ddd0609815820c2668718372ec8c.jpg"
+          }
+        ]
+      }
+    ],
+    "link": "/kedarnath",
+    "from": "Delhi",
+    "heading": "Kedarnath: The Sacred Pilgrimage",
+    "description": "Kedarnath, nestled in the Himalayas, offers a divine experience with its sacred temple and breathtaking trekking trails."
+  },
+  {
+    "city": "Badrinath",
+    "images": [
+      "https://i.pinimg.com/736x/5b/fc/51/5bfc519ae8031bed828c1b31b517fa2d.jpg"
+    ],
+    "attractions": [
+      {
+        "name": "Badrinath Temple",
+        "images": [
+          "https://i.pinimg.com/736x/08/3c/34/083c34509eef73cd88007904e3cee362.jpg",
+          "https://i.pinimg.com/736x/92/5d/97/925d9796d43e46f599cbc29d24351688.jpg",
+          "https://i.pinimg.com/736x/6b/02/3a/6b023a7bace8627038096af0b86de92f.jpg"
+        ],
+        "header": "The Abode of Lord Vishnu",
+        "description": "Badrinath Temple is one of the most important pilgrimage sites, dedicated to Lord Vishnu, nestled amidst the Garhwal Himalayas.",
+        "recommended_stops": ["Temple Entrance", "Hot Springs"],
+        "stops": [
+          {
+            "name": "Temple Entrance",
+            "description": "The majestic gateway to the sacred temple.",
+            "image": "https://i.pinimg.com/736x/f8/78/30/f87830fb7e500cc444cff52764264a3b.jpg"
+          },
+          {
+            "name": "Hot Springs",
+            "description": "Natural hot springs believed to have therapeutic properties.",
+            "image": "https://i.pinimg.com/736x/83/eb/f5/83ebf56d89be407406f18f12f892123b.jpg"
+          }
+        ]
+      },
+      {
+        "name": "Mana Village",
+        "images": [
+          "https://i.pinimg.com/736x/96/39/f7/9639f7a144dd5363191b29ced6310aea.jpg",
+          "https://i.pinimg.com/736x/4c/8d/07/4c8d074cbf97c120882c4e5f9c81338b.jpg",
+          "https://i.pinimg.com/736x/08/03/19/08031927b9daf713a1603f51c3e482be.jpg"
+        ],
+        "header": "Last village of India",
+        "description": "Mana Village, near the Indo-Tibetan border, is famous for its scenic beauty and spiritual significance.",
+        "recommended_stops": ["Bheem Pul", "Vyas Gufa"],
+        "stops": [
+          {
+            "name": "Bheem Pul",
+            "description": "A natural rock bridge over the Saraswati River.",
+            "image": "https://i.pinimg.com/736x/b7/dc/8b/b7dc8b8af2e9637514eac2d1fb192c39.jpg"
+          },
+          {
+            "name": "Vyas Gufa",
+            "description": "The cave where Sage Vyas is believed to have composed the Mahabharata.",
+            "image": "https://i.pinimg.com/736x/f8/01/ac/f801accf4f3d49a82f3aff1e86b0a98b.jpg"
+          }
+        ]
+      }
+    ],
+    "link": "/badrinath",
+    "from": "Delhi",
+    "heading": "Badrinath: The Holy Abode of Vishnu",
+    "description": "Badrinath, located in the Garhwal Himalayas, is renowned for its sacred temple dedicated to Lord Vishnu."
+  },
+  {
+    "city": "Gangotri",
+    "images": [
+      "https://i.pinimg.com/736x/f3/46/19/f34619dd33976be30db5acfba330b9a9.jpg"
+    ],
+    "attractions": [
+      {
+        "name": "Gangotri Temple",
+        "images": [
+          "https://i.pinimg.com/736x/e1/4a/17/e14a17debd685a091110127d4d7a2491.jpg",
+          "https://i.pinimg.com/736x/e1/4a/17/e14a17debd685a091110127d4d7a2491.jpg",
+          "https://i.pinimg.com/736x/4c/ed/d5/4cedd5ba221fe040ce6d904ec5238d3e.jpg"
+        ],
+        "header": "Origin of the Holy Ganga",
+        "description": "Gangotri Temple is dedicated to Goddess Ganga, marking the origin of the holy river.",
+        "recommended_stops": ["Temple Entrance", "River Bank"],
+        "stops": [
+          {
+            "name": "Temple Entrance",
+            "description": "The gateway to the sacred temple.",
+            "image": "https://i.pinimg.com/736x/f3/46/19/f34619dd33976be30db5acfba330b9a9.jpg"
+          },
+          {
+            "name": "River Bank",
+            "description": "A serene spot to witness the Ganga flowing through the valley.",
+            "image": "https://i.pinimg.com/736x/73/db/8d/73db8db11578c4a11bcd8962ad0d5263.jpg"
+          }
+        ]
+      }
+    ],
+    "link": "/gangotri",
+    "from": "Delhi",
+    "heading": "Gangotri: The Origin of River Ganga",
+    "description": "Gangotri, located in the Himalayas, is the sacred origin of the holy river Ganga."
+  },
+  {
+    "city": "Yamunotri",
+    "images": [
+      "https://i.pinimg.com/736x/6d/6f/f8/6d6ff8b4290618dd42e3c74896926afe.jpg"
+    ],
+    "attractions": [
+      {
+        "name": "Yamunotri Temple",
+        "images": [
+          "https://i.pinimg.com/736x/8a/cc/87/8acc87b169c49810386e97ec389f1e6f.jpg",
+          "https://i.pinimg.com/736x/b5/a5/d4/b5a5d410df51aa5997ff0db101e2bd2e.jpg"
+        ],
+        "header": "The Origin of River Yamuna",
+        "description": "Yamunotri Temple is dedicated to Goddess Yamuna, marking the river’s origin.",
+        "recommended_stops": ["Temple Entrance", "Hot Springs"],
+        "stops": []
+      }
+    ],
+    "link": "/yamunotri",
+    "from": "Delhi",
+    "heading": "Yamunotri: The Sacred Origin of Yamuna",
+    "description": "Yamunotri marks the holy origin of the Yamuna River, offering serene natural beauty."
+  },
+  {
     "city": "Dehradun",
     "images": [
       "https://i.pinimg.com/736x/9e/0e/01/9e0e012ffde6c8a1f5901973e3e2916e.jpg",

@@ -56,7 +56,7 @@ export default async function Home() {
           imageSrc={[
             "https://i.pinimg.com/736x/65/4a/0f/654a0f64c749df2fd3d50f55c1ab7f0d.jpg",
             "https://i.pinimg.com/736x/bf/a3/58/bfa358a8143a174fcd6b0add6e5c7611.jpg",
-            "https://i.pinimg.com/736x/72/56/9f/72569f6c3943b6ff7e839fdb4c4d1db1.jpg",
+            "https://i.pinimg.com/736x/dd/5a/a8/dd5aa8dbf3ea9eebb50320f7d5a68975.jpg",
           ]}
         />
         <div className="flex flex-col justify-center items-center py-10">

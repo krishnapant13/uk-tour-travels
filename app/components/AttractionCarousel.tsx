@@ -109,7 +109,7 @@ const AttractionCarousel = ({
             quality={75}
             onClick={handleNavigation}
             style={{
-              objectFit: "fill",
+              objectFit: "cover",
               borderRadius: "8px",
               height: "20em",
               width: "95%",

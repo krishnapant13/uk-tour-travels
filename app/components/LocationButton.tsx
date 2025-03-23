@@ -66,7 +66,7 @@ const LocationSearch: React.FC<LocationSearchProps> = ({
         const response = await fetch(
           `${API_URL}?q=${encodeURIComponent(
             input
-          )}&key=${API_KEY}&countrycode=IN&limit=1&no_annotations=1&pretty=1`,
+          )}&key=${API_KEY}&countrycode=IN&limit=3&no_annotations=1&pretty=1`,
           { signal: abortControllerRef.current.signal }
         );
 

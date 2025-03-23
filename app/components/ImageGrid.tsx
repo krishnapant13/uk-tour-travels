@@ -42,7 +42,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({ imageSrc }) => {
               <Image
                 src={imageSrc[2]} // Third image
                 alt="Image 3"
-                layout="fill"
+                height={400}
+                width={400}
                 objectFit="cover"
                 className="rounded-lg shadow-lg mt-5"
               />
