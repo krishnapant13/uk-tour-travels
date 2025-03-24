@@ -7,14 +7,15 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/:path*",
-        destination: "https://uttarakhandtravelss.com/:path*",
+        source: "/(.*)",
+        has: [{ type: "host", value: "uttarakhandtravelss.com" }],
+        destination: "https://www.uttarakhandtravelss.com/:path*",
         permanent: true,
       },
       {
-        source: "/:path*",
+        source: "/(.*)",
         has: [{ type: "host", value: "www.uttarakhandtravelss.com" }],
-        destination: "https://uttarakhandtravelss.com/:path*",
+        destination: "https://www.uttarakhandtravelss.com/:path*",
         permanent: true,
       },
     ];
