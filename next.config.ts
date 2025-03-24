@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  trailingSlash: false,
   images: {
     domains: ["i.pinimg.com"],
   },
@@ -9,12 +10,6 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         has: [{ type: "host", value: "uttarakhandtravelss.com" }],
-        destination: "https://www.uttarakhandtravelss.com/:path*",
-        permanent: true,
-      },
-      {
-        source: "/(.*)",
-        has: [{ type: "host", value: "www.uttarakhandtravelss.com" }],
         destination: "https://www.uttarakhandtravelss.com/:path*",
         permanent: true,
       },
