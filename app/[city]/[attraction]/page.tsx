@@ -24,8 +24,6 @@ export default function AttractionPage() {
   const attractionData = cityData.attractions.find((attr) => {
     const formattedAttraction = `${attr.name
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")}-${attr.header
-      .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")}`;
     return formattedAttraction === attraction.toLowerCase();
   });

@@ -18,8 +18,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ) => {
     const formattedAttraction = `${attraction.name
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")}-${attraction.header
-      .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")}`;
     return `${baseUrl}/${city.toLowerCase()}/${formattedAttraction}`;
   };

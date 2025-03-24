@@ -10,6 +10,7 @@ Disallow: /admin
 Disallow: /api/  /* Prevent indexing API routes
 Disallow: /_next/ /* Prevent Next.js internal folders
 Disallow: /404    /* Prevent indexing of error pages
+Disallow: /_next/static/
 
 # Better sitemap structure
 Sitemap: ${baseUrl}/sitemap.xml

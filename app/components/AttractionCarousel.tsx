@@ -28,12 +28,8 @@ const AttractionCarousel = ({
 
   // Memoize route formatting to avoid unnecessary recalculations
   const formattedRoute = useMemo(
-    () =>
-      `${attraction.name.toLowerCase().replace(/\s+/g, "-")}-${attraction.header
-        .toLowerCase()
-        .replace(/,/g, "")
-        .replace(/\s+/g, "-")}`,
-    [attraction.name, attraction.header]
+    () => `${attraction.name.toLowerCase().replace(/\s+/g, "-")}`,
+    [attraction.name]
   );
 
   // Memoize navigation function
