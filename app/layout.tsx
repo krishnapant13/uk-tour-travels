@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ToastProvider from "./components/ToastProvider";
 import Navbar from "./components/Navbar/Navbar";
+import GoogleAnalyticsComponent from "./components/GoogleAnalytics";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -110,6 +111,7 @@ export default function RootLayout({
       >
         <ToastProvider />
         <Navbar />
+        <GoogleAnalyticsComponent />
         {children}
       </body>
     </html>
