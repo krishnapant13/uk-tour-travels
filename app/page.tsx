@@ -51,7 +51,7 @@ export default async function Home() {
     <>
       <main className="px-6 md:px-14">
         <HomeData
-          title="Book Private Transfers and Tours"
+          title="Uttarakhand Taxi & Travel Services | Book Now"
           description="Explore all available options for taxis, vans, and buses in Uttarakhand. Compare prices to book the best vehicle for your travel needs."
           imageSrc={[
             "https://i.pinimg.com/736x/65/4a/0f/654a0f64c749df2fd3d50f55c1ab7f0d.jpg",
